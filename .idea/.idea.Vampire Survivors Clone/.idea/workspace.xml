@@ -10,6 +10,9 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Enemies/EnemyBase.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
@@ -25,6 +28,7 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "main",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -80,7 +84,7 @@
       <option name="presentableId" value="Default" />
       <updated>1725881242340</updated>
       <workItem from="1725881244256" duration="71000" />
-      <workItem from="1725881323567" duration="7397000" />
+      <workItem from="1725881323567" duration="8216000" />
     </task>
     <servers />
   </component>
