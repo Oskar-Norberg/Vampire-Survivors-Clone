@@ -166,6 +166,7 @@ GameObject:
   - component: {fileID: 5918041425722442800}
   - component: {fileID: 8872897011721537847}
   - component: {fileID: 8566529815387677509}
+  - component: {fileID: 9121089781920266068}
   m_Layer: 7
   m_Name: EnemyBase
   m_TagString: Enemy
@@ -246,6 +247,19 @@ MonoBehaviour:
   damage: 1
   attackPlayer: 1
   attackEnemy: 0
+--- !u!114 &9121089781920266068
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3309599419885533324}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de39d189c870b4349b04cb8face5fe2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startHealth: 2
 --- !u!1 &5735098808003851882
 GameObject:
   m_ObjectHideFlags: 0
