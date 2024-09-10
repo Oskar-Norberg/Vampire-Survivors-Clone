@@ -8,10 +8,34 @@ public abstract class WeaponBase : MonoBehaviour
     [SerializeField] private float damage;
     [SerializeField] private float cooldownTime;
     
+    private enum WeaponState {READY, ON_COOLDOWN}
+    private WeaponState _state;
 
+    private float _cooldownTimer;
     
     // Start is called before the first frame update
     void Start()
     {
+        _state = WeaponState.READY;
+        _cooldownTimer = 0.0f;
     }
 
+    private void FixedUpdate()
+    {
+        TickCooldownTimer();
+    }
+
+    private void TickCooldownTimer()
+    {
+        if (_state != WeaponState.ON_COOLDOWN)
+            return;
+        
+        _cooldownTimer += Time.deltaTime;
+
+        if (_cooldownTimer >= cooldownTime)
+        {
+            _state = WeaponState.READY;
+            _cooldownTimer = 0.0f;
+        }
+    }
+}
