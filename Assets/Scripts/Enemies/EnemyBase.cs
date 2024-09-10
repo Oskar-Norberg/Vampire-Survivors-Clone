@@ -7,7 +7,6 @@ using UnityEngine;
 public class EnemyBase : MonoBehaviour
 {
     [SerializeField] private float moveSpeed = 1.0f;
-    [SerializeField] private int damage = 1;
     
     private Rigidbody2D _rigidbody2D;
     private Transform _playerTransform;
@@ -30,12 +29,5 @@ public class EnemyBase : MonoBehaviour
         wishDir = Vector2.ClampMagnitude(wishDir, 1.0f);
         wishDir *= moveSpeed;
         _rigidbody2D.AddForce(wishDir, ForceMode2D.Force);
-    }
-
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        if (!other.gameObject.CompareTag("Player")) return;
-        
-        other.gameObject.GetComponentInParent<Health>().TakeDamage(damage);
     }
 }
