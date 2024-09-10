@@ -23,7 +23,10 @@ public abstract class WeaponBase : MonoBehaviour
     private void FixedUpdate()
     {
         TickCooldownTimer();
+        Attack();
     }
+
+    protected abstract void Attack();
 
     private void TickCooldownTimer()
     {
@@ -32,10 +35,9 @@ public abstract class WeaponBase : MonoBehaviour
         
         _cooldownTimer += Time.deltaTime;
 
-        if (_cooldownTimer >= cooldownTime)
-        {
-            _state = WeaponState.READY;
-            _cooldownTimer = 0.0f;
-        }
+        if (!(_cooldownTimer >= cooldownTime)) return;
+        
+        _state = WeaponState.READY;
+        _cooldownTimer = 0.0f;
     }
 }
