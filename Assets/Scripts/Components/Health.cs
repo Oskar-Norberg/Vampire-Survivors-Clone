@@ -16,7 +16,7 @@ public class Health : MonoBehaviour
     
     public void TakeDamage(int damage)
     {
-        print("Player took damage!");
+        print(gameObject.name + " Took damage!");
         _health -= damage;
         if (_health <= 0)
         {
