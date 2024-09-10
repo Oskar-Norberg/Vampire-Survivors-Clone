@@ -12,14 +12,12 @@ public class EnemyBase : MonoBehaviour
     private Rigidbody2D _rigidbody2D;
     private Transform _playerTransform;
     
-    // Start is called before the first frame update
     void Start()
     {
         _rigidbody2D = GetComponent<Rigidbody2D>();
         _playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
     }
 
-    // Update is called once per frame
     void FixedUpdate()
     {
         PathFind();
@@ -36,10 +34,8 @@ public class EnemyBase : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        print("collision");
-        if (other.gameObject.CompareTag("Player"))
-        {
-            other.gameObject.GetComponentInParent<PlayerController>().TakeDamage(damage);
-        }
+        if (!other.gameObject.CompareTag("Player")) return;
+        
+        other.gameObject.GetComponentInParent<Health>().TakeDamage(damage);
     }
 }
