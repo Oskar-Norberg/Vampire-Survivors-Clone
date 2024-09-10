@@ -4,12 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="59d1fd8d-ed6a-4106-9b88-d2382d691383" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Vampire Survivors Clone/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Vampire Survivors Clone/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Enemies/EnemyBase/EnemyBase.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Enemies/EnemyBase/EnemyBase.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Weapons/Lasso.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Weapons/Lasso.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Components/Attack.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Components/Attack.cs" afterDir="false" />
-    </list>
+    <list default="true" id="59d1fd8d-ed6a-4106-9b88-d2382d691383" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -95,7 +90,7 @@
       <workItem from="1725881244256" duration="71000" />
       <workItem from="1725881323567" duration="8910000" />
       <workItem from="1725952050373" duration="87000" />
-      <workItem from="1725952146862" duration="15483000" />
+      <workItem from="1725952146862" duration="16079000" />
     </task>
     <servers />
   </component>

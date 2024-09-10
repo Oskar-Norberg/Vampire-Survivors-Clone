@@ -31,15 +31,7 @@ public class Lasso : WeaponBase
 
     private void SetAttackStatus(bool status)
     {
-        if (status)
-        {
-            sprite.enabled = true;
-            hitbox.enabled = true;
-        }
-        else
-        {
-            hitbox.enabled = false;
-            sprite.enabled = false;
-        }
+        sprite.enabled = status;
+        hitbox.enabled = status;
     }
 }
