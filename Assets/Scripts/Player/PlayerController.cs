@@ -39,6 +39,7 @@ public class PlayerController : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
+        print("Player took damage!");
         health -= damage;
         if (health <= 0)
         {
