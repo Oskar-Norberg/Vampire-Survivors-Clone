@@ -940,6 +940,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 1468770492}
+  useLerp: 0
   lerpWeight: 60
 --- !u!4 &1585930887
 Transform:

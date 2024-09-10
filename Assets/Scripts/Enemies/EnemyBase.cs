@@ -25,6 +25,8 @@ public class EnemyBase : MonoBehaviour
     // Manhattan Path-finding
     private void PathFind()
     {
+        if (!_playerTransform) return;
+        
         Vector2 wishDir = new Vector2(_playerTransform.position.x - _rigidbody2D.position.x, _playerTransform.position.y - _rigidbody2D.position.y);
         wishDir = Vector2.ClampMagnitude(wishDir, 1.0f);
         wishDir *= moveSpeed;
