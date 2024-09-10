@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5593524791722633458}
   - component: {fileID: 587126204106794298}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Collision
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -78,7 +78,7 @@ GameObject:
   - component: {fileID: 2149852245525948616}
   - component: {fileID: 9087697703250671366}
   - component: {fileID: 6152145469837902347}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -152,7 +152,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1105485429272443044}
   - component: {fileID: 8392282148062729009}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Mesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
