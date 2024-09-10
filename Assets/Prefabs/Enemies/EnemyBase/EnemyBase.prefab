@@ -244,6 +244,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
+  attackPlayer: 1
+  attackEnemy: 0
 --- !u!1 &5735098808003851882
 GameObject:
   m_ObjectHideFlags: 0
