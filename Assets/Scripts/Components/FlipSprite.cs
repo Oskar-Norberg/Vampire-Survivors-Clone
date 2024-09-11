@@ -17,13 +17,6 @@ public class FlipSprite : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (_rigidbody.velocity.x > 0.0f)
-        {
-            _spriteRenderer.flipX = false;
-        }
-        else
-        {
-            _spriteRenderer.flipX = true;
-        }
+        _spriteRenderer.flipX = !(_rigidbody.velocity.x > 0.0f);
     }
 }
