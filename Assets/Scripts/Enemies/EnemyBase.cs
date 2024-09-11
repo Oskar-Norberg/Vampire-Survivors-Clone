@@ -14,7 +14,10 @@ public class EnemyBase : MonoBehaviour
     void Start()
     {
         _rigidbody2D = GetComponent<Rigidbody2D>();
-        _playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
+        
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        if (player == null) return;
+        _playerTransform = player.transform;
     }
 
     void FixedUpdate()

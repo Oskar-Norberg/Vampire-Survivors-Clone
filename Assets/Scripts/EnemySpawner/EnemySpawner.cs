@@ -29,6 +29,8 @@ public class EnemySpawner : MonoBehaviour
     {
         while (true)
         {
+            if (_playerTransform == null) yield break;
+            
             for (int i = 0; i < enemiesPerSpawn; i++)
             {
                 Vector2 distanceFromPlayer = new Vector2();
@@ -40,7 +42,7 @@ public class EnemySpawner : MonoBehaviour
             
                 GameObject enemy = Instantiate(enemies[0], transform);
 
-                enemy.transform.localPosition = (Vector2) distanceFromPlayer;
+                enemy.transform.localPosition = distanceFromPlayer + (Vector2) _playerTransform.position;
             
                 yield return new WaitForSeconds(1);
             }
