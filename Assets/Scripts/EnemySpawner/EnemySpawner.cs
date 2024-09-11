@@ -14,7 +14,7 @@ public class EnemySpawner : MonoBehaviour
     
     [Header("Spawn Properties")]
     [SerializeField] private float timeBetweenSpawns;
-    [SerializeField] private float enemiesperSpawn;
+    [SerializeField] private float enemiesPerSpawn;
 
     private Transform _playerTransform;
 
@@ -29,7 +29,7 @@ public class EnemySpawner : MonoBehaviour
     {
         while (true)
         {
-            for (int i = 0; i < enemiesperSpawn; i++)
+            for (int i = 0; i < enemiesPerSpawn; i++)
             {
                 Vector2 distanceFromPlayer = new Vector2();
 
