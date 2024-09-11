@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 using Random = UnityEngine.Random;
 
 public class EnemySpawner : MonoBehaviour
@@ -13,7 +14,7 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] private float maxDistanceFromPlayer;
     
     [Header("Spawn Properties")]
-    [SerializeField] private float timeBetweenSpawns;
+    [SerializeField] private float timeBetweenSpawnsMilliseconds;
     [SerializeField] private float enemiesPerSpawn;
 
     private Transform _playerTransform;
@@ -44,7 +45,7 @@ public class EnemySpawner : MonoBehaviour
 
                 enemy.transform.localPosition = distanceFromPlayer + (Vector2) _playerTransform.position;
             
-                yield return new WaitForSeconds(1);
+                yield return new WaitForSeconds(timeBetweenSpawnsMilliseconds / 1000);
             }
         }
     }
