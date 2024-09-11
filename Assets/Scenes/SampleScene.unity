@@ -153,6 +153,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemies:
   - {fileID: 7593258463463616170, guid: a05b49e2bb837834fabf137c8818510d, type: 3}
+  minDistanceFromPlayer: 5
+  maxDistanceFromPlayer: 20
 --- !u!4 &10715322
 Transform:
   m_ObjectHideFlags: 0
