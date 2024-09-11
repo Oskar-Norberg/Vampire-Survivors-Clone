@@ -6,10 +6,12 @@ using UnityEngine;
 public class FlipSprite : MonoBehaviour
 {
     private Rigidbody2D _rigidbody;
+    private SpriteRenderer _spriteRenderer;
     // Start is called before the first frame update
     void Start()
     {
         _rigidbody = GetComponent<Rigidbody2D>();
+        _spriteRenderer = GetComponentInChildren<SpriteRenderer>();
     }
 
     // Update is called once per frame
@@ -17,17 +19,11 @@ public class FlipSprite : MonoBehaviour
     {
         if (_rigidbody.velocity.x > 0.0f)
         {
-            if (transform.localScale.x > 0.0f) return;
-            Vector3 newScale = transform.localScale;
-            newScale.x = Mathf.Abs(newScale.x);
-            transform.localScale = newScale;
+            _spriteRenderer.flipX = false;
         }
         else
         {
-            if (transform.localScale.x < 0.0f) return;
-            Vector3 newScale = transform.localScale;
-            newScale.x = -Mathf.Abs(newScale.x);
-            transform.localScale = newScale;
+            _spriteRenderer.flipX = true;
         }
     }
 }
