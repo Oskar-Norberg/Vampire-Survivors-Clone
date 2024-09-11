@@ -22,31 +22,34 @@ public class EnemySpawner : MonoBehaviour
     private void Start()
     {
         _playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
-        StartCoroutine(SpawnEnemies());
+        StartCoroutine(WaveCoroutine());
     }
     
     // Spawns enemies in a circle around the player
-    private IEnumerator SpawnEnemies()
+    private IEnumerator WaveCoroutine()
     {
         while (true)
         {
-            if (_playerTransform == null) yield break;
-            
             for (int i = 0; i < enemiesPerSpawn; i++)
             {
-                Vector2 distanceFromPlayer = new Vector2();
-
-                for (int j = 0; j < 2; j++)
-                {
-                    distanceFromPlayer[j] = Mathf.Cos(Random.value * Mathf.PI * 2f) * Random.Range(minDistanceFromPlayer, maxDistanceFromPlayer);
-                }
-            
-                GameObject enemy = Instantiate(enemies[0], transform);
-
-                enemy.transform.localPosition = distanceFromPlayer + (Vector2) _playerTransform.position;
-            
+                SpawnRandomEnemy();
                 yield return new WaitForSeconds(timeBetweenSpawnsMilliseconds / 1000);
             }
         }
+    }
+
+    private void SpawnRandomEnemy()
+    {
+        if (_playerTransform == null) return;
+        
+        Vector2 distanceFromPlayer = new Vector2();
+
+        float randomRadian = Random.Range(0f, Mathf.PI * 2f);
+        distanceFromPlayer.x = Mathf.Cos(randomRadian) * Random.Range(minDistanceFromPlayer, maxDistanceFromPlayer);
+        distanceFromPlayer.y = Mathf.Sin(randomRadian) * Random.Range(minDistanceFromPlayer, maxDistanceFromPlayer);
+            
+        GameObject enemy = Instantiate(enemies[0], transform);
+
+        enemy.transform.localPosition = distanceFromPlayer + (Vector2) _playerTransform.position;
     }
 }

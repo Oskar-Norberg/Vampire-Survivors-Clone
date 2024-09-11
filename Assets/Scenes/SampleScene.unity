@@ -153,7 +153,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemies:
   - {fileID: 7593258463463616170, guid: a05b49e2bb837834fabf137c8818510d, type: 3}
-  minDistanceFromPlayer: 5
+  minDistanceFromPlayer: 10
   maxDistanceFromPlayer: 20
   timeBetweenSpawnsMilliseconds: 1000
   enemiesPerSpawn: 2

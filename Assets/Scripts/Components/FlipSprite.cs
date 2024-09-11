@@ -7,7 +7,7 @@ public class FlipSprite : MonoBehaviour
 {
     private Rigidbody2D _rigidbody;
     private SpriteRenderer _spriteRenderer;
-    // Start is called before the first frame update
+
     void Start()
     {
         _rigidbody = GetComponent<Rigidbody2D>();
