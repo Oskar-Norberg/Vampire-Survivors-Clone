@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class EnemyBase : MonoBehaviour
 {
-    [SerializeField] private float moveSpeed = 1.0f;
+    [SerializeField] private EnemyData data;
     
     private Rigidbody2D _rigidbody2D;
     private Transform _playerTransform;
@@ -30,9 +30,22 @@ public class EnemyBase : MonoBehaviour
     {
         if (!_playerTransform) return;
         
-        Vector2 wishDir = new Vector2(_playerTransform.position.x - _rigidbody2D.position.x, _playerTransform.position.y - _rigidbody2D.position.y);
-        wishDir = Vector2.ClampMagnitude(wishDir, 1.0f);
-        wishDir *= moveSpeed;
-        _rigidbody2D.AddForce(wishDir, ForceMode2D.Force);
+        float distanceToPlayer = Vector3.Distance(_playerTransform.position, transform.position);
+
+        if (distanceToPlayer < data.chaseDistance)
+        {
+            Vector2 wishDir = new Vector2(_playerTransform.position.x - _rigidbody2D.position.x, _playerTransform.position.y - _rigidbody2D.position.y);
+            wishDir = Vector2.ClampMagnitude(wishDir, 1.0f);
+            wishDir *= data.moveSpeed;
+            _rigidbody2D.AddForce(wishDir, ForceMode2D.Force);
+        }
+        else
+        {
+            float x = Time.time * Mathf.PI * 2f / 5.0f;
+            Vector2 wishDir = new Vector2(Mathf.Cos(x), Mathf.Sin(x));
+            wishDir = Vector2.ClampMagnitude(wishDir, 1.0f);
+            wishDir *= data.moveSpeed;
+            _rigidbody2D.AddForce(wishDir, ForceMode2D.Force);
+        }
     }
 }

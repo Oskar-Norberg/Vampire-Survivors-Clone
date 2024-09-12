@@ -46,10 +46,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a2762ca29ba49649a23b63b696cc76f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cooldownMilliseconds: 2000
-  attackDurationMilliseconds: 500
+  weaponData: {fileID: 11400000, guid: 3fb78a9c202492549a77545e620827cf, type: 2}
   hitbox: {fileID: 2110865600902913562}
   sprite: {fileID: 2673333675734931800}
+  attackComponent: {fileID: 1819922625430040025}
 --- !u!1 &7546835082932397605
 GameObject:
   m_ObjectHideFlags: 0
@@ -224,4 +224,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86742a0d9163116499d1b110533f0883, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 1

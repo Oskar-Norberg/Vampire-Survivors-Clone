@@ -5,7 +5,7 @@ using UnityEngine;
 
 public abstract class WeaponBase : MonoBehaviour
 {
-    [SerializeField] private float cooldownMilliseconds;
+    [SerializeField] protected WeaponData weaponData;
     protected enum WeaponStates {Ready, OnCooldown}
 
     protected WeaponStates State = WeaponStates.Ready;
@@ -23,7 +23,7 @@ public abstract class WeaponBase : MonoBehaviour
     protected IEnumerator StartCooldown()
     {
         State = WeaponStates.OnCooldown;
-        yield return new WaitForSeconds(cooldownMilliseconds / 1000);
+        yield return new WaitForSeconds(weaponData.cooldownTimeMilliseconds / 1000);
         State = WeaponStates.Ready;
     }
 }
