@@ -9,11 +9,17 @@ public class EnemyBase : MonoBehaviour
     [SerializeField] private EnemyData data;
     
     private Rigidbody2D _rigidbody2D;
+    private Attack _attackComponent;
     private Transform _playerTransform;
     
     void Start()
     {
         _rigidbody2D = GetComponent<Rigidbody2D>();
+        
+        if (TryGetComponent<Attack>(out Attack attack))
+        {
+            attack.SetDamage(data.damage);
+        }
         
         GameObject player = GameObject.FindGameObjectWithTag("Player");
         if (player == null) return;
