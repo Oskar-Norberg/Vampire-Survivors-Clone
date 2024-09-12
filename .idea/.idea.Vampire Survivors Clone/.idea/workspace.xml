@@ -5,8 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="59d1fd8d-ed6a-4106-9b88-d2382d691383" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Vampire Survivors Clone/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Vampire Survivors Clone/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Enemies/Crow/Crow.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Enemies/Crow/Crow.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/EnemySpawner/EnemySpawner.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/EnemySpawner/EnemySpawner.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Components/Attack.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Components/Attack.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Enemies/EnemyBase.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Enemies/EnemyBase.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -17,11 +20,13 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/011ccacb58784a80ac4b48b4c50ee0b7176400/06/c158a412/Object.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Camera/CameraHolder.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Components/FlipSprite.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Components/Health.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Enemies/EnemyBase.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Weapons/Lasso.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Weapons/Weapon.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Weapons/WeaponBase.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="ProjectColorInfo">{
@@ -42,7 +47,7 @@
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.build.unityPlugin&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;configurable.group.appearance&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
@@ -101,7 +106,9 @@
       <workItem from="1725952146862" duration="18956000" />
       <workItem from="1726037353503" duration="997000" />
       <workItem from="1726039490679" duration="188000" />
-      <workItem from="1726039689950" duration="4814000" />
+      <workItem from="1726039689950" duration="15162000" />
+      <workItem from="1726127393760" duration="118000" />
+      <workItem from="1726127530220" duration="1706000" />
     </task>
     <servers />
   </component>
@@ -118,5 +125,9 @@
   <component name="VcsManagerConfiguration">
     <option name="LOCAL_CHANGES_DETAILS_PREVIEW_SHOWN" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>
