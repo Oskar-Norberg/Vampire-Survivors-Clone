@@ -16,17 +16,17 @@ public class Weapon : MonoBehaviour
     
     private void Start()
     {
-        spriteRenderer.sprite = weaponData.Sprite;
+        spriteRenderer.sprite = weaponData.sprite;
         
         spriteRenderer.enabled = false;
         boxCollider2D.enabled = false;
 
-        switch (weaponData.AttackType)
+        switch (weaponData.attackType)
         {
             case AttackType.Melee:
-                attackComponent.SetDamage(weaponData.Damage);
-                boxCollider2D.size = weaponData.HitboxSize;
-                boxCollider2D.transform.position = weaponData.HitboxPosition;
+                attackComponent.SetDamage(weaponData.damage);
+                boxCollider2D.size = weaponData.hitboxSize;
+                boxCollider2D.transform.position = weaponData.hitboxPosition;
                 break;
         }
     }
@@ -37,7 +37,7 @@ public class Weapon : MonoBehaviour
         
         if (state == WeaponStates.OnCooldown) return;
 
-        switch (weaponData.AttackType)
+        switch (weaponData.attackType)
         {
             case AttackType.Melee:
                 state = WeaponStates.OnCooldown;
@@ -50,7 +50,7 @@ public class Weapon : MonoBehaviour
     {
         boxCollider2D.enabled = true;
         spriteRenderer.enabled = true;
-        yield return new WaitForSeconds(weaponData.AttackDurationMilliseconds / 1000);
+        yield return new WaitForSeconds(weaponData.attackDurationMilliseconds / 1000);
         boxCollider2D.enabled = false;
         spriteRenderer.enabled = false;
         StartCoroutine(StartCooldown());
@@ -59,7 +59,7 @@ public class Weapon : MonoBehaviour
     private IEnumerator StartCooldown()
     {
         state = WeaponStates.OnCooldown;
-        yield return new WaitForSeconds(weaponData.CooldownTimeMilliseconds / 1000);
+        yield return new WaitForSeconds(weaponData.cooldownTimeMilliseconds / 1000);
         state = WeaponStates.Ready;
     }
 

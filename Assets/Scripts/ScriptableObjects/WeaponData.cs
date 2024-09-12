@@ -9,21 +9,21 @@ public enum Positioning { Orbiting, Stationary };
 [CreateAssetMenu(fileName = "New Weapon", menuName = "Weapon")]
 public class WeaponData : ScriptableObject
 {
-    public new string Name;
-    public Sprite Sprite;
+    public new string name;
+    public Sprite sprite;
     
-    public int Damage;
-    public float CooldownTimeMilliseconds;
+    public int damage;
+    public float cooldownTimeMilliseconds;
 
-    public AttackType AttackType;
+    public AttackType attackType;
 
-    public float AttackDurationMilliseconds;
-    public Vector2 HitboxSize;
-    public Vector2 HitboxPosition;
+    public float attackDurationMilliseconds;
+    public Vector2 hitboxSize;
+    public Vector2 hitboxPosition;
     
-    public GameObject ProjectilePrefab;
+    public GameObject projectilePrefab;
 
-    public Positioning Positioning;
+    public Positioning positioning;
 
-    public PositioningTarget PositioningTarget;
+    public PositioningTarget positioningTarget;
 }
