@@ -15,4 +15,9 @@ public class Attack : MonoBehaviour
             health.TakeDamage(damage);
         }
     }
+    
+    public void SetDamage(int newDamage)
+    {
+        damage = newDamage;
+    }
 }
