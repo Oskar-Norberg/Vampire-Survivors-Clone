@@ -8,8 +8,9 @@ public class Lasso : WeaponBase
 {
     [SerializeField] private BoxCollider2D hitbox;
     [SerializeField] private SpriteRenderer sprite;
+    [SerializeField] private Animator animator;
     [SerializeField] private Attack attackComponent;
-
+    
     private void Start()
     {
         SetAttackStatus(false);
@@ -31,6 +32,7 @@ public class Lasso : WeaponBase
 
     private void SetAttackStatus(bool status)
     {
+        animator.SetBool("PlayAnimation", status);
         sprite.enabled = status;
         hitbox.enabled = status;
     }
