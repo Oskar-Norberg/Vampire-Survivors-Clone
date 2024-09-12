@@ -17,7 +17,7 @@ public class Lasso : WeaponBase
         attackComponent.SetDamage(weaponData.damage);
     }
 
-    protected override void Activate()
+    protected void Activate()
     {
         StartCoroutine(Attack());
     }
@@ -28,6 +28,13 @@ public class Lasso : WeaponBase
         yield return new WaitForSeconds(weaponData.attackDurationMilliseconds / 1000);
         SetAttackStatus(false);
         StartCoroutine(StartCooldown());
+    }
+    
+    protected IEnumerator StartCooldown()
+    {
+        State = WeaponStates.OnCooldown;
+        yield return new WaitForSeconds(weaponData.cooldownTimeMilliseconds / 1000);
+        State = WeaponStates.Ready;
     }
 
     private void SetAttackStatus(bool status)
