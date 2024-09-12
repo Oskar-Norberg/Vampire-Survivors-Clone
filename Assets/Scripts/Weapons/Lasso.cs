@@ -6,14 +6,14 @@ using UnityEngine;
 
 public class Lasso : WeaponBase
 {
-    [SerializeField] private float attackDurationMilliseconds = 500.0f;
-    
     [SerializeField] private BoxCollider2D hitbox;
     [SerializeField] private SpriteRenderer sprite;
+    [SerializeField] private Attack attackComponent;
 
     private void Start()
     {
         SetAttackStatus(false);
+        attackComponent.SetDamage(weaponData.damage);
     }
 
     protected override void Activate()
@@ -24,7 +24,7 @@ public class Lasso : WeaponBase
     private IEnumerator Attack()
     {
         SetAttackStatus(true);
-        yield return new WaitForSeconds(attackDurationMilliseconds / 1000);
+        yield return new WaitForSeconds(weaponData.attackDurationMilliseconds / 1000);
         SetAttackStatus(false);
         StartCoroutine(StartCooldown());
     }
