@@ -177,7 +177,7 @@ PrefabInstance:
     - target: {fileID: 8872897011721537847, guid: 283671e8a951ac44c8188c49e05f2f8d, type: 3}
       propertyPath: strategy
       value: 
-      objectReference: {fileID: 5482961322689586312, guid: f758fed716126284881ed772af270c2c, type: 3}
+      objectReference: {fileID: -7186094866455617706, guid: 3e11befa01b31f4439de20d322caddc9, type: 3}
     - target: {fileID: 8872897011721537847, guid: 283671e8a951ac44c8188c49e05f2f8d, type: 3}
       propertyPath: chaseDistance
       value: 15
