@@ -7,6 +7,7 @@ using UnityEngine;
 public class EnemyBase : MonoBehaviour
 {
     [SerializeField] private EnemyData data;
+    [SerializeField] private IAIStrategy strategy;
     
     private Rigidbody2D _rigidbody2D;
     private Attack _attackComponent;
@@ -35,22 +36,13 @@ public class EnemyBase : MonoBehaviour
     {
         if (!_playerTransform) return;
         
-        float distanceToPlayer = Vector3.Distance(_playerTransform.position, transform.position);
+        Vector2 rigidbodyPosition = _rigidbody2D.position;
+        Vector2 targetPosition = _playerTransform.position;
 
-        if (distanceToPlayer < data.chaseDistance)
-        {
-            Vector2 wishDir = new Vector2(_playerTransform.position.x - _rigidbody2D.position.x, _playerTransform.position.y - _rigidbody2D.position.y);
-            wishDir = Vector2.ClampMagnitude(wishDir, 1.0f);
-            wishDir *= data.moveSpeed;
-            _rigidbody2D.AddForce(wishDir, ForceMode2D.Force);
-        }
-        else
-        {
-            float x = Time.time * Mathf.PI * 2f / 5.0f;
-            Vector2 wishDir = new Vector2(Mathf.Cos(x), Mathf.Sin(x));
-            wishDir = Vector2.ClampMagnitude(wishDir, 1.0f);
-            wishDir *= data.moveSpeed;
-            _rigidbody2D.AddForce(wishDir, ForceMode2D.Force);
-        }
+        Vector2 wishDir = strategy.PathFind(rigidbodyPosition, targetPosition);
+
+        wishDir *= data.moveSpeed;
+        
+        _rigidbody2D.AddForce(wishDir, ForceMode2D.Force);
     }
 }
