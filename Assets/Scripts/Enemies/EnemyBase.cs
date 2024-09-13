@@ -31,7 +31,6 @@ public class EnemyBase : MonoBehaviour
         PathFind();
     }
 
-    // Manhattan Path-finding
     private void PathFind()
     {
         if (!_playerTransform) return;
