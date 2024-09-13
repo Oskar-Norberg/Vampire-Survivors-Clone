@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0388511811db3fa46a5e242cb5264fe4, type: 3}
-  m_Name: Lasso
+  m_Name: Orbiting Saw
   m_EditorClassIdentifier: 
-  name: Lasso
-  cooldownTimeMilliseconds: 1000
-  attackDurationMilliseconds: 500
+  name: Orbiting Saw
+  cooldownTimeMilliseconds: 0
+  attackDurationMilliseconds: 0
   damage: 1
