@@ -8,7 +8,7 @@ public class MoveTowardsAIStrategy : IAIStrategy
     {
         float distanceToPlayer = Vector2.Distance(position, targetPosition);
 
-        Vector2 wishDir = new Vector2(targetPosition.x - position.x, targetPosition.y - position.y);
+        Vector2 wishDir = targetPosition - position;
         return Vector2.ClampMagnitude(wishDir, 1.0f);
     }
 }
