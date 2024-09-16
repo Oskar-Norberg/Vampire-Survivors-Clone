@@ -5,18 +5,17 @@ using UnityEngine;
 
 public class FlipSprite : MonoBehaviour
 {
-    private Rigidbody2D _rigidbody;
-    private SpriteRenderer _spriteRenderer;
+    private new Rigidbody2D rigidbody;
+    private SpriteRenderer spriteRenderer;
 
-    void Start()
+    private void Start()
     {
-        _rigidbody = GetComponent<Rigidbody2D>();
-        _spriteRenderer = GetComponentInChildren<SpriteRenderer>();
+        rigidbody = GetComponent<Rigidbody2D>();
+        spriteRenderer = GetComponentInChildren<SpriteRenderer>();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        _spriteRenderer.flipX = !(_rigidbody.velocity.x > 0.0f);
+        spriteRenderer.flipX = !(rigidbody.velocity.x > 0.0f);
     }
 }

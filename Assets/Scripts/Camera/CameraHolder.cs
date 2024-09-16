@@ -10,8 +10,7 @@ public class CameraHolder : MonoBehaviour
     [SerializeField] private bool useLerp;
     [SerializeField] private float lerpWeight;
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
         if (!target) return;
         

@@ -17,11 +17,11 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] private float timeBetweenSpawnsMilliseconds;
     [SerializeField] private float enemiesPerSpawn;
 
-    private Transform _playerTransform;
+    private Transform playerTransform;
 
     private void Start()
     {
-        _playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
+        playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
         StartCoroutine(WaveCoroutine());
     }
     
@@ -40,7 +40,7 @@ public class EnemySpawner : MonoBehaviour
 
     private void SpawnRandomEnemy()
     {
-        if (_playerTransform == null) return;
+        if (playerTransform == null) return;
         
         Vector2 distanceFromPlayer = new Vector2();
 
@@ -50,6 +50,6 @@ public class EnemySpawner : MonoBehaviour
             
         GameObject enemy = Instantiate(enemies[(int) Random.Range(0, enemies.Count)], transform);
 
-        enemy.transform.localPosition = distanceFromPlayer + (Vector2) _playerTransform.position;
+        enemy.transform.localPosition = distanceFromPlayer + (Vector2) playerTransform.position;
     }
 }

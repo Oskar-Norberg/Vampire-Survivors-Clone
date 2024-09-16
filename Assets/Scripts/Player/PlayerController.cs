@@ -8,12 +8,12 @@ public class PlayerController : MonoBehaviour
 {
     [SerializeField] PlayerData playerData;
     
-    private Rigidbody2D _rigidbody;
-    private Vector2 _wishDir;
+    private new Rigidbody2D rigidbody;
+    private Vector2 wishDir;
 
     private void Start()
     {
-        _rigidbody = GetComponent<Rigidbody2D>();
+        rigidbody = GetComponent<Rigidbody2D>();
         
         if (TryGetComponent<Health>(out Health health))
         {
@@ -23,7 +23,7 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        _wishDir = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+        wishDir = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
     }
 
     private void FixedUpdate()
@@ -33,7 +33,7 @@ public class PlayerController : MonoBehaviour
 
     private void Movement()
     {
-        _wishDir.Normalize();
-        _rigidbody.AddForce(_wishDir * playerData.moveSpeed, ForceMode2D.Force);
+        wishDir.Normalize();
+        rigidbody.AddForce(wishDir * playerData.moveSpeed, ForceMode2D.Force);
     }
 }

@@ -5,34 +5,34 @@ using UnityEngine;
 
 public class Health : MonoBehaviour
 {
-    private int _health;
-    private int _maxHealth;
+    private int health;
+    private int maxHealth;
     
     public delegate void OnHealthChange();
     public static OnHealthChange onHealthChange;
 
     public int GetMaxHealth()
     {
-        return _maxHealth;
+        return maxHealth;
     }
     
     public int GetHealth()
     {
-        return _health;
+        return health;
     }
 
     public void SetHealth(int health)
     {
-        _maxHealth = health;
-        _health = health;
+        maxHealth = health;
+        this.health = health;
     }
     
     public void TakeDamage(int damage)
     {
         print(gameObject.name + " Took damage!");
         onHealthChange?.Invoke();
-        _health -= damage;
-        if (_health <= 0)
+        health -= damage;
+        if (health <= 0)
         {
             Die();
         }

@@ -9,13 +9,13 @@ public class EnemyBase : MonoBehaviour
     [SerializeField] private EnemyData data;
     [SerializeField] private IAIStrategy strategy;
     
-    private Rigidbody2D _rigidbody2D;
-    private Attack _attackComponent;
-    private Transform _playerTransform;
+    private new Rigidbody2D rigidbody2D;
+    private Attack attackComponent;
+    private Transform targetTransform;
     
     void Start()
     {
-        _rigidbody2D = GetComponent<Rigidbody2D>();
+        rigidbody2D = GetComponent<Rigidbody2D>();
         
         if (TryGetComponent<Health>(out Health health))
         {
@@ -29,7 +29,7 @@ public class EnemyBase : MonoBehaviour
         
         GameObject player = GameObject.FindGameObjectWithTag("Player");
         if (player == null) return;
-        _playerTransform = player.transform;
+        targetTransform = player.transform;
     }
 
     void FixedUpdate()
@@ -39,15 +39,15 @@ public class EnemyBase : MonoBehaviour
 
     private void PathFind()
     {
-        if (!_playerTransform) return;
+        if (!targetTransform) return;
         
-        Vector2 rigidbodyPosition = _rigidbody2D.position;
-        Vector2 targetPosition = _playerTransform.position;
+        Vector2 rigidbodyPosition = rigidbody2D.position;
+        Vector2 targetPosition = targetTransform.position;
 
         Vector2 wishDir = strategy.PathFind(rigidbodyPosition, targetPosition);
 
         wishDir *= data.moveSpeed;
         
-        _rigidbody2D.AddForce(wishDir, ForceMode2D.Force);
+        rigidbody2D.AddForce(wishDir, ForceMode2D.Force);
     }
 }

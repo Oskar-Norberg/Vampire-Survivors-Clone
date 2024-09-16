@@ -12,7 +12,7 @@ public class MoveTowardsAI : IAIStrategy
     {
         Vector2 wishDir = targetPosition - position;
 
-        Vector2 perpendicularDir = new Vector2(-wishDir.y, wishDir.x); // Rotate 90 degrees counterclockwise
+        Vector2 perpendicularDir = new Vector2(-wishDir.y, wishDir.x);
 
         float oscillationMagnitude = Mathf.Sin(Time.time * oscillationSpeed) * oscillationAmplitude;
         wishDir += perpendicularDir * oscillationMagnitude;
