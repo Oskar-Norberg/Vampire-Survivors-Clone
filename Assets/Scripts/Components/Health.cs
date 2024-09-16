@@ -42,6 +42,5 @@ public class Health : MonoBehaviour
     {
         Debug.Log("Health reached 0");
         Destroy(gameObject);
-        throw new NotImplementedException();
     }
 }
