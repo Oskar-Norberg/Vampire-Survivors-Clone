@@ -6,6 +6,11 @@ using UnityEngine;
 public class Health : MonoBehaviour
 {
     private int _health;
+    
+    public int GetHealth()
+    {
+        return _health;
+    }
 
     public void SetHealth(int health)
     {
