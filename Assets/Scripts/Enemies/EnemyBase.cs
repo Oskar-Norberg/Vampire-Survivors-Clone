@@ -17,6 +17,11 @@ public class EnemyBase : MonoBehaviour
     {
         _rigidbody2D = GetComponent<Rigidbody2D>();
         
+        if (TryGetComponent<Health>(out Health health))
+        {
+            health.SetHealth(data.health);
+        }
+        
         if (TryGetComponent<Attack>(out Attack attack))
         {
             attack.SetDamage(data.damage);

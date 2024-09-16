@@ -13,6 +13,11 @@ public class Health : MonoBehaviour
     {
         _health = startHealth;
     }
+
+    public void SetHealth(int health)
+    {
+        _health = health;
+    }
     
     public void TakeDamage(int damage)
     {
