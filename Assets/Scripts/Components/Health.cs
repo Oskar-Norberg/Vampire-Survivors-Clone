@@ -5,14 +5,7 @@ using UnityEngine;
 
 public class Health : MonoBehaviour
 {
-    [SerializeField] private int startHealth = 5;
-
     private int _health;
-    
-    void Start()
-    {
-        _health = startHealth;
-    }
 
     public void SetHealth(int health)
     {
