@@ -9,7 +9,7 @@ public class Health : MonoBehaviour
     private int maxHealth;
     
     public delegate void OnHealthChange();
-    public static OnHealthChange onHealthChange;
+    public static event OnHealthChange onHealthChange;
 
     public int GetMaxHealth()
     {
