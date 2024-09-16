@@ -6,14 +6,19 @@ using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] private float movementSpeed = 1.0f;
+    [SerializeField] PlayerData playerData;
+    
     private Rigidbody2D _rigidbody;
-
     private Vector2 _wishDir;
 
     private void Start()
     {
         _rigidbody = GetComponent<Rigidbody2D>();
+        
+        if (TryGetComponent<Health>(out Health health))
+        {
+            health.SetHealth(playerData.health);
+        }
     }
 
     private void Update()
@@ -29,6 +34,6 @@ public class PlayerController : MonoBehaviour
     private void Movement()
     {
         _wishDir.Normalize();
-        _rigidbody.AddForce(_wishDir * movementSpeed, ForceMode2D.Force);
+        _rigidbody.AddForce(_wishDir * playerData.moveSpeed, ForceMode2D.Force);
     }
 }
