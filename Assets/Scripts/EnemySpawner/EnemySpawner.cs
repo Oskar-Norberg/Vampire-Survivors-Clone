@@ -48,7 +48,7 @@ public class EnemySpawner : MonoBehaviour
         distanceFromPlayer.x = Mathf.Cos(randomRadian) * Random.Range(minDistanceFromPlayer, maxDistanceFromPlayer);
         distanceFromPlayer.y = Mathf.Sin(randomRadian) * Random.Range(minDistanceFromPlayer, maxDistanceFromPlayer);
             
-        GameObject enemy = Instantiate(enemies[0], transform);
+        GameObject enemy = Instantiate(enemies[(int) Random.Range(0, enemies.Count)], transform);
 
         enemy.transform.localPosition = distanceFromPlayer + (Vector2) _playerTransform.position;
     }
