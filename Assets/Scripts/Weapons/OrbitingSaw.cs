@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class OrbitingSpear : WeaponBase
+public class OrbitingSaw : WeaponBase
 {
     [SerializeField] private GameObject orbitingPrefab;
     [SerializeField] private Transform orbitCenter;
