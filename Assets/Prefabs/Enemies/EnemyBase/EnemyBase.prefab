@@ -297,7 +297,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90a8504226207654dae8cb9fcfa1481e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  blinkDurationMilliseconds: 200
+  blinkDurationMilliseconds: 250
   blinkColor: {r: 1, g: 0, b: 0, a: 1}
   spriteRenderer: {fileID: 4693257895088362968}
   health: {fileID: 9121089781920266068}

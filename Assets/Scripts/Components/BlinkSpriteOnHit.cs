@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class BlinkSpriteOnHit : MonoBehaviour
 {
-    [SerializeField] private float blinkDurationMilliseconds = 200.0f;
+    [SerializeField] private float blinkDurationMilliseconds = 250.0f;
 
     [SerializeField] private Color blinkColor = Color.red;
     
