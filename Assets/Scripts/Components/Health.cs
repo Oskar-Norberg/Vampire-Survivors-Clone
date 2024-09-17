@@ -10,6 +10,9 @@ public class Health : MonoBehaviour
     
     public delegate void OnHealthChange();
     public event OnHealthChange onHealthChange;
+    
+    public delegate void OnDamageTaken();
+    public event OnDamageTaken onDamageTaken;
 
     public int GetMaxHealth()
     {
@@ -34,13 +37,15 @@ public class Health : MonoBehaviour
         {
             this.health = maxHealth;
         }
+        onHealthChange?.Invoke();
     }
     
     public void TakeDamage(int damage)
     {
         print(gameObject.name + " Took damage!");
-        onHealthChange?.Invoke();
         health -= damage;
+        onHealthChange?.Invoke();
+        onDamageTaken?.Invoke();
         if (health <= 0)
         {
             Die();
