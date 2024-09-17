@@ -20,7 +20,12 @@ public class FollowCamera : MonoBehaviour
         }
         else
         {
-            transform.position = target.position;
+            transform.position = (Vector2) target.position;
         }
+
+        // Places camera at a distance for 2d-rendering
+        Vector3 position = transform.position;
+        position.z = -1;
+        transform.position = position;
     }
 }
