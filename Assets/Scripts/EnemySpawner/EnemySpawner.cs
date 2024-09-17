@@ -33,8 +33,8 @@ public class EnemySpawner : MonoBehaviour
             for (int i = 0; i < enemiesPerSpawn; i++)
             {
                 SpawnRandomEnemy();
-                yield return new WaitForSeconds(timeBetweenSpawnsMilliseconds / 1000);
             }
+            yield return new WaitForSeconds(timeBetweenSpawnsMilliseconds / 1000);
         }
     }
 
