@@ -89,6 +89,8 @@ GameObject:
   - component: {fileID: 9087697703250671366}
   - component: {fileID: 6152145469837902347}
   - component: {fileID: 6946122842765612996}
+  - component: {fileID: 1980831777862005627}
+  - component: {fileID: 899315190229199860}
   m_Layer: 3
   m_Name: PlayerBase
   m_TagString: Player
@@ -153,7 +155,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e51397fa0a5d21246b5d61d5dec10dc6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementSpeed: 80
+  playerData: {fileID: 0}
 --- !u!114 &6946122842765612996
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -166,7 +168,36 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de39d189c870b4349b04cb8face5fe2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startHealth: 5
+--- !u!114 &1980831777862005627
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2106412215784906552}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8850c2bbc5fb3f34fa178d5c11366734, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: {fileID: 6946122842765612996}
+  regenData: {fileID: 0}
+--- !u!114 &899315190229199860
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2106412215784906552}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90a8504226207654dae8cb9fcfa1481e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  blinkDurationMilliseconds: 250
+  blinkColor: {r: 1, g: 0, b: 0, a: 1}
+  spriteRenderer: {fileID: 8392282148062729009}
+  health: {fileID: 6946122842765612996}
 --- !u!1 &5672995373957604780
 GameObject:
   m_ObjectHideFlags: 0

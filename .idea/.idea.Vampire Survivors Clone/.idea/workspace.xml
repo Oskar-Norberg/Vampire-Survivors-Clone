@@ -6,13 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="59d1fd8d-ed6a-4106-9b88-d2382d691383" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Vampire Survivors Clone/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Vampire Survivors Clone/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Enemies/Bat/Bat.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Enemies/Bat/Bat.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Enemies/Crow/Crow.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Enemies/Crow/Crow.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Enemies/EnemyBase/EnemyBase.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Enemies/EnemyBase/EnemyBase.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Player/PlayerBase.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Player/PlayerBase.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Player/PlayerOne.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Player/PlayerOne.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Components/Health.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Components/Health.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/HealthBar/HealthBar.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/HealthBar/HealthBar.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Weapons/OrbitingSpear.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Weapons/OrbitingSpear.cs.meta" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,16 +25,17 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Components/FlipSprite.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Components/Health.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Components/InstantiateOnDestroy.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Components/RegenerateHealth.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Components/RotateSprite.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Destroy.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Enemies/EnemyBase.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/ScriptableObjects/EnemyData.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/ScriptableObjects/PlayerData.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/ScriptableObjects/RegenData.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/HealthBar/HealthBar.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/MainMenu/LoadLevel.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/MainMenu/MainMenu.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Weapons/Lasso.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Weapons/OrbitingSpear.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Weapons/WeaponBase.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="ProjectColorInfo">{
@@ -123,7 +120,7 @@
       <workItem from="1726127530220" duration="14308000" />
       <workItem from="1726218274896" duration="14074000" />
       <workItem from="1726473647536" duration="1899000" />
-      <workItem from="1726556645862" duration="9143000" />
+      <workItem from="1726556645862" duration="10517000" />
     </task>
     <servers />
   </component>

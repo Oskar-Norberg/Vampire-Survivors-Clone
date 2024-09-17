@@ -8,6 +8,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1980831777862005627, guid: 3795385e19906db48ada6e65a6e22ccf, type: 3}
+      propertyPath: regenData
+      value: 
+      objectReference: {fileID: 11400000, guid: 15d4603b5acf70b43b524b4f460994c6, type: 2}
     - target: {fileID: 2106412215784906552, guid: 3795385e19906db48ada6e65a6e22ccf, type: 3}
       propertyPath: m_Name
       value: PlayerOne
