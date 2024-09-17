@@ -41,13 +41,11 @@ public class EnemySpawner : MonoBehaviour
     private void SpawnRandomEnemy()
     {
         if (playerTransform == null) return;
+
+        Vector2 randomDirection = Random.insideUnitCircle.normalized;
+
+        Vector2 distanceFromPlayer = randomDirection * Random.Range(minDistanceFromPlayer, maxDistanceFromPlayer);
         
-        Vector2 distanceFromPlayer = new Vector2();
-
-        float randomRadian = Random.Range(0f, Mathf.PI * 2f);
-        distanceFromPlayer.x = Mathf.Cos(randomRadian) * Random.Range(minDistanceFromPlayer, maxDistanceFromPlayer);
-        distanceFromPlayer.y = Mathf.Sin(randomRadian) * Random.Range(minDistanceFromPlayer, maxDistanceFromPlayer);
-
         GameObject enemy = enemies[(int)Random.Range(0, enemies.Count)];
         
         SpawnEnemy(enemy, distanceFromPlayer);
