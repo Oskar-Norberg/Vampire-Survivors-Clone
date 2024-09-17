@@ -15,7 +15,7 @@ public class EnemySpawner : MonoBehaviour
     
     [Header("Spawn Properties")]
     [SerializeField] private float timeBetweenSpawnsMilliseconds;
-    [SerializeField] private float enemiesPerSpawn;
+    [SerializeField] private int enemiesPerSpawn;
 
     private Transform playerTransform;
 
