@@ -27,6 +27,15 @@ public class Health : MonoBehaviour
         this.health = health;
     }
     
+    public void Heal(int health)
+    {
+        this.health += health;
+        if (this.health > maxHealth)
+        {
+            this.health = maxHealth;
+        }
+    }
+    
     public void TakeDamage(int damage)
     {
         print(gameObject.name + " Took damage!");
