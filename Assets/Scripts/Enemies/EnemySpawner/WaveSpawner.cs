@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.Serialization;
 using Random = UnityEngine.Random;
 
-public class EnemySpawner : MonoBehaviour
+public class WaveSpawner : MonoBehaviour
 {
     [SerializeField] private EnemyManager enemyManager;
     

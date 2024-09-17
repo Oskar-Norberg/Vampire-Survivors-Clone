@@ -133,7 +133,7 @@ GameObject:
   - component: {fileID: 10715322}
   - component: {fileID: 10715321}
   m_Layer: 0
-  m_Name: EnemySpawner
+  m_Name: WaveSpawner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
