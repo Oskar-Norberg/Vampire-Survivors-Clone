@@ -157,7 +157,7 @@ MonoBehaviour:
   minDistanceFromPlayer: 10
   maxDistanceFromPlayer: 20
   timeBetweenSpawnsMilliseconds: 1000
-  enemiesPerSpawn: 2
+  enemiesPerSpawn: 4
 --- !u!4 &10715322
 Transform:
   m_ObjectHideFlags: 0
