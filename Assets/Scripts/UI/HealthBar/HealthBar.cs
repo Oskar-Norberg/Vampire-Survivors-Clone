@@ -14,12 +14,12 @@ public class HealthBar : MonoBehaviour
     private void OnEnable()
     {
         canvas.worldCamera = Camera.main;
-        Health.onHealthChange += UpdateHealthBar;
+        health.onHealthChange += UpdateHealthBar;
     }
 
     private void OnDisable()
     {
-        Health.onHealthChange -= UpdateHealthBar;
+        health.onHealthChange -= UpdateHealthBar;
     }
 
     private void UpdateHealthBar()
