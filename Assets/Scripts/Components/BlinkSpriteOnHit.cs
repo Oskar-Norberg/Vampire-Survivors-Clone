@@ -12,6 +12,8 @@ public class BlinkSpriteOnHit : MonoBehaviour
     [SerializeField] private SpriteRenderer spriteRenderer;
     [SerializeField] private Health health;
 
+    private bool coroutineRunning = false;
+
     private void BlinkSprite()
     {
         print("blink sprite");
@@ -21,21 +23,24 @@ public class BlinkSpriteOnHit : MonoBehaviour
 
     private IEnumerator BlinkSpriteCoroutine()
     {
+        if (coroutineRunning) yield break;
+        coroutineRunning = true;
         Color originalColor = spriteRenderer.color;
         spriteRenderer.color = blinkColor;
         yield return new WaitForSeconds(blinkDurationMilliseconds / 1000);
         spriteRenderer.color = originalColor;
+        coroutineRunning = false;
     }
 
     private void OnEnable()
     {
         if (!health) return;
-        health.onHealthChange += BlinkSprite;
+        health.onDamageTaken += BlinkSprite;
     }
 
     private void OnDisable()
     {
         if (!health) return;
-        health.onHealthChange -= BlinkSprite;
+        health.onDamageTaken -= BlinkSprite;
     }
 }
