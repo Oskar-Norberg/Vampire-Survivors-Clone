@@ -8,8 +8,6 @@ public class RegenerateHealth : MonoBehaviour
     
     [SerializeField] private RegenData regenData;
     
-    private bool coroutineRunning = false;
-    
     private void OnEnable()
     {
         health.onHealthChange += RestartRegenerate;
@@ -23,16 +21,13 @@ public class RegenerateHealth : MonoBehaviour
 
     private void RestartRegenerate()
     {
-        StopCoroutine(RegenerateCoroutine());
+        StopAllCoroutines();
         StartCoroutine(RegenerateCoroutine());
     }
 
     private IEnumerator RegenerateCoroutine()
     {
-        if (coroutineRunning) yield break;
-        coroutineRunning = true;
         yield return new WaitForSeconds(regenData.millisecondsPerRegen / 1000);
         health.Heal(regenData.healthPerTick);
-        coroutineRunning = false;
     }
 }
