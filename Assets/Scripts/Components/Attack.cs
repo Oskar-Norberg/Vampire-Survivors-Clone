@@ -9,7 +9,6 @@ public class Attack : MonoBehaviour
     
     private void OnTriggerEnter2D(Collider2D other)
     {
-        print(name + "trigger");
         // Try to get health component in parent and apply attack damage
         if (other.transform.parent.TryGetComponent<Health>(out Health health))
         {

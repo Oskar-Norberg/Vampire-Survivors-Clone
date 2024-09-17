@@ -42,7 +42,6 @@ public class Health : MonoBehaviour
     
     public void TakeDamage(int damage)
     {
-        print(gameObject.name + " Took damage!");
         health -= damage;
         onHealthChange?.Invoke();
         onDamageTaken?.Invoke();
@@ -54,7 +53,6 @@ public class Health : MonoBehaviour
 
     private void Die()
     {
-        Debug.Log("Health reached 0");
         Destroy(gameObject);
     }
 }

@@ -16,7 +16,6 @@ public class BlinkSpriteOnHit : MonoBehaviour
 
     private void BlinkSprite()
     {
-        print("blink sprite");
         if (!spriteRenderer || !health) return;
         StartCoroutine(BlinkSpriteCoroutine());
     }
