@@ -14,6 +14,9 @@ public class ExperienceManager : MonoBehaviour
     public delegate void OnLevelUp();
     public static event OnLevelUp onLevelUp;
     
+    public delegate void OnExperienceChanged();
+    public static event OnExperienceChanged onExperienceChanged;
+    
     private void Awake() 
     { 
         if (instance != null && instance != this) 
@@ -34,6 +37,7 @@ public class ExperienceManager : MonoBehaviour
             LevelUp();
         }
         Debug.Log("Player is level " + level + " and has " + experience + " / " + experiencePerLevel + " experience.");
+        onExperienceChanged?.Invoke();
     }
 
     private void LevelUp()
