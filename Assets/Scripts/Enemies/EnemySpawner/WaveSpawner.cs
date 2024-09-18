@@ -7,8 +7,6 @@ using Random = UnityEngine.Random;
 
 public class WaveSpawner : MonoBehaviour
 {
-    [SerializeField] private EnemyManager enemyManager;
-    
     [SerializeField] private List<GameObject> enemiesToSpawn = new List<GameObject>();
     
     [Header("Spawn Position")]
@@ -52,6 +50,13 @@ public class WaveSpawner : MonoBehaviour
         
         Vector2 enemyPosition = distanceFromPlayer + (Vector2) playerTransform.position;
         
-        enemyManager.SpawnEnemy(enemy, enemyPosition);
+        SpawnEnemy(enemy, enemyPosition);
+    }
+    
+    private void SpawnEnemy(GameObject enemy, Vector2 position)
+    {
+        GameObject instance = Instantiate(enemy, transform);
+
+        instance.transform.position = position;
     }
 }
