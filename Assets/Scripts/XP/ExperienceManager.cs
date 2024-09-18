@@ -47,4 +47,19 @@ public class ExperienceManager : MonoBehaviour
         experience = 0;
         experiencePerLevel += experiencePerLevelIncrement;
     }
+
+    public int GetExperience()
+    {
+        return experience;
+    }
+
+    public int GetLevel()
+    {
+        return level;
+    }
+    
+    public int GetExperiencePerLevel()
+    {
+        return experiencePerLevel;
+    }
 }
