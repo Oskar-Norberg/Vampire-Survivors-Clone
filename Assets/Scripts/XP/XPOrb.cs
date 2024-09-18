@@ -5,9 +5,9 @@ using UnityEngine;
 
 public class XPOrb : MonoBehaviour
 {
-    public void Pickup()
+    private void OnDestroy()
     {
-        Destroy(gameObject);
-        throw new NotImplementedException("XP Orb has not been implemented");
+        if(!this.gameObject.scene.isLoaded) return;
+        throw new NotImplementedException("XP Orb not implemented");
     }
 }
