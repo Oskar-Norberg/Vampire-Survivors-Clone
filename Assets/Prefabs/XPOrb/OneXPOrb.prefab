@@ -164,7 +164,7 @@ GameObject:
   - component: {fileID: 6963012603506205204}
   - component: {fileID: 3009503341727938602}
   m_Layer: 8
-  m_Name: XPOrb
+  m_Name: OneXPOrb
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

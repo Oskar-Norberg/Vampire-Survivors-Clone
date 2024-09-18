@@ -5,9 +5,11 @@ using UnityEngine;
 
 public class XPOrb : MonoBehaviour
 {
+    [SerializeField] private int xpValue = 1;
+    
     private void OnDestroy()
     {
-        if(!this.gameObject.scene.isLoaded) return;
-        throw new NotImplementedException("XP Orb not implemented");
+        if(!this.gameObject.scene.isLoaded) return; 
+        ExperienceManager.instance.AddExperience(xpValue);
     }
 }
