@@ -1,11 +1,14 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class ExperienceMeter : MonoBehaviour
 {
     [SerializeField] private Slider slider;
+    [SerializeField] private TextMeshProUGUI levelText;
 
     private void OnEnable()
     {
@@ -21,5 +24,6 @@ public class ExperienceMeter : MonoBehaviour
     {
         slider.maxValue = ExperienceManager.instance.GetExperiencePerLevel();
         slider.value = ExperienceManager.instance.GetExperience();
+        levelText.text = "LV " + ExperienceManager.instance.GetLevel().ToString();
     }
 }
