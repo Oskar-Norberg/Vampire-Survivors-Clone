@@ -32,7 +32,7 @@ public class EnemyBase : MonoBehaviour
         targetTransform = player.transform;
     }
 
-    void FixedUpdate()
+    private void FixedUpdate()
     {
         PathFind();
     }
