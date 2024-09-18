@@ -9,6 +9,7 @@ public class ExperienceManager : MonoBehaviour
     private int level = 0;
     private int experience = 0;
     [SerializeField] private int experiencePerLevel = 20;
+    [SerializeField] private int experiencePerLevelIncrement = 20;
     
     public delegate void OnLevelUp();
     public static event OnLevelUp onLevelUp;
@@ -40,5 +41,6 @@ public class ExperienceManager : MonoBehaviour
         onLevelUp?.Invoke();
         level++;
         experience = 0;
+        experiencePerLevel += experiencePerLevelIncrement;
     }
 }
