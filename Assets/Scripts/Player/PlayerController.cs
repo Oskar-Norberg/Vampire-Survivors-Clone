@@ -6,26 +6,25 @@ using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] PlayerData playerData;
+    [SerializeField] private PlayerData playerData;
+    
+    [SerializeField] private Animator animator;
     
     private new Rigidbody2D rigidbody;
-    private Vector2 wishDir;
+    private PlayerInput playerInput;
 
     private void Start()
     {
         rigidbody = GetComponent<Rigidbody2D>();
+        
+        playerInput = GetComponent<PlayerInput>();
         
         if (TryGetComponent<Health>(out Health health))
         {
             health.SetHealth(playerData.health);
         }
     }
-
-    private void Update()
-    {
-        wishDir = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
-    }
-
+    
     private void FixedUpdate()
     {
         Movement();
@@ -33,7 +32,7 @@ public class PlayerController : MonoBehaviour
 
     private void Movement()
     {
-        wishDir.Normalize();
+        Vector2 wishDir = playerInput.GetWishDir().normalized;
         rigidbody.AddForce(wishDir * playerData.moveSpeed, ForceMode2D.Force);
     }
 }
