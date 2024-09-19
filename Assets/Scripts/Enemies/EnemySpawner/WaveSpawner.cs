@@ -50,13 +50,6 @@ public class WaveSpawner : MonoBehaviour
         
         Vector2 enemyPosition = distanceFromPlayer + (Vector2) playerTransform.position;
         
-        SpawnEnemy(enemy, enemyPosition);
-    }
-    
-    private void SpawnEnemy(GameObject enemy, Vector2 position)
-    {
-        GameObject instance = Instantiate(enemy, transform);
-
-        instance.transform.position = position;
+        enemyManager.SpawnEnemy(enemy, enemyPosition);
     }
 }
