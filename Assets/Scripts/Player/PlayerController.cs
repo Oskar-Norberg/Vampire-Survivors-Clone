@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -23,6 +24,16 @@ public class PlayerController : MonoBehaviour
         {
             health.SetHealth(playerData.health);
         }
+    }
+
+    private void Update()
+    {
+        UpdateAnimation();
+    }
+
+    private void UpdateAnimation()
+    {
+        animator.SetFloat("Velocity", Mathf.Abs(rigidbody.velocity.magnitude));
     }
     
     private void FixedUpdate()
