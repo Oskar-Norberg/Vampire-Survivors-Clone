@@ -159,6 +159,8 @@ MonoBehaviour:
   maxDistanceFromPlayer: 20
   timeBetweenSpawnsMilliseconds: 1125
   enemiesPerSpawn: 3
+  spawnsPerIncrease: 20
+  enemiesPerSpawnIncrement: 2
 --- !u!4 &10715322
 Transform:
   m_ObjectHideFlags: 0
@@ -6825,6 +6827,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 350376742}
   enemyManager: {fileID: 1302146788}
+  waveSpawner: {fileID: 10715321}
   states:
   - {fileID: 870672950}
   - {fileID: 172195185}
