@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class PlayingGameState : BaseGameState
 {
+
+    
     public override void EnterState()
     {
         
@@ -17,7 +19,8 @@ public class PlayingGameState : BaseGameState
 
     public override void FixedUpdateState(GameStateManager gameStateManager)
     {
-        
+        gameStateManager.enemyManager.FixedUpdateEnemies();
+        gameStateManager.player.FixedUpdateMovement();
     }
 
     public override void UpdateState(GameStateManager gameStateManager)
