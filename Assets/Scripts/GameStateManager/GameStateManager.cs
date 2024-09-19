@@ -34,6 +34,14 @@ public class GameStateManager : MonoBehaviour
         }
         Debug.Log("State not found");
     }
-    
-    
+
+    private void Update()
+    {
+        currentState?.UpdateState();
+    }
+
+    private void FixedUpdate()
+    {
+        currentState?.FixedUpdateState();
+    }
 }
