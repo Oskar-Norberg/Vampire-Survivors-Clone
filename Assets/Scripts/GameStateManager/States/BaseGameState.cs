@@ -8,7 +8,6 @@ public abstract class BaseGameState : MonoBehaviour
     
     public abstract void ExitState();
     
-    public abstract void FixedUpdateState();
+    public abstract void FixedUpdateState(GameStateManager gameStateManager);
 
-    public abstract void UpdateState();
 }

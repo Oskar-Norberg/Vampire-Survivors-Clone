@@ -37,11 +37,11 @@ public class GameStateManager : MonoBehaviour
 
     private void Update()
     {
-        currentState?.UpdateState();
+        currentState?.UpdateState(this);
     }
 
     private void FixedUpdate()
     {
-        currentState?.FixedUpdateState();
+        currentState?.FixedUpdateState(this);
     }
 }

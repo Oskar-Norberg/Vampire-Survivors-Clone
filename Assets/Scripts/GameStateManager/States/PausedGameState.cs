@@ -14,12 +14,12 @@ public class PausedGameState : BaseGameState
         throw new System.NotImplementedException();
     }
     
-    public override void FixedUpdateState()
+    public override void FixedUpdateState(GameStateManager gameStateManager)
     {
         throw new System.NotImplementedException();
     }
 
-    public override void UpdateState()
+    public override void UpdateState(GameStateManager gameStateManager)
     {
         throw new System.NotImplementedException();
     }
