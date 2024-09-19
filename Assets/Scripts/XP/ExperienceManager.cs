@@ -36,7 +36,6 @@ public class ExperienceManager : MonoBehaviour
         {
             LevelUp();
         }
-        Debug.Log("Player is level " + level + " and has " + experience + " / " + experiencePerLevel + " experience.");
         onExperienceChanged?.Invoke();
     }
 
