@@ -13,6 +13,9 @@ public class EnemyBase : MonoBehaviour
     private Attack attackComponent;
     private Transform targetTransform;
     
+    public delegate void OnEnenmyDeathDelegate(EnemyBase enemy);
+    public static event OnEnenmyDeathDelegate onEnemyDeath;
+    
     void Start()
     {
         rigidbody2D = GetComponent<Rigidbody2D>();
@@ -49,5 +52,10 @@ public class EnemyBase : MonoBehaviour
         wishDir *= data.moveSpeed;
         
         rigidbody2D.AddForce(wishDir, ForceMode2D.Force);
+    }
+
+    private void OnDestroy()
+    {
+        onEnemyDeath?.Invoke(this);
     }
 }
