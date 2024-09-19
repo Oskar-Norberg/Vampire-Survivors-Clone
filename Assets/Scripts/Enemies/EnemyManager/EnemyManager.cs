@@ -19,7 +19,7 @@ public class EnemyManager : MonoBehaviour
         enemies.Add(instance.GetComponent<EnemyBase>());
     }
 
-    private void FixedUpdate()
+    public void FixedUpdateEnemies()
     {
         foreach (EnemyBase enemy in enemies)
         {
