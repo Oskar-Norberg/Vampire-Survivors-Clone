@@ -18,25 +18,41 @@ public class WaveSpawner : MonoBehaviour
     [Header("Spawn Properties")]
     [SerializeField] private float timeBetweenSpawnsMilliseconds;
     [SerializeField] private int enemiesPerSpawn;
+    
+    [Header("Difficulty Scaling")]
+    // Every spawnsPerIncrease spawns increase enemiesPerSpawn by enemiesPerSpawnIncrement
+    [SerializeField] private int spawnsPerIncrease;
+    [SerializeField] private int enemiesPerSpawnIncrement;
 
     private Transform playerTransform;
+    private float timeSinceLastSpawn;
+
+    private int spawnCounter;
 
     private void Start()
     {
         playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
-        StartCoroutine(WaveCoroutine());
     }
-    
-    // Spawns enemies in a circle around the player
-    private IEnumerator WaveCoroutine()
+
+    public void FixedUpdateWaveTimer()
     {
-        while (true)
+        timeSinceLastSpawn += Time.deltaTime;
+        if (timeSinceLastSpawn >= timeBetweenSpawnsMilliseconds / 1000)
         {
             for (int i = 0; i < enemiesPerSpawn; i++)
             {
                 SpawnRandomEnemy();
             }
-            yield return new WaitForSeconds(timeBetweenSpawnsMilliseconds / 1000);
+
+            spawnCounter++;
+
+            if (spawnCounter >= spawnsPerIncrease)
+            {
+                spawnCounter = 0;
+                enemiesPerSpawn += enemiesPerSpawnIncrement;
+            }
+
+            timeSinceLastSpawn = 0.0f;
         }
     }
 
