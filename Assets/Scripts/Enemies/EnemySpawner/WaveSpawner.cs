@@ -7,6 +7,8 @@ using Random = UnityEngine.Random;
 
 public class WaveSpawner : MonoBehaviour
 {
+    [SerializeField] private EnemyManager enemyManager;
+    
     [SerializeField] private List<GameObject> enemiesToSpawn = new List<GameObject>();
     
     [Header("Spawn Position")]

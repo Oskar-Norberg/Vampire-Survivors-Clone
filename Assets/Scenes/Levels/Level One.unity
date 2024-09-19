@@ -151,6 +151,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6d13457533777549a077eef6630399c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyManager: {fileID: 1302146788}
   enemiesToSpawn:
   - {fileID: 6941420019506701702, guid: e1557d7d4691fba4497727898b2072da, type: 3}
   - {fileID: 7593258463463616170, guid: a05b49e2bb837834fabf137c8818510d, type: 3}
@@ -5079,6 +5080,50 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4646863980963281037, guid: 3ff0b0f29690f4d44ae8a9a3c5f57a20, type: 3}
   m_PrefabInstance: {fileID: 1184235472}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1302146787
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1302146789}
+  - component: {fileID: 1302146788}
+  m_Layer: 0
+  m_Name: EnemyManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1302146788
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1302146787}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c33ae945085153f49af9ce11057fac90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &1302146789
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1302146787}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1552773762
 GameObject:
   m_ObjectHideFlags: 0
@@ -20407,8 +20452,9 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 1854900303}
-  - {fileID: 1820849111}
+  - {fileID: 1302146789}
   - {fileID: 10715322}
+  - {fileID: 1820849111}
   - {fileID: 1176952712}
   - {fileID: 119619994}
   - {fileID: 1715039826}
