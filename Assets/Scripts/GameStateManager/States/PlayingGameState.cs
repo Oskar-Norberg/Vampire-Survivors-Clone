@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,21 +7,24 @@ public class PlayingGameState : BaseGameState
 {
     public override void EnterState()
     {
-        throw new System.NotImplementedException();
+        
     }
 
     public override void ExitState()
     {
-        throw new System.NotImplementedException();
+        
     }
 
     public override void FixedUpdateState(GameStateManager gameStateManager)
     {
-        throw new System.NotImplementedException();
+        
     }
 
     public override void UpdateState(GameStateManager gameStateManager)
     {
-        throw new System.NotImplementedException();
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            gameStateManager.SwitchState<PausedGameState>();
+        }
     }
 }

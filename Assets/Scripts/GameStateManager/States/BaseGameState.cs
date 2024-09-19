@@ -10,4 +10,5 @@ public abstract class BaseGameState : MonoBehaviour
     
     public abstract void FixedUpdateState(GameStateManager gameStateManager);
 
+    public abstract void UpdateState(GameStateManager gameStateManager);
 }
