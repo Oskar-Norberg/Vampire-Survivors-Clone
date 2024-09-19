@@ -14,6 +14,11 @@ public class PlayingGameState : BaseGameState
         throw new System.NotImplementedException();
     }
 
+    public override void FixedUpdateState()
+    {
+        throw new System.NotImplementedException();
+    }
+
     public override void UpdateState()
     {
         throw new System.NotImplementedException();
