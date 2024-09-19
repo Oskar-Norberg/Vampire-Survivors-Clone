@@ -35,14 +35,14 @@ public class PlayerController : MonoBehaviour
     {
         animator.SetFloat("Velocity", Mathf.Abs(rigidbody.velocity.magnitude));
     }
-    
-    private void FixedUpdate()
-    {
-        Movement();
-    }
 
-    private void Movement()
+    public void FixedUpdateMovement()
     {
+        if (!rigidbody)
+        {
+            Debug.Log("Player Rigidbody is null");
+            return;
+        }
         Vector2 wishDir = playerInput.GetWishDir().normalized;
         rigidbody.AddForce(wishDir * playerData.moveSpeed, ForceMode2D.Force);
     }
