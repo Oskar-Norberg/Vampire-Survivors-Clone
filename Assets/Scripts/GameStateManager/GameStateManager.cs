@@ -7,6 +7,7 @@ public class GameStateManager : MonoBehaviour
 {
     [SerializeField] private List<BaseGameState> states = new List<BaseGameState>();
     private BaseGameState currentState;
+
     private void Start()
     {
         // Start in Playing Game State
