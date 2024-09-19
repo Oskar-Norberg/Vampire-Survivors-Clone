@@ -7,6 +7,7 @@ public class GameStateManager : MonoBehaviour
 {
     [SerializeField] public PlayerController player;
     [SerializeField] public EnemyManager enemyManager;
+    [SerializeField] public WaveSpawner waveSpawner;
     
     [SerializeField] private List<BaseGameState> states = new List<BaseGameState>();
     private BaseGameState currentState;
