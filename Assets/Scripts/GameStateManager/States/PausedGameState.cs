@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class PausedGameState : BaseGameState
 {
-    public override void EnterState()
+    public override void EnterState(GameStateManager gameStateManager)
     {
         
     }
 
-    public override void ExitState()
+    public override void ExitState(GameStateManager gameStateManager)
     {
         
     }

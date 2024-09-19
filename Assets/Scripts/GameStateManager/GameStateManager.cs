@@ -29,9 +29,9 @@ public class GameStateManager : MonoBehaviour
         {
             if (state.GetType() == typeof(TNextState))
             {
-                currentState?.ExitState();
+                currentState?.ExitState(this);
                 currentState = state;
-                state.EnterState();
+                state.EnterState(this);
                 return;
             }
         }

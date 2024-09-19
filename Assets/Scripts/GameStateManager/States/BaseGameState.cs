@@ -4,9 +4,9 @@ using UnityEngine;
 
 public abstract class BaseGameState : MonoBehaviour
 {
-    public abstract void EnterState();
+    public abstract void EnterState(GameStateManager gameStateManager);
     
-    public abstract void ExitState();
+    public abstract void ExitState(GameStateManager gameStateManager);
     
     public abstract void FixedUpdateState(GameStateManager gameStateManager);
 
