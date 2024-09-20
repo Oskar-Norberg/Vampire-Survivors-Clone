@@ -157,9 +157,9 @@ MonoBehaviour:
   - {fileID: 7593258463463616170, guid: a05b49e2bb837834fabf137c8818510d, type: 3}
   minDistanceFromPlayer: 10
   maxDistanceFromPlayer: 20
-  timeBetweenSpawnsMilliseconds: 1125
-  enemiesPerSpawn: 3
-  spawnsPerIncrease: 20
+  timeBetweenSpawnsMilliseconds: 1500
+  enemiesPerSpawn: 2
+  spawnsPerIncrease: 40
   enemiesPerSpawnIncrement: 2
 --- !u!4 &10715322
 Transform:
