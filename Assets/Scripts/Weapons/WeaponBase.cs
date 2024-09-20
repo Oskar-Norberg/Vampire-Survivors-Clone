@@ -9,4 +9,6 @@ public abstract class WeaponBase : MonoBehaviour
     protected enum WeaponStates {Ready, OnCooldown}
 
     protected WeaponStates State = WeaponStates.Ready;
+
+    public abstract void FixedUpdateMovement();
 }
