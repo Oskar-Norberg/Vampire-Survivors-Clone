@@ -11,4 +11,6 @@ public class EnemyData : ScriptableObject
     
     public float chaseDistance;
     public float moveSpeed;
+    
+    public IAIStrategy strategy;
 }

@@ -7,7 +7,6 @@ using UnityEngine;
 public class EnemyBase : MonoBehaviour
 {
     [SerializeField] private EnemyData data;
-    [SerializeField] private IAIStrategy strategy;
     
     private new Rigidbody2D rigidbody2D;
     private Attack attackComponent;
@@ -42,7 +41,7 @@ public class EnemyBase : MonoBehaviour
         Vector2 rigidbodyPosition = rigidbody2D.position;
         Vector2 targetPosition = targetTransform.position;
 
-        Vector2 wishDir = strategy.PathFind(rigidbodyPosition, targetPosition);
+        Vector2 wishDir = data.strategy.PathFind(rigidbodyPosition, targetPosition);
 
         wishDir *= data.moveSpeed;
         
