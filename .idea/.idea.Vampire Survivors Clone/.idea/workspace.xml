@@ -6,10 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="59d1fd8d-ed6a-4106-9b88-d2382d691383" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Vampire Survivors Clone/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Vampire Survivors Clone/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Fonts/HomeVideo-BLG6G SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Fonts/HomeVideo-BLG6G SDF.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Renderer/URP_Renderer2D_Renderer.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Renderer/URP_Renderer2D_Renderer.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Levels/Level One.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Levels/Level One.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Enemies/WaveSpawner/WaveSpawner.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Enemies/WaveSpawner/WaveSpawner.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GameStateManager/GameStateManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GameStateManager/GameStateManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GameStateManager/States/PlayingGameState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GameStateManager/States/PlayingGameState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Levels/Level One/Post Processing Profile.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Levels/Level One/Post Processing Profile.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Shaders/FullScreen/Scanlines Shader.shadergraph" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Shaders/FullScreen/Scanlines Shader.shadergraph" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,6 +40,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/MainMenu/MainMenu.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Weapons/Lasso.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Weapons/WeaponBase.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.shadergraph@14.0.11/Editor/Drawing/MaterialGraphEditWindow.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="ProblemsViewState">
     <option name="selectedTabId" value="CurrentFile" />
@@ -135,6 +137,7 @@
       <workItem from="1726733055446" duration="8545000" />
       <workItem from="1726750915142" duration="73000" />
       <workItem from="1726751014408" duration="867000" />
+      <workItem from="1726823115677" duration="604000" />
     </task>
     <servers />
   </component>

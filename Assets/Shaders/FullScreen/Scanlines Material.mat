@@ -37,8 +37,8 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _ScanLineFrequency: 179
-    - _ScanLineSpeed: 0.1
+    - _ScanLineFrequency: 252
+    - _ScanLineSpeed: 0.025
     - _ScanLineStrength: 1
     m_Colors: []
   m_BuildTextureStacks: []
