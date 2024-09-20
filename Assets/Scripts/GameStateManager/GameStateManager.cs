@@ -5,9 +5,13 @@ using UnityEngine;
 
 public class GameStateManager : MonoBehaviour
 {
+    [Header("Managers")]
     [SerializeField] public PlayerController player;
     [SerializeField] public EnemyManager enemyManager;
     [SerializeField] public WaveSpawner waveSpawner;
+
+    [Header("UI Elements")]
+    [SerializeField] public GameObject pauseMenu;
     
     [SerializeField] private List<BaseGameState> states = new List<BaseGameState>();
     private BaseGameState currentState;

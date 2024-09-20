@@ -6,12 +6,12 @@ public class PausedGameState : BaseGameState
 {
     public override void EnterState(GameStateManager gameStateManager)
     {
-        
+        gameStateManager.pauseMenu.SetActive(true);
     }
 
     public override void ExitState(GameStateManager gameStateManager)
     {
-        
+        gameStateManager.pauseMenu.SetActive(false);
     }
     
     public override void FixedUpdateState(GameStateManager gameStateManager)

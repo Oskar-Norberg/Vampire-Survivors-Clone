@@ -13,20 +13,23 @@ public class BlinkText : MonoBehaviour
 
     private void OnEnable()
     {
-        timer = 0;
+        timer = 0.0f;
+        SetVisibility(true);
     }
 
     private void OnDisable()
     {
-        timer = 0;
+        timer = 0.0f;
     }
 
     private void Update()
     {
         timer += Time.deltaTime;
         
+        
         if (timer >= durationMilliseconds / 1000)
         {
+            timer = 0.0f;
             SetVisibility(!text.enabled);
         }
     }
