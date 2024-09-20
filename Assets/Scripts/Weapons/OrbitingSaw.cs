@@ -44,7 +44,9 @@ public class OrbitingSaw : WeaponBase
 
     private void RotateOrbitingObjects()
     {
+        if (!orbitCenter || orbitingObjects == null) return;
         if (orbitingObjects.Count <= 0) return;
+        
 
         orbitCenter.Rotate(Vector3.forward, orbitSpeed * Time.deltaTime);
     }
