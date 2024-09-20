@@ -53,7 +53,13 @@ public class PlayerController : MonoBehaviour
             Debug.Log("Player Rigidbody is null");
             return;
         }
+        
         Vector2 wishDir = playerInput.GetWishDir().normalized;
         rigidbody.AddForce(wishDir * playerData.moveSpeed, ForceMode2D.Force);
+
+        foreach (WeaponBase weapon in weapons)
+        {
+            weapon.FixedUpdateMovement();
+        }
     }
 }
