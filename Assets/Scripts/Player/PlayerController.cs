@@ -14,8 +14,12 @@ public class PlayerController : MonoBehaviour
     private new Rigidbody2D rigidbody;
     private PlayerInput playerInput;
 
+    private List<WeaponBase> weapons = new List<WeaponBase>();
+
     private void Start()
     {
+        AddWeapon(playerData.startWeapon);
+        
         rigidbody = GetComponent<Rigidbody2D>();
         
         playerInput = GetComponent<PlayerInput>();
@@ -24,6 +28,12 @@ public class PlayerController : MonoBehaviour
         {
             health.SetHealth(playerData.health);
         }
+    }
+
+    private void AddWeapon(GameObject weapon)
+    {
+        GameObject instance = Instantiate(weapon, transform);
+        weapons.Add(instance.GetComponent<WeaponBase>());
     }
 
     private void Update()
