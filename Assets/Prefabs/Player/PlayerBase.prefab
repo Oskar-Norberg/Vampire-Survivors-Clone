@@ -173,6 +173,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerData: {fileID: 0}
   animator: {fileID: 0}
+  regenerateHealth: {fileID: 1980831777862005627}
 --- !u!114 &6946122842765612996
 MonoBehaviour:
   m_ObjectHideFlags: 0
