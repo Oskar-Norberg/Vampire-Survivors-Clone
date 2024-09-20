@@ -43,4 +43,9 @@ public class Lasso : WeaponBase
         sprite.enabled = status;
         hitbox.enabled = status;
     }
+
+    public override void FixedUpdateMovement()
+    {
+        
+    }
 }

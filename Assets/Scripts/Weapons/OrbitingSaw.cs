@@ -42,10 +42,15 @@ public class OrbitingSaw : WeaponBase
         }
     }
 
-    private void FixedUpdate()
+    private void RotateOrbitingObjects()
     {
         if (orbitingObjects.Count <= 0) return;
 
         orbitCenter.Rotate(Vector3.forward, orbitSpeed * Time.deltaTime);
+    }
+
+    public override void FixedUpdateMovement()
+    {
+        RotateOrbitingObjects();
     }
 }
