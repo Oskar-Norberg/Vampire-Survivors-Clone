@@ -7,13 +7,11 @@ using UnityEngine.UI;
 public class HealthBar : MonoBehaviour
 {
     [SerializeField] private Slider slider;
-    [SerializeField] private Canvas canvas;
     
     [SerializeField] private Health health;
 
     private void OnEnable()
     {
-        canvas.worldCamera = Camera.main;
         health.onHealthChange += UpdateHealthBar;
     }
 

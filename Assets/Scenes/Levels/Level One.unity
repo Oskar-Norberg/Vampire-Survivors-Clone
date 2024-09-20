@@ -4987,10 +4987,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: ExperienceMeterUI
       objectReference: {fileID: 0}
-    - target: {fileID: 3337947766183863051, guid: fe6436acf3e0b7f4abf8335e5b65c391, type: 3}
-      propertyPath: m_RenderMode
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 3458221352843869308, guid: fe6436acf3e0b7f4abf8335e5b65c391, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
