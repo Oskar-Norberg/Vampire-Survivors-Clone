@@ -176,7 +176,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rigidbody: {fileID: 7669050175284892445}
-  movementSpeed: 400
+  movementSpeed: 325
   strategy: {fileID: -7186094866455617706, guid: 3e11befa01b31f4439de20d322caddc9, type: 3}
 --- !u!1 &4329691482654074640
 GameObject:
