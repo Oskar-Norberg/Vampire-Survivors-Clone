@@ -39,6 +39,6 @@ Material:
     m_Floats:
     - _ScanLineFrequency: 165
     - _ScanLineSpeed: 0.025
-    - _ScanLineStrength: 0.48
+    - _ScanLineStrength: 0.65
     m_Colors: []
   m_BuildTextureStacks: []
