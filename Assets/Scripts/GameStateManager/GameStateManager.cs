@@ -12,6 +12,7 @@ public class GameStateManager : MonoBehaviour
 
     [Header("UI Elements")]
     [SerializeField] public GameObject pauseMenu;
+    [SerializeField] public GameObject upgradeMenu;
     
     [SerializeField] private List<BaseGameState> states = new List<BaseGameState>();
     private BaseGameState currentState;
