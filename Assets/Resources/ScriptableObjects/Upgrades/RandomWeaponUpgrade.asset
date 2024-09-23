@@ -12,3 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2cd35fafcf01034497add0db16e2824, type: 3}
   m_Name: RandomWeaponUpgrade
   m_EditorClassIdentifier: 
+  name: Upgrade Random Weapon
+  description: Upgrade Random Weapon

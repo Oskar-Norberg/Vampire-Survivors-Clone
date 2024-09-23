@@ -12,4 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f3202ac569aa4447b8bec56186ddea2, type: 3}
   m_Name: MediumIncreaseMaxHealth
   m_EditorClassIdentifier: 
+  name: Steroids
+  description: Increase Max Health by 5
   increaseAmount: 5
