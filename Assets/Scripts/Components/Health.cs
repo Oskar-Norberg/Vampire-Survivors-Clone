@@ -50,6 +50,12 @@ public class Health : MonoBehaviour
             Die();
         }
     }
+    
+    public void IncreaseMaxHealth(int increase)
+    {
+        maxHealth += increase;
+        onHealthChange?.Invoke();
+    }
 
     private void Die()
     {
