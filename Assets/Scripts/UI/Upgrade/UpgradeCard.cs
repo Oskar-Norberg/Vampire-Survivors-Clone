@@ -9,6 +9,9 @@ public class UpgradeCard : MonoBehaviour
     private Upgrade upgrade;
     [SerializeField] private TextMeshProUGUI nameText;
     [SerializeField] private TextMeshProUGUI descriptionText;
+    
+    public delegate void OnClickDelegate(Upgrade upgrade);
+    public static event OnClickDelegate onClick;
 
     public void SetUpgrade(Upgrade upgrade)
     {
@@ -19,6 +22,6 @@ public class UpgradeCard : MonoBehaviour
 
     public void OnClick()
     {
-        print("Card clicked");
+        onClick?.Invoke(upgrade);
     }
 }
