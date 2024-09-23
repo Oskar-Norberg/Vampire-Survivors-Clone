@@ -16,20 +16,14 @@ public class UpgradeManager : MonoBehaviour
     {
         upgrades = Resources.LoadAll<Upgrade>(UpgradePath);
     }
-
-    private void OnEnable()
-    {
-        ExperienceManager.onLevelUp += OnLevelUp;
-    }
     
-    private void OnDisable()
+    public void ApplyUpgrade(Upgrade upgrade)
     {
-        ExperienceManager.onLevelUp -= OnLevelUp;
+        upgrade.Apply(player.gameObject);
     }
 
-    private void OnLevelUp()
+    public Upgrade GetRandomUpgrade()
     {
-        int index = Random.Range(0, upgrades.Length);
-        upgrades[index].Apply(player.gameObject);
+        return upgrades[Random.Range(0, upgrades.Length)];
     }
 }
