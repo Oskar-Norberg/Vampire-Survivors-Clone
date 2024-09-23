@@ -6,7 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="59d1fd8d-ed6a-4106-9b88-d2382d691383" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Vampire Survivors Clone/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Vampire Survivors Clone/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Components/Health.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Components/Health.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Renderer/URP2DAsset_Renderer.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Renderer/URP2DAsset_Renderer.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/ScriptableObjects/Upgrades/LargeSpeedUpgrade.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/ScriptableObjects/Upgrades/LargeSpeedUpgrade.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerController.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
