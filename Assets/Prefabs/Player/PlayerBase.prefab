@@ -93,6 +93,7 @@ GameObject:
   - component: {fileID: 1980831777862005627}
   - component: {fileID: 899315190229199860}
   - component: {fileID: 4472149429951525506}
+  - component: {fileID: 707765269050721198}
   m_Layer: 3
   m_Name: PlayerBase
   m_TagString: Player
@@ -174,6 +175,7 @@ MonoBehaviour:
   playerData: {fileID: 0}
   animator: {fileID: 0}
   regenerateHealth: {fileID: 1980831777862005627}
+  weaponManager: {fileID: 707765269050721198}
 --- !u!114 &6946122842765612996
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -226,6 +228,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 028b5c2b38d01534ca87a9e3b8f0e968, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &707765269050721198
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2106412215784906552}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1faa6fd2be584c34cac6b4a6a70fbc6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &5672995373957604780
