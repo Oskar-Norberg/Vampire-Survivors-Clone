@@ -50,6 +50,7 @@ MonoBehaviour:
   orbitCenter: {fileID: 4270772814619714679}
   orbitRadius: 2
   orbitSpeed: 100
+  startingNrOfSaws: 2
 --- !u!1 &576155520293259695
 GameObject:
   m_ObjectHideFlags: 0
