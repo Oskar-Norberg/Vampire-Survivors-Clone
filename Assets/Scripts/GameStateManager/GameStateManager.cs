@@ -19,13 +19,7 @@ public class GameStateManager : MonoBehaviour
     private void Start()
     {
         // Start in Playing Game State
-        foreach (BaseGameState state in states)
-        {
-            if (state.GetType() == typeof(PlayingGameState))
-            {
-                currentState = state;
-            }
-        }
+        SwitchState<PlayingGameState>();
     }
 
     public void SwitchState<TNextState>()
