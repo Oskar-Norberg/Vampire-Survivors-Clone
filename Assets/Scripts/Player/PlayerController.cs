@@ -11,7 +11,8 @@ public class PlayerController : MonoBehaviour
     
     [SerializeField] private Animator animator;
     [SerializeField] private RegenerateHealth regenerateHealth;
-
+    
+    private Vector2 speedMultiplier = Vector2.one;
     
     private new Rigidbody2D rigidbody;
     private PlayerInput playerInput;
@@ -64,7 +65,7 @@ public class PlayerController : MonoBehaviour
         }
         
         Vector2 wishDir = playerInput.GetWishDir().normalized;
-        rigidbody.AddForce(wishDir * playerData.moveSpeed, ForceMode2D.Force);
+        rigidbody.AddForce(wishDir * playerData.moveSpeed * speedMultiplier, ForceMode2D.Force);
     }
 
     private void UpdateWeapons()
@@ -73,5 +74,10 @@ public class PlayerController : MonoBehaviour
         {
             weapon.FixedUpdateMovement();
         }
+    }
+
+    public void IncreaseSpeed(float rateOfChange)
+    {
+        speedMultiplier *= rateOfChange;
     }
 }
