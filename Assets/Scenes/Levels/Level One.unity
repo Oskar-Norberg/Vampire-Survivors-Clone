@@ -7009,7 +7009,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   experiencePerLevel: 20
-  experiencePerLevelIncrement: 20
+  experiencePerLevelIncrement: 10
 --- !u!1 &1854900302
 GameObject:
   m_ObjectHideFlags: 0
