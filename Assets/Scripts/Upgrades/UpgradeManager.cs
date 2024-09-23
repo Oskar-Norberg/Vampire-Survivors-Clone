@@ -30,7 +30,6 @@ public class UpgradeManager : MonoBehaviour
     private void OnLevelUp()
     {
         int index = Random.Range(0, upgrades.Length);
-        
         upgrades[index].Apply(player.gameObject);
     }
 }

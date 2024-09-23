@@ -19,4 +19,10 @@ public class WeaponManager : MonoBehaviour
             weapon.FixedUpdateMovement();
         }
     }
+
+    public void UpgradeRandomWeapon()
+    {
+        int index = Random.Range(0, weapons.Count);
+        weapons[index].Upgrade();
+    }
 }
