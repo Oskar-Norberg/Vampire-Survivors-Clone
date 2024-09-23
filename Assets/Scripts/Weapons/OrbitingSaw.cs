@@ -10,24 +10,24 @@ public class OrbitingSaw : WeaponBase
     [SerializeField] private Transform orbitCenter;
     [SerializeField] private float orbitRadius;
     [SerializeField] private float orbitSpeed;
+    [SerializeField] private int startingNrOfSaws;
 
     private List<GameObject> orbitingObjects = new List<GameObject>();
 
     private void Start()
     {
-        AddBomb();
-        AddBomb();
-        AddBomb();
-        AddBomb();
+        for (int i = 0; i < startingNrOfSaws; i++)
+        {
+            AddSaw();
+        }
     }
 
-    private void AddBomb()
+    private void AddSaw()
     {
         GameObject newBomb = Instantiate(orbitingPrefab, orbitCenter);
         
         Attack attackComponent = newBomb.GetComponentInChildren<Attack>();
         attackComponent.SetDamage(weaponData.damage);
-        
         
         orbitingObjects.Add(newBomb);
 
@@ -54,5 +54,27 @@ public class OrbitingSaw : WeaponBase
     public override void FixedUpdateMovement()
     {
         RotateOrbitingObjects();
+    }
+
+    public override void Upgrade()
+    {
+        base.Upgrade();
+        switch (upgrade)
+        {
+            case 1:
+                AddSaw();
+                break;
+            case 2:
+                AddSaw();
+                orbitSpeed += 25.0f;
+                break;
+            case 3:
+                orbitRadius += 2.0f;
+                AddSaw();
+                break;
+            default:
+                Debug.Log("Unknown Upgrade Type");
+                break;
+        }
     }
 }

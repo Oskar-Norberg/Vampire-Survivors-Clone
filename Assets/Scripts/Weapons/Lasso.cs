@@ -48,4 +48,9 @@ public class Lasso : WeaponBase
     {
         
     }
+
+    public override void Upgrade()
+    {
+        throw new NotImplementedException();
+    }
 }
