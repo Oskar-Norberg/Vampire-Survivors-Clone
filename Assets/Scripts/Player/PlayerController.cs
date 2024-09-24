@@ -19,6 +19,7 @@ public class PlayerController : PausableMonoBehaviour
     private new Rigidbody2D rigidbody;
     private PlayerInput playerInput;
 
+    private bool isPaused = false;
     private Vector2 prePauseVelocity;
 
     private void Start()
@@ -45,8 +46,9 @@ public class PlayerController : PausableMonoBehaviour
         animator.SetFloat("Velocity", Mathf.Abs(rigidbody.velocity.magnitude));
     }
 
-    public void FixedUpdatePlayer()
+    private void FixedUpdate()
     {
+        if (isPaused) return;
         UpdateRigidbody();
         weaponManager.FixedUpdateWeapons();
         regenerateHealth.FixedUpdateRegenerate();
@@ -74,11 +76,13 @@ public class PlayerController : PausableMonoBehaviour
         prePauseVelocity = rigidbody.velocity;
         flipSprite.enabled = false;
         rigidbody.velocity = Vector2.zero;
+        isPaused = true;
     }
 
     protected override void UnPause()
     {
         rigidbody.velocity = prePauseVelocity;
         flipSprite.enabled = true;
+        isPaused = false;
     }
 }
