@@ -14,10 +14,7 @@ public class UpgradeMenu : MonoBehaviour
 
     private void OnEnable()
     {
-        for (int i = 0; i < upgradeCards.Count; i++)
-        {
-            upgradeCards[i].SetUpgrade(upgradeManager.GetRandomUpgrade());
-        }
+        SetCardUpgrades();
 
         UpgradeCard.onClick += SelectUpgradeCard;
     }
@@ -25,6 +22,14 @@ public class UpgradeMenu : MonoBehaviour
     private void OnDisable()
     {
         UpgradeCard.onClick -= SelectUpgradeCard;
+    }
+    
+    private void SetCardUpgrades()
+    {
+        for (int i = 0; i < upgradeCards.Count; i++)
+        {
+            upgradeCards[i].SetUpgrade(upgradeManager.GetRandomUpgrade());
+        }
     }
 
     private void SelectUpgradeCard(Upgrade upgrade)

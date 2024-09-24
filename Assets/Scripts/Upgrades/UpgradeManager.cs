@@ -21,7 +21,7 @@ public class UpgradeManager : MonoBehaviour
     {
         upgrade.Apply(player.gameObject);
     }
-
+    
     public Upgrade GetRandomUpgrade()
     {
         return upgrades[Random.Range(0, upgrades.Length)];
