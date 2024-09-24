@@ -50,7 +50,6 @@ public class PlayerController : PausableMonoBehaviour
     {
         if (isPaused) return;
         UpdateRigidbody();
-        weaponManager.FixedUpdateWeapons();
         regenerateHealth.FixedUpdateRegenerate();
     }
 

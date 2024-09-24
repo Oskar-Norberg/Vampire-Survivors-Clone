@@ -15,6 +15,8 @@ public class OrbitingSaw : WeaponBase
 
     private List<GameObject> orbitingObjects = new List<GameObject>();
 
+    private bool isPaused = false;
+
     private void Start()
     {
         for (int i = 0; i < startingNrOfSaws; i++)
@@ -55,8 +57,9 @@ public class OrbitingSaw : WeaponBase
         orbitCenter.Rotate(Vector3.forward, orbitSpeed * Time.deltaTime);
     }
 
-    public override void FixedUpdateMovement()
+    private void FixedUpdate()
     {
+        if (isPaused) return; 
         RotateOrbitingObjects();
     }
 
@@ -75,5 +78,15 @@ public class OrbitingSaw : WeaponBase
     {
         orbitRadius += 2.0f;
         AddSaw();
+    }
+
+    protected override void Pause()
+    {
+        isPaused = true;
+    }
+
+    protected override void UnPause()
+    {
+        isPaused = false;
     }
 }

@@ -11,14 +11,6 @@ public class WeaponManager : MonoBehaviour
         GameObject instance = Instantiate(weapon, transform);
         weapons.Add(instance.GetComponent<WeaponBase>());
     }
-    
-    public void FixedUpdateWeapons()
-    {
-        foreach (WeaponBase weapon in weapons)
-        {
-            weapon.FixedUpdateMovement();
-        }
-    }
 
     public void UpgradeRandomWeapon()
     {
