@@ -6,6 +6,7 @@ using UnityEngine;
 
 public class OrbitingSaw : WeaponBase
 {
+    [SerializeField] private Attack attack;
     [SerializeField] private GameObject orbitingPrefab;
     [SerializeField] private Transform orbitCenter;
     [SerializeField] private float orbitRadius;
@@ -20,14 +21,17 @@ public class OrbitingSaw : WeaponBase
         {
             AddSaw();
         }
+        SetAttackDamage();
+    }
+
+    private void SetAttackDamage()
+    {
+        attack.SetDamage(weaponData.damage);
     }
 
     private void AddSaw()
     {
         GameObject newBomb = Instantiate(orbitingPrefab, orbitCenter);
-        
-        Attack attackComponent = newBomb.GetComponentInChildren<Attack>();
-        attackComponent.SetDamage(weaponData.damage);
         
         orbitingObjects.Add(newBomb);
 
