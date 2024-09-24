@@ -14,8 +14,27 @@ public abstract class WeaponBase : MonoBehaviour
 
     public abstract void FixedUpdateMovement();
 
-    public virtual void Upgrade()
+    public void Upgrade()
     {
+        switch (upgrade)
+        {
+            case 0:
+                UpgradeOne();
+                break;
+            case 1:
+                UpgradeTwo();
+                break;
+            case 2:
+                UpgradeThree();
+                break;
+            default:
+                Debug.Log("Invalid upgrade");
+                break;
+        }
         upgrade++;
     }
+    
+    protected abstract void UpgradeOne();
+    protected abstract void UpgradeTwo();
+    protected abstract void UpgradeThree();
 }
