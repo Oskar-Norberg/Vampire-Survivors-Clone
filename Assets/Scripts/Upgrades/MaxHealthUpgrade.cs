@@ -9,6 +9,8 @@ public class MaxHealthUpgrade : Upgrade
     
     public override void Apply(GameObject target)
     {
-        target.GetComponentInParent<Health>().IncreaseMaxHealth(increaseAmount);
+        Health health = target.GetComponentInParent<Health>();
+        health.IncreaseMaxHealth(increaseAmount);
+        health.Heal(increaseAmount);
     }
 }
