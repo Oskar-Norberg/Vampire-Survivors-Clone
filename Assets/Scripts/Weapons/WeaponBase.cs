@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class WeaponBase : MonoBehaviour
+public abstract class WeaponBase : PausableMonoBehaviour
 {
     protected int upgrade = 0;
     
@@ -11,8 +11,6 @@ public abstract class WeaponBase : MonoBehaviour
     protected enum WeaponStates {Ready, OnCooldown}
 
     protected WeaponStates State = WeaponStates.Ready;
-
-    public abstract void FixedUpdateMovement();
 
     public void Upgrade()
     {

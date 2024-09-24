@@ -4,14 +4,17 @@ using UnityEngine;
 
 public class PausedGameState : BaseGameState
 {
+    
     public override void EnterState(GameStateManager gameStateManager)
     {
         gameStateManager.pauseMenu.SetActive(true);
+        gameStateManager.Pause();
     }
 
     public override void ExitState(GameStateManager gameStateManager)
     {
         gameStateManager.pauseMenu.SetActive(false);
+        gameStateManager.Resume();
     }
     
     public override void FixedUpdateState(GameStateManager gameStateManager)

@@ -236,6 +236,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   data: {fileID: 0}
+  animator: {fileID: 0}
+  flipSprite: {fileID: 7302569497229721376}
 --- !u!114 &8566529815387677509
 MonoBehaviour:
   m_ObjectHideFlags: 0

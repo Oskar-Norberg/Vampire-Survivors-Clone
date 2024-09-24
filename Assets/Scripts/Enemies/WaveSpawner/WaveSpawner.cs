@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.Serialization;
 using Random = UnityEngine.Random;
 
-public class WaveSpawner : MonoBehaviour
+public class WaveSpawner : PausableMonoBehaviour
 {
     [SerializeField] private EnemyManager enemyManager;
     
@@ -34,8 +34,9 @@ public class WaveSpawner : MonoBehaviour
         playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
     }
 
-    public void FixedUpdateWaveTimer()
+    public void FixedUpdate()
     {
+        if (IsPaused) return;
         timeSinceLastSpawn += Time.deltaTime;
         if (timeSinceLastSpawn >= timeBetweenSpawnsMilliseconds / 1000)
         {

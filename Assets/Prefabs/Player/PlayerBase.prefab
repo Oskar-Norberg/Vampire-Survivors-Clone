@@ -176,6 +176,7 @@ MonoBehaviour:
   animator: {fileID: 0}
   regenerateHealth: {fileID: 1980831777862005627}
   weaponManager: {fileID: 707765269050721198}
+  flipSprite: {fileID: 4472149429951525506}
 --- !u!114 &6946122842765612996
 MonoBehaviour:
   m_ObjectHideFlags: 0

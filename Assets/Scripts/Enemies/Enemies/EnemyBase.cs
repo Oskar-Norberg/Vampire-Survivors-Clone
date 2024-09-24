@@ -4,18 +4,23 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class EnemyBase : MonoBehaviour
+public class EnemyBase : PausableMonoBehaviour
 {
     [SerializeField] private EnemyData data;
+    
+    [SerializeField] private Animator animator;
+    [SerializeField] private FlipSprite flipSprite;
     
     private new Rigidbody2D rigidbody2D;
     private Attack attackComponent;
     private Transform targetTransform;
+
+    private Vector2 prePauseVelocity;
     
     public delegate void OnEnenmyDeathDelegate(EnemyBase enemy);
     public static event OnEnenmyDeathDelegate onEnemyDeath;
     
-    void Start()
+    private void Start()
     {
         rigidbody2D = GetComponent<Rigidbody2D>();
         
@@ -34,9 +39,9 @@ public class EnemyBase : MonoBehaviour
         targetTransform = player.transform;
     }
 
-    public void PathFind()
+    private void FixedUpdate()
     {
-        if (!targetTransform) return;
+        if (!targetTransform || IsPaused) return;
         
         Vector2 rigidbodyPosition = rigidbody2D.position;
         Vector2 targetPosition = targetTransform.position;
@@ -51,5 +56,22 @@ public class EnemyBase : MonoBehaviour
     private void OnDestroy()
     {
         onEnemyDeath?.Invoke(this);
+    }
+
+    protected override void Pause()
+    {
+        base.Pause();
+        prePauseVelocity = rigidbody2D.velocity;
+        animator.enabled = false;
+        flipSprite.enabled = false;
+        rigidbody2D.velocity = Vector2.zero;
+    }
+
+    protected override void UnPause()
+    {
+        base.UnPause();
+        rigidbody2D.velocity = prePauseVelocity;
+        animator.enabled = true;
+        flipSprite.enabled = true;
     }
 }

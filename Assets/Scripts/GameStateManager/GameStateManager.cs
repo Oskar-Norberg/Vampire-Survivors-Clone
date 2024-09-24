@@ -5,6 +5,12 @@ using UnityEngine;
 
 public class GameStateManager : MonoBehaviour
 {
+    public delegate void OnPauseDelegate();
+    public static event OnPauseDelegate onPause;
+    
+    public delegate void OnResumeDelegate();
+    public static event OnResumeDelegate onResume;
+    
     [Header("Managers")]
     [SerializeField] public PlayerController player;
     [SerializeField] public EnemyManager enemyManager;
@@ -46,5 +52,15 @@ public class GameStateManager : MonoBehaviour
     private void FixedUpdate()
     {
         currentState?.FixedUpdateState(this);
+    }
+    
+    public void Pause()
+    {
+        onPause?.Invoke();
+    }
+
+    public void Resume()
+    {
+        onResume?.Invoke();
     }
 }

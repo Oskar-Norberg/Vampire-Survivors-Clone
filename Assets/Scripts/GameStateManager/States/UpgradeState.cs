@@ -9,6 +9,7 @@ public class UpgradeState : BaseGameState
     public override void EnterState(GameStateManager gameStateManager)
     {
         this.gameStateManager = gameStateManager;
+        gameStateManager.Pause();
         gameStateManager.upgradeMenu.SetActive(true);
 
         UpgradeMenu.upgradeSelectedDelegate += UpgradeApplied;
@@ -17,6 +18,7 @@ public class UpgradeState : BaseGameState
     public override void ExitState(GameStateManager gameStateManager)
     {
         gameStateManager.upgradeMenu.SetActive(false);
+        gameStateManager.Resume();
     }
     
     public override void FixedUpdateState(GameStateManager gameStateManager)
