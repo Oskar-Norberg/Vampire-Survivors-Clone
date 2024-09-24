@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.Serialization;
 using Random = UnityEngine.Random;
 
-public class WaveSpawner : MonoBehaviour
+public class WaveSpawner : PausableMonoBehaviour
 {
     [SerializeField] private EnemyManager enemyManager;
     
@@ -29,13 +29,16 @@ public class WaveSpawner : MonoBehaviour
 
     private int spawnCounter;
 
+    private bool isPaused = false;
+
     private void Start()
     {
         playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
     }
 
-    public void FixedUpdateWaveTimer()
+    public void FixedUpdate()
     {
+        if (isPaused) return;
         timeSinceLastSpawn += Time.deltaTime;
         if (timeSinceLastSpawn >= timeBetweenSpawnsMilliseconds / 1000)
         {
@@ -69,5 +72,15 @@ public class WaveSpawner : MonoBehaviour
         Vector2 enemyPosition = distanceFromPlayer + (Vector2) playerTransform.position;
         
         enemyManager.SpawnEnemy(enemy, enemyPosition);
+    }
+
+    protected override void Pause()
+    {
+        isPaused = true;
+    }
+
+    protected override void UnPause()
+    {
+        isPaused = false;
     }
 }
