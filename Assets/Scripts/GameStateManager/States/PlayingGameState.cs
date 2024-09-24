@@ -40,7 +40,7 @@ public class PlayingGameState : BaseGameState
         {
             Debug.Log("Game State Manager missing in PlayingGameState, skipping level up");
         }
-        //gameStateManager.SwitchState<GameOverState>();
+        gameStateManager.SwitchState<GameOverState>();
     }
 
     private void OnLevelUp()
