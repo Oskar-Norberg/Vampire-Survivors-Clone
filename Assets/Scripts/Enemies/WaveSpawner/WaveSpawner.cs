@@ -36,7 +36,7 @@ public class WaveSpawner : PausableMonoBehaviour
 
     public void FixedUpdate()
     {
-        if (isPaused) return;
+        if (IsPaused) return;
         timeSinceLastSpawn += Time.deltaTime;
         if (timeSinceLastSpawn >= timeBetweenSpawnsMilliseconds / 1000)
         {

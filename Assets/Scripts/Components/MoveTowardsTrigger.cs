@@ -20,7 +20,7 @@ public class MoveTowardsTrigger : PausableMonoBehaviour
 
     private void FixedUpdate()
     {
-        if (!rigidbody || !target || isPaused) return;
+        if (!rigidbody || !target || IsPaused) return;
 
         Vector2 wishDir = strategy.PathFind(transform.position, target.position);
         

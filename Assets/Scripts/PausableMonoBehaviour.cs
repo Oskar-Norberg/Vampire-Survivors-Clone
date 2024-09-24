@@ -5,7 +5,7 @@ using UnityEngine;
 
 public abstract class PausableMonoBehaviour : MonoBehaviour
 {
-    protected static bool isPaused = false;
+    protected static bool IsPaused = false;
     
     private void OnEnable()
     {
@@ -19,6 +19,6 @@ public abstract class PausableMonoBehaviour : MonoBehaviour
         GameStateManager.onResume -= UnPause;
     }
 
-    protected virtual void Pause(){isPaused = true; }
-    protected virtual void UnPause(){isPaused = false; }
+    protected virtual void Pause(){ IsPaused = true; }
+    protected virtual void UnPause(){ IsPaused = false; }
 }

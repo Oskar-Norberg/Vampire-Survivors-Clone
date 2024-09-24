@@ -47,7 +47,7 @@ public class PlayerController : PausableMonoBehaviour
 
     private void FixedUpdate()
     {
-        if (isPaused) return;
+        if (IsPaused) return;
         UpdateRigidbody();
         regenerateHealth.FixedUpdateRegenerate();
     }

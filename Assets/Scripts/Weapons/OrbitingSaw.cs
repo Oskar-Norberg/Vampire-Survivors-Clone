@@ -57,7 +57,7 @@ public class OrbitingSaw : WeaponBase
 
     private void FixedUpdate()
     {
-        if (isPaused) return; 
+        if (IsPaused) return; 
         RotateOrbitingObjects();
     }
 
@@ -81,12 +81,12 @@ public class OrbitingSaw : WeaponBase
     protected override void Pause()
     {
         base.Pause();
-        isPaused = true;
+        IsPaused = true;
     }
 
     protected override void UnPause()
     {
         base.UnPause();
-        isPaused = false;
+        IsPaused = false;
     }
 }

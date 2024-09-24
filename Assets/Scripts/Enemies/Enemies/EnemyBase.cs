@@ -41,7 +41,7 @@ public class EnemyBase : PausableMonoBehaviour
 
     private void FixedUpdate()
     {
-        if (!targetTransform || isPaused) return;
+        if (!targetTransform || IsPaused) return;
         
         Vector2 rigidbodyPosition = rigidbody2D.position;
         Vector2 targetPosition = targetTransform.position;
