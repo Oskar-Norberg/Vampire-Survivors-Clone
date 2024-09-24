@@ -3,18 +3,18 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class Lasso : WeaponBase
 {
     [SerializeField] private BoxCollider2D hitbox;
     [SerializeField] private SpriteRenderer sprite;
-    [SerializeField] private Animator animator;
-    [SerializeField] private Attack attackComponent;
+    [SerializeField] private Attack attack;
     
     private void Start()
     {
         SetAttackStatus(false);
-        attackComponent.SetDamage(weaponData.damage);
+        attack.SetDamage(weaponData.damage);
     }
 
     protected void Activate()
