@@ -15,12 +15,13 @@ public class EnemyBase : PausableMonoBehaviour
     private Attack attackComponent;
     private Transform targetTransform;
 
+    private bool isPaused;
     private Vector2 prePauseVelocity;
     
     public delegate void OnEnenmyDeathDelegate(EnemyBase enemy);
     public static event OnEnenmyDeathDelegate onEnemyDeath;
     
-    void Start()
+    private void Start()
     {
         rigidbody2D = GetComponent<Rigidbody2D>();
         
@@ -39,9 +40,9 @@ public class EnemyBase : PausableMonoBehaviour
         targetTransform = player.transform;
     }
 
-    public void PathFind()
+    private void FixedUpdate()
     {
-        if (!targetTransform) return;
+        if (!targetTransform || isPaused) return;
         
         Vector2 rigidbodyPosition = rigidbody2D.position;
         Vector2 targetPosition = targetTransform.position;
@@ -64,6 +65,7 @@ public class EnemyBase : PausableMonoBehaviour
         animator.enabled = false;
         flipSprite.enabled = false;
         rigidbody2D.velocity = Vector2.zero;
+        isPaused = true;
     }
 
     protected override void UnPause()
@@ -71,5 +73,6 @@ public class EnemyBase : PausableMonoBehaviour
         rigidbody2D.velocity = prePauseVelocity;
         animator.enabled = true;
         flipSprite.enabled = true;
+        isPaused = false;
     }
 }

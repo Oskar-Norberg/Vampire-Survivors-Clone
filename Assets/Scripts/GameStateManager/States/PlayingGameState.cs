@@ -22,7 +22,6 @@ public class PlayingGameState : BaseGameState
     public override void FixedUpdateState(GameStateManager gameStateManager)
     {
         gameStateManager.waveSpawner.FixedUpdateWaveTimer();
-        gameStateManager.enemyManager.FixedUpdateEnemies();
         gameStateManager.player.FixedUpdatePlayer();
     }
 

@@ -19,15 +19,6 @@ public class EnemyManager : MonoBehaviour
         enemies.Add(instance.GetComponent<EnemyBase>());
     }
 
-    public void FixedUpdateEnemies()
-    {
-        foreach (EnemyBase enemy in enemies)
-        {
-            if (!enemy) continue;
-                enemy.PathFind();
-        }
-    }
-
     private void RemoveEnemyFromList(EnemyBase enemy)
     {
         enemies.Remove(enemy);
