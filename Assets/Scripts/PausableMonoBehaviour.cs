@@ -7,14 +7,14 @@ public abstract class PausableMonoBehaviour : MonoBehaviour
 {
     private void OnEnable()
     {
-        PausedGameState.onPause += Pause;
-        PausedGameState.onResume += UnPause;
+        BaseGameState.onPause += Pause;
+        BaseGameState.onResume += UnPause;
     }
     
     private void OnDisable()
     {
-        PausedGameState.onPause -= Pause;
-        PausedGameState.onResume -= UnPause;
+        BaseGameState.onPause -= Pause;
+        BaseGameState.onResume -= UnPause;
     }
 
     protected abstract void Pause();
