@@ -8,13 +8,13 @@ public class PausedGameState : BaseGameState
     public override void EnterState(GameStateManager gameStateManager)
     {
         gameStateManager.pauseMenu.SetActive(true);
-        Pause();
+        gameStateManager.Pause();
     }
 
     public override void ExitState(GameStateManager gameStateManager)
     {
         gameStateManager.pauseMenu.SetActive(false);
-        Resume();
+        gameStateManager.Resume();
     }
     
     public override void FixedUpdateState(GameStateManager gameStateManager)

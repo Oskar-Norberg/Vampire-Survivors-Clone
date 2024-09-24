@@ -29,8 +29,6 @@ public class WaveSpawner : PausableMonoBehaviour
 
     private int spawnCounter;
 
-    private bool isPaused = false;
-
     private void Start()
     {
         playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
@@ -72,15 +70,5 @@ public class WaveSpawner : PausableMonoBehaviour
         Vector2 enemyPosition = distanceFromPlayer + (Vector2) playerTransform.position;
         
         enemyManager.SpawnEnemy(enemy, enemyPosition);
-    }
-
-    protected override void Pause()
-    {
-        isPaused = true;
-    }
-
-    protected override void UnPause()
-    {
-        isPaused = false;
     }
 }

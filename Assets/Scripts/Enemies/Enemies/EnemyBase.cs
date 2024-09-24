@@ -15,7 +15,6 @@ public class EnemyBase : PausableMonoBehaviour
     private Attack attackComponent;
     private Transform targetTransform;
 
-    private bool isPaused;
     private Vector2 prePauseVelocity;
     
     public delegate void OnEnenmyDeathDelegate(EnemyBase enemy);
@@ -61,18 +60,18 @@ public class EnemyBase : PausableMonoBehaviour
 
     protected override void Pause()
     {
+        base.Pause();
         prePauseVelocity = rigidbody2D.velocity;
         animator.enabled = false;
         flipSprite.enabled = false;
         rigidbody2D.velocity = Vector2.zero;
-        isPaused = true;
     }
 
     protected override void UnPause()
     {
+        base.UnPause();
         rigidbody2D.velocity = prePauseVelocity;
         animator.enabled = true;
         flipSprite.enabled = true;
-        isPaused = false;
     }
 }

@@ -11,7 +11,6 @@ public class MoveTowardsTrigger : PausableMonoBehaviour
     
     private Transform target;
 
-    private bool isPaused = false;
     private Vector2 prePauseVelocity;
     
     private void OnTriggerEnter2D(Collider2D other)
@@ -30,14 +29,14 @@ public class MoveTowardsTrigger : PausableMonoBehaviour
 
     protected override void Pause()
     {
-        isPaused = true;
+        base.Pause();
         prePauseVelocity = rigidbody.velocity;
         rigidbody.velocity = Vector2.zero;
     }
 
     protected override void UnPause()
     {
-        isPaused = false;
+        base.UnPause();
         rigidbody.velocity = prePauseVelocity;
     }
 }

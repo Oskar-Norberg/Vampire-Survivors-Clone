@@ -14,9 +14,7 @@ public class OrbitingSaw : WeaponBase
     [SerializeField] private int startingNrOfSaws;
 
     private List<GameObject> orbitingObjects = new List<GameObject>();
-
-    private bool isPaused = false;
-
+    
     private void Start()
     {
         for (int i = 0; i < startingNrOfSaws; i++)
@@ -82,11 +80,13 @@ public class OrbitingSaw : WeaponBase
 
     protected override void Pause()
     {
+        base.Pause();
         isPaused = true;
     }
 
     protected override void UnPause()
     {
+        base.UnPause();
         isPaused = false;
     }
 }

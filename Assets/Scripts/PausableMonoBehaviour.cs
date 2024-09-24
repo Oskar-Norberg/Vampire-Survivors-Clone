@@ -5,18 +5,20 @@ using UnityEngine;
 
 public abstract class PausableMonoBehaviour : MonoBehaviour
 {
+    protected static bool isPaused = false;
+    
     private void OnEnable()
     {
-        BaseGameState.onPause += Pause;
-        BaseGameState.onResume += UnPause;
+        GameStateManager.onPause += Pause;
+        GameStateManager.onResume += UnPause;
     }
     
     private void OnDisable()
     {
-        BaseGameState.onPause -= Pause;
-        BaseGameState.onResume -= UnPause;
+        GameStateManager.onPause -= Pause;
+        GameStateManager.onResume -= UnPause;
     }
 
-    protected abstract void Pause();
-    protected abstract void UnPause();
+    protected virtual void Pause(){isPaused = true; }
+    protected virtual void UnPause(){isPaused = false; }
 }

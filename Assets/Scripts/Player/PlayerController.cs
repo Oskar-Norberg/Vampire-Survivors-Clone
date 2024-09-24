@@ -19,7 +19,6 @@ public class PlayerController : PausableMonoBehaviour
     private new Rigidbody2D rigidbody;
     private PlayerInput playerInput;
 
-    private bool isPaused = false;
     private Vector2 prePauseVelocity;
 
     private void Start()
@@ -72,16 +71,16 @@ public class PlayerController : PausableMonoBehaviour
 
     protected override void Pause()
     {
+        base.Pause();
         prePauseVelocity = rigidbody.velocity;
         flipSprite.enabled = false;
         rigidbody.velocity = Vector2.zero;
-        isPaused = true;
     }
 
     protected override void UnPause()
     {
+        base.UnPause();
         rigidbody.velocity = prePauseVelocity;
         flipSprite.enabled = true;
-        isPaused = false;
     }
 }
