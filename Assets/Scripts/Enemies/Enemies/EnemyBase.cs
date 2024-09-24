@@ -58,7 +58,7 @@ public class EnemyBase : PausableMonoBehaviour
         onEnemyDeath?.Invoke(this);
     }
 
-    public override void Pause()
+    protected override void Pause()
     {
         prePauseVelocity = rigidbody2D.velocity;
         animator.enabled = false;
@@ -66,7 +66,7 @@ public class EnemyBase : PausableMonoBehaviour
         rigidbody2D.velocity = Vector2.zero;
     }
 
-    public override void UnPause()
+    protected override void UnPause()
     {
         rigidbody2D.velocity = prePauseVelocity;
         animator.enabled = true;

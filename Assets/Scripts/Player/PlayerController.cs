@@ -69,14 +69,14 @@ public class PlayerController : PausableMonoBehaviour
         speedMultiplier *= rateOfChange;
     }
 
-    public override void Pause()
+    protected override void Pause()
     {
         prePauseVelocity = rigidbody.velocity;
         flipSprite.enabled = false;
         rigidbody.velocity = Vector2.zero;
     }
 
-    public override void UnPause()
+    protected override void UnPause()
     {
         rigidbody.velocity = prePauseVelocity;
         flipSprite.enabled = true;
