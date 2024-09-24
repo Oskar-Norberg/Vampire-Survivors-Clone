@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyManager : PausableMonoBehaviour
+public class EnemyManager : MonoBehaviour
 {
     List<EnemyBase> enemies = new List<EnemyBase>();
 
@@ -31,23 +31,5 @@ public class EnemyManager : PausableMonoBehaviour
     private void RemoveEnemyFromList(EnemyBase enemy)
     {
         enemies.Remove(enemy);
-    }
-
-    public override void Pause()
-    {
-        foreach (EnemyBase enemy in enemies)
-        {
-            if (!enemy) continue;
-            enemy.Pause();
-        }
-    }
-
-    public override void UnPause()
-    {
-        foreach (EnemyBase enemy in enemies)
-        {
-            if (!enemy) continue;
-            enemy.UnPause();
-        }
     }
 }
