@@ -179,6 +179,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: c18eadc736db5854b9332ad3cad66d53, type: 2}
     - target: {fileID: 8872897011721537847, guid: 283671e8a951ac44c8188c49e05f2f8d, type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 2023729818730541916}
+    - target: {fileID: 8872897011721537847, guid: 283671e8a951ac44c8188c49e05f2f8d, type: 3}
       propertyPath: strategy
       value: 
       objectReference: {fileID: 5482961322689586312, guid: f758fed716126284881ed772af270c2c, type: 3}

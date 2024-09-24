@@ -4,13 +4,18 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class EnemyBase : MonoBehaviour
+public class EnemyBase : PausableMonoBehaviour
 {
     [SerializeField] private EnemyData data;
+    
+    [SerializeField] private Animator animator;
+    [SerializeField] private FlipSprite flipSprite;
     
     private new Rigidbody2D rigidbody2D;
     private Attack attackComponent;
     private Transform targetTransform;
+
+    private Vector2 prePauseVelocity;
     
     public delegate void OnEnenmyDeathDelegate(EnemyBase enemy);
     public static event OnEnenmyDeathDelegate onEnemyDeath;
@@ -51,5 +56,20 @@ public class EnemyBase : MonoBehaviour
     private void OnDestroy()
     {
         onEnemyDeath?.Invoke(this);
+    }
+
+    public override void Pause()
+    {
+        prePauseVelocity = rigidbody2D.velocity;
+        animator.enabled = false;
+        flipSprite.enabled = false;
+        rigidbody2D.velocity = Vector2.zero;
+    }
+
+    public override void UnPause()
+    {
+        rigidbody2D.velocity = prePauseVelocity;
+        animator.enabled = true;
+        flipSprite.enabled = true;
     }
 }
