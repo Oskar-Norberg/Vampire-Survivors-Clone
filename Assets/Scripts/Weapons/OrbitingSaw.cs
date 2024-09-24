@@ -56,25 +56,20 @@ public class OrbitingSaw : WeaponBase
         RotateOrbitingObjects();
     }
 
-    public override void Upgrade()
+    protected override void UpgradeOne()
     {
-        base.Upgrade();
-        switch (upgrade)
-        {
-            case 1:
-                AddSaw();
-                break;
-            case 2:
-                AddSaw();
-                orbitSpeed += 25.0f;
-                break;
-            case 3:
-                orbitRadius += 2.0f;
-                AddSaw();
-                break;
-            default:
-                Debug.Log("Unknown Upgrade Type");
-                break;
-        }
+        AddSaw();
+    }
+    
+    protected override void UpgradeTwo()
+    {
+        AddSaw();
+        orbitSpeed += 25.0f;
+    }
+    
+    protected override void UpgradeThree()
+    {
+        orbitRadius += 2.0f;
+        AddSaw();
     }
 }

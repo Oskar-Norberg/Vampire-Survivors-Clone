@@ -49,7 +49,17 @@ public class Lasso : WeaponBase
         
     }
 
-    public override void Upgrade()
+    protected override void UpgradeOne()
+    {
+        throw new NotImplementedException();
+    }
+
+    protected override void UpgradeTwo()
+    {
+        throw new NotImplementedException();
+    }
+
+    protected override void UpgradeThree()
     {
         throw new NotImplementedException();
     }
