@@ -542,7 +542,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &158703240
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2416,6 +2416,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f51f518b154402946a221bac4a5114db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  backButton: {fileID: 158703239}
   mainMenu: {fileID: 974673624}
   levelSelect: {fileID: 502564947}
   optionsMenu: {fileID: 978272244}
