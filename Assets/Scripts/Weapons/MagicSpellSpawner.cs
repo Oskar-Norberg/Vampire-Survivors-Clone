@@ -13,9 +13,6 @@ public class MagicSpellSpawner : WeaponBase
 
     private float timer = 0.0f;
 
-    private GameObject[] spells = new GameObject[4];
-    private Animator[] spellAnimators = new Animator[4];
-    private Rigidbody2D[] spellRigidbodies = new Rigidbody2D[4];
     private class SpellData
     {
         public GameObject gameObject;
@@ -29,11 +26,12 @@ public class MagicSpellSpawner : WeaponBase
     {
         for (int i = 0; i < spells.Length; i++)
         {
-            spells[i] = Instantiate(magicSpellPrefab, transform.position, Quaternion.identity);
-            spells[i].SetActive(false);
-            spells[i].GetComponent<Attack>().SetDamage(weaponData.damage);
-            spellAnimators[i] = spells[i].GetComponent<Animator>();
-            spellRigidbodies[i] = spells[i].GetComponent<Rigidbody2D>();
+            spells[i] = new SpellData();
+            spells[i].gameObject = Instantiate(magicSpellPrefab, transform.position, Quaternion.identity);
+            spells[i].gameObject.SetActive(false);
+            spells[i].gameObject.GetComponent<Attack>().SetDamage(weaponData.damage);
+            spells[i].animator = spells[i].gameObject.GetComponent<Animator>();
+            spells[i].rigidbody = spells[i].gameObject.GetComponent<Rigidbody2D>();
         }
     }
 
@@ -53,15 +51,15 @@ public class MagicSpellSpawner : WeaponBase
     {
         if (spells == null) return;
 
-        GameObject spell = spells[upgrade];
+        GameObject spell = spells[upgrade].gameObject;
         
         spell.transform.position = transform.position;
         spell.SetActive(true);
         
         Vector2 force = Vector2.right * velocity;
-        spellRigidbodies[upgrade].AddForce(force);
+        spells[upgrade].rigidbody.AddForce(force);
         
-        spellAnimators[upgrade].SetTrigger("Activate");
+        spells[upgrade].animator.SetTrigger("Activate");
 
         timer = 0.0f;
     }
