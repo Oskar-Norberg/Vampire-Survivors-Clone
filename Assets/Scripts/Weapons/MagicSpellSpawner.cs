@@ -16,6 +16,14 @@ public class MagicSpellSpawner : WeaponBase
     private GameObject[] spells = new GameObject[4];
     private Animator[] spellAnimators = new Animator[4];
     private Rigidbody2D[] spellRigidbodies = new Rigidbody2D[4];
+    private class SpellData
+    {
+        public GameObject gameObject;
+        public Animator animator;
+        public Rigidbody2D rigidbody;
+    }
+    
+    private SpellData[] spells = new SpellData[4];
 
     private void Start()
     {
