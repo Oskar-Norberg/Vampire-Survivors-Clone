@@ -7,27 +7,26 @@ using UnityEngine.UI;
 
 public class PlayerController : PausableMonoBehaviour
 {
+    [Header("Data")]
     [SerializeField] private PlayerData playerData;
     
+    [Header("Components")]
     [SerializeField] private Animator animator;
     [SerializeField] private RegenerateHealth regenerateHealth;
     [SerializeField] private WeaponManager weaponManager;
     [SerializeField] private FlipSprite flipSprite;
+    [SerializeField] new Rigidbody2D rigidbody;
+    [SerializeField] private PlayerInput playerInput;
     
+    // Modifiers
     private Vector2 speedMultiplier = Vector2.one;
-    
-    private new Rigidbody2D rigidbody;
-    private PlayerInput playerInput;
 
+    // Pausing
     private Vector2 prePauseVelocity;
 
     private void Start()
     {
         weaponManager.AddWeapon(playerData.startWeapon);
-        
-        rigidbody = GetComponent<Rigidbody2D>();
-        
-        playerInput = GetComponent<PlayerInput>();
         
         if (TryGetComponent<Health>(out Health health))
         {
