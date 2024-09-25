@@ -19,6 +19,7 @@ public class UpgradeState : BaseGameState
     {
         gameStateManager.upgradeMenu.SetActive(false);
         gameStateManager.Resume();
+        UpgradeMenu.upgradeSelectedDelegate -= UpgradeApplied;
     }
     
     public override void FixedUpdateState(GameStateManager gameStateManager)
