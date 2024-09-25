@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5251048125108976721}
   - component: {fileID: 336581743035061705}
   - component: {fileID: 642181888851681462}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Orbiting Saw
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -102,7 +102,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4270772814619714679}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: OrbitCenter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
