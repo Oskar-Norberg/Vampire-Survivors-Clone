@@ -12,6 +12,7 @@ public class PlayerController : PausableMonoBehaviour
     
     [Header("Components")]
     [SerializeField] private Animator animator;
+    [SerializeField] private Health health;
     [SerializeField] private RegenerateHealth regenerateHealth;
     [SerializeField] private WeaponManager weaponManager;
     [SerializeField] private FlipSprite flipSprite;
@@ -27,11 +28,7 @@ public class PlayerController : PausableMonoBehaviour
     private void Start()
     {
         weaponManager.AddWeapon(playerData.startWeapon);
-        
-        if (TryGetComponent<Health>(out Health health))
-        {
-            health.SetHealth(playerData.health);
-        }
+        health.SetHealth(playerData.health);
     }
 
     private void Update()

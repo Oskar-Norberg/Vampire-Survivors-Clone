@@ -163,6 +163,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerData: {fileID: 0}
   animator: {fileID: 2663719027138871270}
+  health: {fileID: 6946122842765612996}
   regenerateHealth: {fileID: 1980831777862005627}
   weaponManager: {fileID: 707765269050721198}
   flipSprite: {fileID: 4472149429951525506}
