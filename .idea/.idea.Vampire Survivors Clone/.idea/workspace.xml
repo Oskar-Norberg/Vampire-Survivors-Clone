@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="59d1fd8d-ed6a-4106-9b88-d2382d691383" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Components/RegenerateHealth.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Components/RegenerateHealth.cs" afterDir="false" />
-    </list>
+    <list default="true" id="59d1fd8d-ed6a-4106-9b88-d2382d691383" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -65,7 +63,7 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
+    "git-widget-placeholder": "restructure-weapon-system",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -148,7 +146,7 @@
       <workItem from="1726823115677" duration="9212000" />
       <workItem from="1727076212820" duration="7041000" />
       <workItem from="1727161566456" duration="6290000" />
-      <workItem from="1727249696947" duration="11229000" />
+      <workItem from="1727249696947" duration="11674000" />
     </task>
     <servers />
   </component>
