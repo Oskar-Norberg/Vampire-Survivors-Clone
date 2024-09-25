@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7104889399574419980}
   - component: {fileID: 5484865526618178687}
   - component: {fileID: 4414734645369834017}
-  - component: {fileID: 7479638647258955553}
+  - component: {fileID: 7161421122727311186}
   m_Layer: 8
   m_Name: PickupTrigger
   m_TagString: Untagged
@@ -82,7 +82,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   xpValue: 1
---- !u!114 &7479638647258955553
+--- !u!114 &7161421122727311186
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -91,7 +91,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 857701807205284191}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 41e7f6436b8ca064a90a1cc2801e13fb, type: 3}
+  m_Script: {fileID: 11500000, guid: 6fb107815290caf49b4c3d52d6661eed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   objectToDestroy: {fileID: 5337158755237880101}
