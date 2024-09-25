@@ -14,17 +14,25 @@ public class MagicSpellSpawner : WeaponBase
     private float timer = 0.0f;
 
     private GameObject[] spells = new GameObject[4];
+    private Animator[] spellAnimators = new Animator[4];
+    private Rigidbody2D[] spellRigidbodies = new Rigidbody2D[4];
 
     private void Start()
     {
         for (int i = 0; i < spells.Length; i++)
         {
             spells[i] = Instantiate(magicSpellPrefab, transform.position, Quaternion.identity);
+            spells[i].SetActive(false);
+            spells[i].GetComponent<Attack>().SetDamage(weaponData.damage);
+            spellAnimators[i] = spells[i].GetComponent<Animator>();
+            spellRigidbodies[i] = spells[i].GetComponent<Rigidbody2D>();
         }
     }
 
     private void FixedUpdate()
     {
+        if (IsPaused) return;
+        
         timer += Time.deltaTime;
 
         if (timer >= weaponData.cooldownTimeMilliseconds / 1000.0f)
@@ -43,7 +51,9 @@ public class MagicSpellSpawner : WeaponBase
         spell.SetActive(true);
         
         Vector2 force = Vector2.right * velocity;
-        spell.GetComponent<Rigidbody2D>().AddForce(force);
+        spellRigidbodies[upgrade].AddForce(force);
+        
+        spellAnimators[upgrade].SetTrigger("Activate");
 
         timer = 0.0f;
     }
