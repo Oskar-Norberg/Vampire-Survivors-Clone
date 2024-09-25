@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1992467098603823534}
   - component: {fileID: 6746839813372707624}
   m_Layer: 7
-  m_Name: Hitbox
+  m_Name: Hitbox/Hurtbox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -44,10 +44,10 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 8
+    m_Bits: 72
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 503
+    m_Bits: 439
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
