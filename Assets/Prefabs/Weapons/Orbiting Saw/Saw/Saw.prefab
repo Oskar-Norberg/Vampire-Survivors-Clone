@@ -131,6 +131,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotationSpeed: 100
+  spriteRenderer: {fileID: 3690737794455761019}
 --- !u!1 &8990754729333603996
 GameObject:
   m_ObjectHideFlags: 0

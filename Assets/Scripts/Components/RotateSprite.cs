@@ -6,17 +6,7 @@ using UnityEngine;
 public class RotateSprite : MonoBehaviour
 {
     [SerializeField] private float rotationSpeed = 100f;
-    private SpriteRenderer spriteRenderer;
-
-    private void Start()
-    {
-        spriteRenderer = GetComponent<SpriteRenderer>();
-        
-        if (!spriteRenderer)
-        {
-            Debug.Log("Sprite Renderer not found");
-        }
-    }
+    [SerializeField] private SpriteRenderer spriteRenderer;
 
     // Update is called once per frame
     void Update()
