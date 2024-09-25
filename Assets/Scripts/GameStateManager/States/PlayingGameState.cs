@@ -12,11 +12,13 @@ public class PlayingGameState : BaseGameState
     {
         this.gameStateManager = gameStateManager;
         ExperienceManager.onLevelUp += OnLevelUp;
+        gameStateManager.player.GetComponent<Health>().onDeath += OnPlayerDeath;
     }
 
     public override void ExitState(GameStateManager gameStateManager)
     {
         ExperienceManager.onLevelUp -= OnLevelUp;
+        gameStateManager.player.GetComponent<Health>().onDeath -= OnPlayerDeath;
     }
 
     public override void FixedUpdateState(GameStateManager gameStateManager)
@@ -30,6 +32,15 @@ public class PlayingGameState : BaseGameState
         {
             gameStateManager.SwitchState<PausedGameState>();
         }
+    }
+
+    private void OnPlayerDeath()
+    {
+        if (!gameStateManager)
+        {
+            Debug.Log("Game State Manager missing in PlayingGameState, skipping level up");
+        }
+        gameStateManager.SwitchState<GameOverState>();
     }
 
     private void OnLevelUp()

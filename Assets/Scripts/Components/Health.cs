@@ -13,6 +13,10 @@ public class Health : MonoBehaviour
     
     public delegate void OnDamageTaken();
     public event OnDamageTaken onDamageTaken;
+    
+    public delegate void OnDeathDelegate();
+    public event OnDeathDelegate onDeath;
+
 
     public int GetMaxHealth()
     {
@@ -59,6 +63,7 @@ public class Health : MonoBehaviour
 
     private void Die()
     {
+        onDeath?.Invoke();
         Destroy(gameObject);
     }
 }

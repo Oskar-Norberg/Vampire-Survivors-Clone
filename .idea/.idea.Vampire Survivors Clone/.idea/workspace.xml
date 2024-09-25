@@ -4,7 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="59d1fd8d-ed6a-4106-9b88-d2382d691383" name="Changes" comment="" />
+    <list default="true" id="59d1fd8d-ed6a-4106-9b88-d2382d691383" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Vampire Survivors Clone/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Vampire Survivors Clone/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/UI/GameOverMenu/GameOverMenu.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/UI/GameOverMenu/GameOverMenu.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GameStateManager/GameStateManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GameStateManager/GameStateManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GameStateManager/States/GameOverState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GameStateManager/States/GameOverState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GameStateManager/States/PlayingGameState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GameStateManager/States/PlayingGameState.cs" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -27,6 +33,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Components/SerializeDestroyOnTriggerEnter.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Destroy.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Enemies/EnemyManager/EnemyManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/GameStateManager/States/MainMenuState.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/GameStateManager/States/UpgradeState.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/PausableMonoBehaviour.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Player/WeaponManager.cs" root0="FORCE_HIGHLIGHTING" />
@@ -62,13 +69,13 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "improve-pausing",
+    "git-widget-placeholder": "add-gameover-screen",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.editor.code.editing",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -145,6 +152,7 @@
       <workItem from="1726823115677" duration="9212000" />
       <workItem from="1727076212820" duration="7041000" />
       <workItem from="1727161566456" duration="6290000" />
+      <workItem from="1727249696947" duration="4882000" />
     </task>
     <servers />
   </component>

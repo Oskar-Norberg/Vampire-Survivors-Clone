@@ -2,37 +2,36 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class UpgradeState : BaseGameState
+public class GameOverState : BaseGameState
 {
     private GameStateManager gameStateManager;
     
     public override void EnterState(GameStateManager gameStateManager)
     {
         this.gameStateManager = gameStateManager;
+        gameStateManager.gameOverMenu.SetActive(true);
         gameStateManager.Pause();
-        gameStateManager.upgradeMenu.SetActive(true);
 
-        UpgradeMenu.upgradeSelectedDelegate += UpgradeApplied;
+        GameOverMenu.mainMenu += GoToMainMenu;
     }
 
     public override void ExitState(GameStateManager gameStateManager)
     {
-        gameStateManager.upgradeMenu.SetActive(false);
+        gameStateManager.gameOverMenu.SetActive(false);
         gameStateManager.Resume();
-        UpgradeMenu.upgradeSelectedDelegate -= UpgradeApplied;
+        GameOverMenu.mainMenu -= GoToMainMenu;
     }
-    
+
     public override void FixedUpdateState(GameStateManager gameStateManager)
     {
-        
     }
 
     public override void UpdateState(GameStateManager gameStateManager)
     {
     }
 
-    private void UpgradeApplied(Upgrade upgrade)
+    private void GoToMainMenu()
     {
-        gameStateManager.SwitchState<PlayingGameState>();
+        gameStateManager.GoToMainMenu();
     }
 }

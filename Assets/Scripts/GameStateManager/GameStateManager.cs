@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameStateManager : MonoBehaviour
 {
@@ -19,12 +20,14 @@ public class GameStateManager : MonoBehaviour
     [Header("UI Elements")]
     [SerializeField] public GameObject pauseMenu;
     [SerializeField] public GameObject upgradeMenu;
+    [SerializeField] public GameObject gameOverMenu;
     
     [SerializeField] private List<BaseGameState> states = new List<BaseGameState>();
     private BaseGameState currentState;
 
     private void Start()
     {
+        print("Game Manager Started");
         // Start in Playing Game State
         SwitchState<PlayingGameState>();
     }
@@ -62,5 +65,12 @@ public class GameStateManager : MonoBehaviour
     public void Resume()
     {
         onResume?.Invoke();
+    }
+
+    public void GoToMainMenu()
+    {
+        currentState?.ExitState(this);
+        currentState = null;
+        SceneManager.LoadScene("Main Menu");
     }
 }
