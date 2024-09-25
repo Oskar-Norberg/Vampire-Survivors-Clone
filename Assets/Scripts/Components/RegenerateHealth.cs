@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RegenerateHealth : MonoBehaviour
+public class RegenerateHealth : PausableMonoBehaviour
 {
     [SerializeField] private Health health;
     [SerializeField] private RegenData regenData;
@@ -27,6 +27,8 @@ public class RegenerateHealth : MonoBehaviour
 
     public void FixedUpdateRegenerate()
     {
+        if (IsPaused) return;
+        
         timer += Time.deltaTime;
         
         if (timer >= regenData.millisecondsPerRegen / 1000)
