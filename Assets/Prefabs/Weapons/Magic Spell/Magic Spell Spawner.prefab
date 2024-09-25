@@ -46,4 +46,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponData: {fileID: 11400000, guid: 06a6437768b15034b802b7dd53736045, type: 2}
   magicSpellPrefab: {fileID: 2851751858514024728, guid: c2eb29c5b692e34498e599d6d63e723e, type: 3}
-  velocity: 400
+  velocity: 800
