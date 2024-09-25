@@ -153,8 +153,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyManager: {fileID: 1302146788}
   enemiesToSpawn:
-  - {fileID: 3309599419885533324, guid: 444cad2f5d24c014dabeb6748dc06189, type: 3}
-  - {fileID: 3309599419885533324, guid: 298aa9109c4fc3e4da72ef3413ae1edc, type: 3}
+  - {fileID: 2066995170445486468, guid: d41eadb02cb4c6848b100320cbc0882b, type: 3}
+  - {fileID: 1102767743343660280, guid: 3f2d8e48ac3ef0345a60e694fae1377a, type: 3}
   minDistanceFromPlayer: 10
   maxDistanceFromPlayer: 20
   timeBetweenSpawnsMilliseconds: 1500

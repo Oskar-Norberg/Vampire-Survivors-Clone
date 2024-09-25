@@ -13,7 +13,8 @@ public class EnemyBase : PausableMonoBehaviour
     [SerializeField] private Animator animator;
     [SerializeField] private FlipSprite flipSprite;
     [SerializeField] private new Rigidbody2D rigidbody2D;
-    [SerializeField] private Attack attackComponent;
+    [SerializeField] private Attack attack;
+    [SerializeField] private Health health;
     
     private Transform targetTransform;
 
@@ -24,17 +25,8 @@ public class EnemyBase : PausableMonoBehaviour
     
     private void Start()
     {
-        rigidbody2D = GetComponent<Rigidbody2D>();
-        
-        if (TryGetComponent<Health>(out Health health))
-        {
-            health.SetHealth(data.health);
-        }
-        
-        if (TryGetComponent<Attack>(out Attack attack))
-        {
-            attack.SetDamage(data.damage);
-        }
+        health.SetHealth(data.health);
+        attack.SetDamage(data.damage);
         
         // TODO Avoid using FindGameObject
         GameObject player = GameObject.FindGameObjectWithTag("Player");
