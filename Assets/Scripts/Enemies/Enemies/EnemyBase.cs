@@ -6,19 +6,21 @@ using UnityEngine;
 
 public class EnemyBase : PausableMonoBehaviour
 {
+    [Header("Data")]
     [SerializeField] private EnemyData data;
     
+    [Header("Components")]
     [SerializeField] private Animator animator;
     [SerializeField] private FlipSprite flipSprite;
+    [SerializeField] private new Rigidbody2D rigidbody2D;
+    [SerializeField] private Attack attackComponent;
     
-    private new Rigidbody2D rigidbody2D;
-    private Attack attackComponent;
     private Transform targetTransform;
 
     private Vector2 prePauseVelocity;
     
-    public delegate void OnEnenmyDeathDelegate(EnemyBase enemy);
-    public static event OnEnenmyDeathDelegate onEnemyDeath;
+    public delegate void OnEnemyDeathDelegate(EnemyBase enemy);
+    public static event OnEnemyDeathDelegate onEnemyDeath;
     
     private void Start()
     {
@@ -34,6 +36,7 @@ public class EnemyBase : PausableMonoBehaviour
             attack.SetDamage(data.damage);
         }
         
+        // TODO Avoid using FindGameObject
         GameObject player = GameObject.FindGameObjectWithTag("Player");
         if (player == null) return;
         targetTransform = player.transform;
