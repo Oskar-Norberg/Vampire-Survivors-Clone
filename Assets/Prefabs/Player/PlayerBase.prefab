@@ -163,6 +163,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerData: {fileID: 0}
   animator: {fileID: 2663719027138871270}
+  health: {fileID: 6946122842765612996}
   regenerateHealth: {fileID: 1980831777862005627}
   weaponManager: {fileID: 707765269050721198}
   flipSprite: {fileID: 4472149429951525506}
@@ -234,6 +235,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 028b5c2b38d01534ca87a9e3b8f0e968, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rigidbody: {fileID: 9087697703250671366}
+  spriteRenderer: {fileID: 8392282148062729009}
 --- !u!114 &707765269050721198
 MonoBehaviour:
   m_ObjectHideFlags: 0

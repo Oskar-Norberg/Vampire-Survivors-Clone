@@ -5,7 +5,6 @@ using UnityEngine;
 public class RegenerateHealth : MonoBehaviour
 {
     [SerializeField] private Health health;
-    
     [SerializeField] private RegenData regenData;
 
     private float timer = 0.0f;
