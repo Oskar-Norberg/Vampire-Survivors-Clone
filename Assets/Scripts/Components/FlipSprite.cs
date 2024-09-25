@@ -5,14 +5,8 @@ using UnityEngine;
 
 public class FlipSprite : MonoBehaviour
 {
-    private new Rigidbody2D rigidbody;
-    private SpriteRenderer spriteRenderer;
-
-    private void Start()
-    {
-        rigidbody = GetComponent<Rigidbody2D>();
-        spriteRenderer = GetComponentInChildren<SpriteRenderer>();
-    }
+    [SerializeField] private new Rigidbody2D rigidbody;
+    [SerializeField] private SpriteRenderer spriteRenderer;
 
     private void Update()
     {
