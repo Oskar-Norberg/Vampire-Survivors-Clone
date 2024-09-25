@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Magic Spell
   m_EditorClassIdentifier: 
   name: Magic Spell
-  cooldownTimeMilliseconds: 2500
+  cooldownTimeMilliseconds: 4000
   attackDurationMilliseconds: 0
   damage: 1
