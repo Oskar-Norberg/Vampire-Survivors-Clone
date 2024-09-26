@@ -12,4 +12,9 @@ public class FlipSprite : MonoBehaviour
     {
         spriteRenderer.flipX = !(rigidbody.velocity.x > 0.0f);
     }
+
+    public bool IsFlipped()
+    {
+        return rigidbody.velocity.x < 0.0f;
+    }
 }
