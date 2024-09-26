@@ -28,10 +28,10 @@ public class MagicSpellSpawner : WeaponBase
         {
             spells[i] = new SpellData();
             spells[i].gameObject = Instantiate(magicSpellPrefab, transform.position, Quaternion.identity);
-            spells[i].gameObject.SetActive(false);
             spells[i].gameObject.GetComponent<Attack>().SetDamage(weaponData.damage);
             spells[i].animator = spells[i].gameObject.GetComponent<Animator>();
             spells[i].rigidbody = spells[i].gameObject.GetComponent<Rigidbody2D>();
+            spells[i].gameObject.SetActive(false);
         }
     }
 
@@ -51,31 +51,36 @@ public class MagicSpellSpawner : WeaponBase
     {
         if (spells == null) return;
 
-        GameObject spell = spells[upgrade].gameObject;
+        for (int i = 0; i < upgrade + 1; i++)
+        {
+            SpellData spell = spells[i];
         
-        spell.transform.position = transform.position;
-        spell.SetActive(true);
+            spell.gameObject.transform.position = transform.position;
+            spell.gameObject.SetActive(true);
         
-        Vector2 force = Vector2.right * velocity;
-        spells[upgrade].rigidbody.AddForce(force);
-        
-        spells[upgrade].animator.SetTrigger("Activate");
+            Vector2 force = Vector2.right * velocity;
+            
+            force = Quaternion.AngleAxis(-90.0f * i, Vector3.forward)  * force;
+            
+            spell.rigidbody.AddForce(force);
+            spell.animator.SetTrigger("Activate");
+        }
 
         timer = 0.0f;
     }
 
     protected override void UpgradeOne()
     {
-        throw new NotImplementedException();
+        
     }
 
     protected override void UpgradeTwo()
     {
-        throw new NotImplementedException();
+        
     }
 
     protected override void UpgradeThree()
     {
-        throw new NotImplementedException();
+        
     }
 }
