@@ -30,7 +30,7 @@ public class HealthWithInvincibilityFrames : Health
 
     private void FixedUpdate()
     {
-        if (!IsPaused || !justDamaged) return;
+        if (IsPaused || !justDamaged) return;
 
         timer += Time.deltaTime;
 
