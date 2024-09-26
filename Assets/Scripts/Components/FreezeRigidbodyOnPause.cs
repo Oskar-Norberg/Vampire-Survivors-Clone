@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class FreezeRigidbodyOnPause : PausableMonoBehaviour
 {
-    [SerializeField] private Rigidbody2D rigidbody;
+    [SerializeField] private new Rigidbody2D rigidbody;
 
     private Vector2 prePauseVelocity;
     
