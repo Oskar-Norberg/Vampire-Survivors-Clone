@@ -5,11 +5,8 @@ using UnityEngine;
 
 public class TickCooldownAttack : Attack
 {
-    private int damage = 0;
     private int tickCooldownMilliseconds = 0;
-
     private float cooldownTimer = 0.0f;
-
     private bool ready = true;
     
     private void OnTriggerStay2D(Collider2D other)

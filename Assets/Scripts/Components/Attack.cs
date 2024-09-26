@@ -5,7 +5,7 @@ using UnityEngine;
 public class Attack : PausableMonoBehaviour
 {
     [Header("Attack Properties")]
-    private int damage = 0;
+    protected int damage = 0;
     
     private void OnTriggerStay2D(Collider2D other)
     {
