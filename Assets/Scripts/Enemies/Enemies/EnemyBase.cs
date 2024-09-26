@@ -14,7 +14,7 @@ public class EnemyBase : PausableMonoBehaviour
     [SerializeField] private FlipSprite flipSprite;
     [SerializeField] private new Rigidbody2D rigidbody2D;
     [SerializeField] private TickCooldownAttack attack;
-    [SerializeField] private Health health;
+    [SerializeField] private HealthWithInvincibilityFrames health;
     
     private Transform targetTransform;
 
@@ -26,6 +26,7 @@ public class EnemyBase : PausableMonoBehaviour
     private void Start()
     {
         health.SetHealth(data.health);
+        health.SetInvincibilityTime(data.invincibilityTimeMilliseconds);
         attack.SetDamage(data.damage);
         attack.SetTickCooldown(data.tickCooldownMilliseconds);
         
