@@ -37,6 +37,9 @@ public class MagicSpellSpawner : WeaponBase
         }
         
         playerFlipSprite = GameObject.FindGameObjectWithTag("Player").GetComponent<FlipSprite>();
+        Upgrade();
+        Upgrade();
+        Upgrade();
     }
 
     private void FixedUpdate()
@@ -69,7 +72,7 @@ public class MagicSpellSpawner : WeaponBase
                 force *= -1.0f;
             }
             
-            force = Quaternion.AngleAxis(-90.0f * i, Vector3.forward)  * force;
+            force = Quaternion.AngleAxis(360.0f / (upgrade + 1) * i, Vector3.forward)  * force;
             
             spell.rigidbody.AddForce(force);
             spell.animator.SetTrigger("Activate");
