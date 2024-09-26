@@ -88,7 +88,7 @@ GameObject:
   - component: {fileID: 4879626487221742717}
   - component: {fileID: 5918041425722442800}
   - component: {fileID: 8872897011721537847}
-  - component: {fileID: 8566529815387677509}
+  - component: {fileID: 6124005138542892578}
   - component: {fileID: 9121089781920266068}
   - component: {fileID: 7302569497229721376}
   - component: {fileID: 6162316372744015836}
@@ -162,9 +162,9 @@ MonoBehaviour:
   animator: {fileID: 1320871111759614588}
   flipSprite: {fileID: 7302569497229721376}
   rigidbody2D: {fileID: 5918041425722442800}
-  attack: {fileID: 8566529815387677509}
+  attack: {fileID: 6124005138542892578}
   health: {fileID: 9121089781920266068}
---- !u!114 &8566529815387677509
+--- !u!114 &6124005138542892578
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -173,7 +173,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 3309599419885533324}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 86742a0d9163116499d1b110533f0883, type: 3}
+  m_Script: {fileID: 11500000, guid: 07bdf8460eded3f41a9b63bacfd05bba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &9121089781920266068

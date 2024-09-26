@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 1
   damage: 2
-  chaseDistance: 15
+  tickCooldownMilliseconds: 500
   moveSpeed: 40
   strategy: {fileID: 5482961322689586312, guid: f758fed716126284881ed772af270c2c, type: 3}

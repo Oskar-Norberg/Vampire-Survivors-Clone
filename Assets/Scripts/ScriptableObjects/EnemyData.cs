@@ -8,6 +8,7 @@ public class EnemyData : ScriptableObject
     public int health;
 
     public int damage;
+    public int tickCooldownMilliseconds;
     
     public float moveSpeed;
     
