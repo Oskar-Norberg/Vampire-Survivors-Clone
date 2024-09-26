@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TickCooldownAttack : PausableMonoBehaviour
+public class TickCooldownAttack : Attack
 {
     private int damage = 0;
     private int tickCooldownMilliseconds = 0;
