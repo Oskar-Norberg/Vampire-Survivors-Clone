@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b222f428fbc859409fc99dfa83ca902, type: 3}
+  m_Name: UpgradeSaw
+  m_EditorClassIdentifier: 
+  name: Upgrade Saw
+  description: More blades, more carnage
+  weapon: {fileID: 258116620750757714, guid: 3ff0b0f29690f4d44ae8a9a3c5f57a20, type: 3}
