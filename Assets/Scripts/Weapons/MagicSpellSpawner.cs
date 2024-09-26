@@ -12,6 +12,8 @@ public class MagicSpellSpawner : WeaponBase
     [SerializeField] private float velocity;
 
     private float timer = 0.0f;
+    
+    [SerializeField] private FlipSprite playerFlipSprite;
 
     private class SpellData
     {
@@ -33,6 +35,8 @@ public class MagicSpellSpawner : WeaponBase
             spells[i].rigidbody = spells[i].gameObject.GetComponent<Rigidbody2D>();
             spells[i].gameObject.SetActive(false);
         }
+        
+        playerFlipSprite = GameObject.FindGameObjectWithTag("Player").GetComponent<FlipSprite>();
     }
 
     private void FixedUpdate()
@@ -49,7 +53,7 @@ public class MagicSpellSpawner : WeaponBase
 
     private void SpawnMagicSpell()
     {
-        if (spells == null) return;
+        if (spells == null || playerFlipSprite == null) return;
 
         for (int i = 0; i < upgrade + 1; i++)
         {
@@ -59,6 +63,11 @@ public class MagicSpellSpawner : WeaponBase
             spell.gameObject.SetActive(true);
         
             Vector2 force = Vector2.right * velocity;
+
+            if (playerFlipSprite.IsFlipped())
+            {
+                force *= -1.0f;
+            }
             
             force = Quaternion.AngleAxis(-90.0f * i, Vector3.forward)  * force;
             

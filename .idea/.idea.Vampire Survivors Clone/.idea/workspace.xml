@@ -6,6 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="59d1fd8d-ed6a-4106-9b88-d2382d691383" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Vampire Survivors Clone/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Vampire Survivors Clone/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Levels/Level One.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Levels/Level One.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Components/FlipSprite.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Components/FlipSprite.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Weapons/MagicSpellSpawner.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Weapons/MagicSpellSpawner.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -149,7 +151,7 @@
       <workItem from="1727076212820" duration="7041000" />
       <workItem from="1727161566456" duration="6290000" />
       <workItem from="1727249696947" duration="17962000" />
-      <workItem from="1727337828325" duration="2168000" />
+      <workItem from="1727337828325" duration="2884000" />
     </task>
     <servers />
   </component>
