@@ -217,7 +217,7 @@ MonoBehaviour:
   blinkDurationMilliseconds: 250
   blinkColor: {r: 1, g: 0, b: 0, a: 1}
   spriteRenderer: {fileID: 4693257895088362968}
-  health: {fileID: 0}
+  health: {fileID: 3253558777638256979}
 --- !u!114 &8613044612534113148
 MonoBehaviour:
   m_ObjectHideFlags: 0
