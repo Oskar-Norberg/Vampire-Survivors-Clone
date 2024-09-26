@@ -37,9 +37,6 @@ public class MagicSpellSpawner : WeaponBase
         }
         
         playerFlipSprite = GameObject.FindGameObjectWithTag("Player").GetComponent<FlipSprite>();
-        Upgrade();
-        Upgrade();
-        Upgrade();
     }
 
     private void FixedUpdate()
