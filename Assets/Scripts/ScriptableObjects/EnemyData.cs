@@ -9,7 +9,6 @@ public class EnemyData : ScriptableObject
 
     public int damage;
     
-    public float chaseDistance;
     public float moveSpeed;
     
     public IAIStrategy strategy;
