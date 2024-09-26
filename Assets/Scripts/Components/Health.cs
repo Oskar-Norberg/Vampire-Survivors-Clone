@@ -3,10 +3,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Health : MonoBehaviour
+public class Health : PausableMonoBehaviour
 {
-    private int health;
-    private int maxHealth;
+    protected int health;
+    protected int maxHealth;
     
     public delegate void OnHealthChange();
     public event OnHealthChange onHealthChange;
@@ -44,7 +44,7 @@ public class Health : MonoBehaviour
         onHealthChange?.Invoke();
     }
     
-    public void TakeDamage(int damage)
+    public virtual void TakeDamage(int damage)
     {
         health -= damage;
         onHealthChange?.Invoke();
@@ -61,9 +61,19 @@ public class Health : MonoBehaviour
         onHealthChange?.Invoke();
     }
 
-    private void Die()
+    protected void Die()
     {
         onDeath?.Invoke();
         Destroy(gameObject);
+    }
+
+    protected void CallOnHealthChange()
+    {
+        onHealthChange?.Invoke();
+    }
+
+    protected void CallOnDamageTaken()
+    {
+        onDamageTaken?.Invoke();
     }
 }
