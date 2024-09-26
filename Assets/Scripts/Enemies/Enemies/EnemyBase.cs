@@ -13,7 +13,7 @@ public class EnemyBase : PausableMonoBehaviour
     [SerializeField] private Animator animator;
     [SerializeField] private FlipSprite flipSprite;
     [SerializeField] private new Rigidbody2D rigidbody2D;
-    [SerializeField] private Attack attack;
+    [SerializeField] private EnemyAttack attack;
     [SerializeField] private Health health;
     
     private Transform targetTransform;
@@ -27,6 +27,7 @@ public class EnemyBase : PausableMonoBehaviour
     {
         health.SetHealth(data.health);
         attack.SetDamage(data.damage);
+        attack.SetTickCooldown(data.tickCooldownMilliseconds);
         
         // TODO Avoid using FindGameObject
         GameObject player = GameObject.FindGameObjectWithTag("Player");
