@@ -36,11 +36,6 @@ public class TickCooldownAttack : Attack
             cooldownTimer = 0.0f;
         }
     }
-
-    public void SetDamage(int newDamage)
-    {
-        damage = newDamage;
-    }
     
     public void SetTickCooldown(int tickCooldownMilliseconds)
     {
