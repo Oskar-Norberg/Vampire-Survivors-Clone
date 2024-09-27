@@ -26,9 +26,11 @@ public class UpgradeMenu : MonoBehaviour
     
     private void SetCardUpgrades()
     {
+        Upgrade[] upgrades = upgradeManager.GetNonDuplicateUpgrades(upgradeCards.Count);
+        
         for (int i = 0; i < upgradeCards.Count; i++)
         {
-            upgradeCards[i].SetUpgrade(upgradeManager.GetRandomUpgrade());
+            upgradeCards[i].SetUpgrade(upgrades[i]);
         }
     }
 
