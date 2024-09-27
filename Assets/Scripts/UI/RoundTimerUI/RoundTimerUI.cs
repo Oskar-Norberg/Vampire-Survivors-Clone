@@ -13,7 +13,9 @@ public class RoundTimerUI : MonoBehaviour
     {
         float time = roundTimer.GetTimeInSeconds();
         int minutes = Mathf.FloorToInt(time / 60.0f);
+        string minutesString = minutes.ToString("D2");
         int seconds = Mathf.FloorToInt(time % 60.0f);
-        timerText.text = prependText + " " + minutes + ":" + seconds;
+        string secondsString = seconds.ToString("D2");
+        timerText.text = prependText + " " + minutesString + ":" + secondsString;
     }
 }
