@@ -10,7 +10,7 @@ public abstract class UpgradeSpecificWeapon : Upgrade
     {
         if (target.TryGetComponent<WeaponManager>(out WeaponManager weaponManager))
         {
-            weaponManager.FindWeapon(weaponPrefab);
+            Upgrade(weaponManager.FindWeapon(weaponPrefab));
         }
     }
 
