@@ -28,7 +28,21 @@ public class UpgradeManager : MonoBehaviour
     
     public void ApplyUpgrade(Upgrade upgrade)
     {
-        upgrade.Apply(player.gameObject);
+        if (upgrade is UpgradeSpecificWeapon upgradeSpecificWeapon)
+        {
+            UpgradeStatus upgradeStatus = FindUpgradeStatus(upgrade);
+
+            if (upgradeStatus.amount < upgradeSpecificWeapon.maxUpgradeCount)
+            {
+                upgradeSpecificWeapon.Apply(player.gameObject);
+                upgradeStatus.amount++;
+            }
+        }
+        else
+        {
+            upgrade.Apply(player.gameObject);
+        }
+        
     }
 
     public Upgrade[] GetNonDuplicateUpgrades(int upgradeCount)
@@ -55,6 +69,7 @@ public class UpgradeManager : MonoBehaviour
         // Grab three first indexes, which are randomized
         for (int i = 0; i < upgradeCount; i++)
         {
+            nonDuplicateUpgrades[i] = upgrades[upgradeIndexes[i]].upgrade;
         }
 
         return nonDuplicateUpgrades;
