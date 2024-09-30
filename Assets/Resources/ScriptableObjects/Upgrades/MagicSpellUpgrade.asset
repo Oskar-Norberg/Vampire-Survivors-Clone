@@ -15,3 +15,4 @@ MonoBehaviour:
   name: Upgrade Magic Spell
   description: more spells :3
   weaponPrefab: {fileID: 4870586607499337545, guid: 5629a0786e32fb14395a7a1c7b93867a, type: 3}
+  maxUpgradeCount: 5
