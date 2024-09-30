@@ -61,23 +61,6 @@ public class OrbitingSaw : WeaponBase
         RotateOrbitingObjects();
     }
 
-    protected override void UpgradeOne()
-    {
-        AddSaw();
-    }
-    
-    protected override void UpgradeTwo()
-    {
-        AddSaw();
-        orbitSpeed += 25.0f;
-    }
-    
-    protected override void UpgradeThree()
-    {
-        orbitRadius += 2.0f;
-        AddSaw();
-    }
-
     protected override void Pause()
     {
         base.Pause();
