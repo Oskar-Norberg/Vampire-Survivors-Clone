@@ -79,4 +79,10 @@ public class MagicSpellSpawner : WeaponBase
 
         timer = 0.0f;
     }
+
+    public void IncreaseSpellCount()
+    {
+        spellCount++;
+        if (spellCount > 4) spellCount = 4;
+    }
 }
