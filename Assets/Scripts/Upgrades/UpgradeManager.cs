@@ -51,9 +51,4 @@ public class UpgradeManager : MonoBehaviour
 
         return nonDuplicateUpgrades;
     }
-    
-    public Upgrade GetRandomUpgrade()
-    {
-        return upgrades[Random.Range(0, upgrades.Length)];
-    }
 }
