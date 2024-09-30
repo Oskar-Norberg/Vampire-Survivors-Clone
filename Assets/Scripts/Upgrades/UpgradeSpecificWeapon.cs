@@ -7,6 +7,8 @@ using UnityEngine;
 public abstract class UpgradeSpecificWeapon : Upgrade
 {
     public GameObject weaponPrefab;
+
+    public int maxUpgradeCount;
     
     public override void Apply(GameObject target)
     {
