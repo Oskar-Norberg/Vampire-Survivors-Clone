@@ -51,4 +51,17 @@ public class UpgradeManager : MonoBehaviour
 
         return nonDuplicateUpgrades;
     }
+
+    private UpgradeStatus FindUpgradeStatus(Upgrade upgrade)
+    {
+        foreach (UpgradeStatus upgradeStatus in upgrades)
+        {
+            if (upgradeStatus.upgrade == upgrade)
+            {
+                return upgradeStatus;
+            }
+        }
+
+        return null;
+    }
 }
