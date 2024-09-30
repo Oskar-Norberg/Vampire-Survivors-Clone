@@ -15,35 +15,19 @@ public class WeaponManager : MonoBehaviour
         weapons.Add(instance.GetComponent<WeaponBase>());
     }
 
-    public void UpgradeWeapon(GameObject weapon)
+    public WeaponBase FindWeapon(GameObject weapon)
     {
-        WeaponBase foundWeapon = null;
-        
         Type weaponType = weapon.GetComponent<WeaponBase>().GetType();
-        
+
         foreach (WeaponBase playerWeapon in weapons)
         {
             Type playerWeaponType = playerWeapon.GetType();
             if (weaponType == playerWeaponType)
             {
-                foundWeapon = playerWeapon;
-                break;
+                return playerWeapon;
             }
         }
 
-        if (foundWeapon)
-        {
-            foundWeapon.Upgrade();
-        }
-        else
-        {
-            AddWeapon(weapon);
-        }
-    }
-
-    public void UpgradeRandomWeapon()
-    {
-        int index = Random.Range(0, weapons.Count);
-        weapons[index].Upgrade();
+        return null;
     }
 }

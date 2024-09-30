@@ -11,7 +11,7 @@ public class UpgradeSpecificWeapon : Upgrade
     {
         if (target.TryGetComponent<WeaponManager>(out WeaponManager weaponManager))
         {
-            weaponManager.UpgradeWeapon(weapon);
+            weaponManager.FindWeapon(weapon);
         }
     }
 }
