@@ -13,11 +13,15 @@ public abstract class UpgradeSpecificWeapon : Upgrade
         if (target.TryGetComponent<WeaponManager>(out WeaponManager weaponManager))
         {
             WeaponBase weapon = weaponManager.FindWeapon(weaponPrefab);
+            
             if (!weapon)
             {
-                throw new Exception("Could not find weapon.");
+                weaponManager.AddWeapon(weaponPrefab);
             }
-            Upgrade(weapon);
+            else
+            {
+                Upgrade(weapon);
+            }
         }
     }
 
