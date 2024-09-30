@@ -10,11 +10,20 @@ public class UpgradeManager : MonoBehaviour
 
     private const string UpgradePath = "ScriptableObjects/Upgrades";
     
-    private Upgrade[] upgrades;
+    public class UpgradeStatus
+    {
+        public Upgrade upgrade;
+        public int amount;
+    }
+    private List<UpgradeStatus> upgrades = new List<UpgradeStatus>();
 
     private void Start()
     {
-        upgrades = Resources.LoadAll<Upgrade>(UpgradePath);
+        Upgrade[] allUpgrades = Resources.LoadAll<Upgrade>(UpgradePath);
+        foreach (Upgrade upgrade in allUpgrades)
+        {
+            upgrades.Add(new UpgradeStatus { upgrade = upgrade, amount = 0 });
+        }
     }
     
     public void ApplyUpgrade(Upgrade upgrade)
@@ -27,15 +36,15 @@ public class UpgradeManager : MonoBehaviour
         Upgrade[] nonDuplicateUpgrades = new Upgrade[upgradeCount];
         
         // Array of all possible indexes
-        int[] upgradeIndexes = new int[upgrades.Length];
+        int[] upgradeIndexes = new int[upgrades.Count];
         
-        for (int i = 0; i < upgrades.Length; i++)
+        for (int i = 0; i < upgrades.Count; i++)
         {
             upgradeIndexes[i] = i;
         }
         
         // Randomize indexes
-        for (int i = 0; i < upgrades.Length; i++)
+        for (int i = 0; i < upgrades.Count; i++)
         {
             int index1 = Random.Range(0, upgradeIndexes.Length);
             int index2 = Random.Range(0, upgradeIndexes.Length);
@@ -46,7 +55,6 @@ public class UpgradeManager : MonoBehaviour
         // Grab three first indexes, which are randomized
         for (int i = 0; i < upgradeCount; i++)
         {
-            nonDuplicateUpgrades[i] = upgrades[upgradeIndexes[i]];
         }
 
         return nonDuplicateUpgrades;
