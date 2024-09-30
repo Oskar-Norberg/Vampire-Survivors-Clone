@@ -29,7 +29,7 @@ public class OrbitingSaw : WeaponBase
         attack.SetDamage(weaponData.damage);
     }
 
-    private void AddSaw()
+    public void AddSaw()
     {
         GameObject newBomb = Instantiate(orbitingPrefab, orbitCenter);
         
