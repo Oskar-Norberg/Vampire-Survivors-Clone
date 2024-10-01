@@ -18,12 +18,10 @@ public abstract class UpgradeSpecificWeapon : Upgrade
             
             if (!weapon)
             {
-                weaponManager.AddWeapon(weaponPrefab);
+                throw new KeyNotFoundException("Player does not have weapon");
             }
-            else
-            {
-                Upgrade(weapon);
-            }
+
+            Upgrade(weapon);
         }
     }
 

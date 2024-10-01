@@ -75,6 +75,11 @@ public class UpgradeManager : MonoBehaviour
         return nonDuplicateUpgrades;
     }
 
+    private bool HasWeapon(GameObject weapon)
+    {
+        return weaponManager.FindWeapon(weapon);
+    }
+
     private UpgradeStatus FindUpgradeStatus(Upgrade upgrade)
     {
         foreach (UpgradeStatus upgradeStatus in upgrades)
