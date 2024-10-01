@@ -50,5 +50,10 @@ public class UpgradeCreationTool : EditorWindow
                 GUILayout.EndHorizontal();
                 break;
         }
+
+        if (GUILayout.Button("Create Upgrade"))
+        { 
+        }
+        
     }
 }
