@@ -43,33 +43,41 @@ public class UpgradeManager : MonoBehaviour
     }
 
     public Upgrade[] GetNonDuplicateUpgrades(int upgradeCount)
-    {
-        Upgrade[] nonDuplicateUpgrades = new Upgrade[upgradeCount];
-        
+    {       
+        Upgrade[] returnUpgrades = new Upgrade[upgradeCount];
+
         // Array of all possible indexes
-        int[] upgradeIndexes = new int[upgrades.Count];
+        int[] upgradeIndexes = new int[upgradeCount];
         
-        for (int i = 0; i < upgrades.Count; i++)
+        for (int i = 0; i < upgradeCount; i++)
         {
             upgradeIndexes[i] = i;
         }
         
         // Randomize indexes
-        for (int i = 0; i < upgrades.Count; i++)
+        for (int i = 0; i < upgradeCount; i++)
         {
             int index1 = Random.Range(0, upgradeIndexes.Length);
             int index2 = Random.Range(0, upgradeIndexes.Length);
             
             (upgradeIndexes[index1], upgradeIndexes[index2]) = (upgradeIndexes[index2], upgradeIndexes[index1]);
         }
-
-        // Grab three first indexes, which are randomized
+        
+        // Set returnUpgrades
         for (int i = 0; i < upgradeCount; i++)
         {
-            nonDuplicateUpgrades[i] = upgrades[upgradeIndexes[i]].upgrade;
+            // If upgrade index is outside of range
+            if (upgradeIndexes[i] >= upgrades.Count)
+            {
+                returnUpgrades[i] = upgrades[Random.Range(0, upgrades.Count)].upgrade;
+            }
+            else
+            {
+                returnUpgrades[i] = upgrades[upgradeIndexes[i]].upgrade;
+            }
         }
 
-        return nonDuplicateUpgrades;
+        return returnUpgrades;
     }
 
     private bool HasWeapon(GameObject weapon)
