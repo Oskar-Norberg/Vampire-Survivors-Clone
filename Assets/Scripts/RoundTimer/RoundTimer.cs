@@ -16,4 +16,15 @@ public class RoundTimer : PausableMonoBehaviour
    {
       return time;
    }
+
+   public string GetFormattedString()
+   {
+      float time = GetTimeInSeconds();
+      int minutes = Mathf.FloorToInt(time / 60.0f);
+      string minutesString = minutes.ToString("D2");
+      int seconds = Mathf.FloorToInt(time % 60.0f);
+      string secondsString = seconds.ToString("D2");
+      
+      return minutesString + ":" + secondsString;
+   }
 }
