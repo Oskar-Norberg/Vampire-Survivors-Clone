@@ -73,6 +73,13 @@ public class EnemyCreationTool : EditorWindow
             enemyData.tickCooldownMilliseconds = tickCooldownMilliseconds;
             enemyData.invincibilityTimeMilliseconds = invincibilityTimeMilliseconds;
             enemyData.moveSpeed = moveSpeed;
+            
+            
+            GameObject enemyBase = AssetDatabase.LoadAssetAtPath<GameObject>(ENEMY_BASE_PATH);
+            GameObject enemyBaseInstance = PrefabUtility.InstantiatePrefab(enemyBase) as GameObject;
+            
+            // Save EnemyData and prefab
+            GameObject newEnemy = PrefabUtility.SaveAsPrefabAsset(enemyBaseInstance, ENEMY_FOLDER_PATH + "/" + name + ".prefab");
             AssetDatabase.CreateAsset(enemyData, ENEMY_DATA_FOLDER_PATH + "/" + name.Trim(' ').Trim() + ".asset");
         }
         }
