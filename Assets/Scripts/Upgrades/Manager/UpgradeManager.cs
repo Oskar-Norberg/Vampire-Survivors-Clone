@@ -38,8 +38,8 @@ public class UpgradeManager : MonoBehaviour
         else
         {
             upgrade.Apply(player.gameObject);
+            upgradeStatus.amount++;
         }
-        upgradeStatus.amount++;
     }
 
     public Upgrade[] GetMultipleUpgrades(int upgradeCount)
@@ -107,6 +107,7 @@ public class UpgradeManager : MonoBehaviour
             if (upgradeStatus.amount < upgradeSpecificWeapon.maxUpgradeCount)
             {
                 upgradeStatus.upgrade.Apply(player.gameObject);
+                upgradeStatus.amount++;
 
                 if (upgradeStatus.amount >= upgradeSpecificWeapon.maxUpgradeCount)
                 {
