@@ -66,6 +66,15 @@ public class EnemyCreationTool : EditorWindow
 
         if (GUILayout.Button("Create Enemy"))
         {
+            EnemyData enemyData = ScriptableObject.CreateInstance<EnemyData>();
+
+            enemyData.health = health;
+            enemyData.damage = damage;
+            enemyData.tickCooldownMilliseconds = tickCooldownMilliseconds;
+            enemyData.invincibilityTimeMilliseconds = invincibilityTimeMilliseconds;
+            enemyData.moveSpeed = moveSpeed;
+            AssetDatabase.CreateAsset(enemyData, ENEMY_DATA_FOLDER_PATH + "/" + name.Trim(' ').Trim() + ".asset");
+        }
         }
     }
 }
