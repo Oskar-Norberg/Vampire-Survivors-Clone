@@ -21,6 +21,8 @@ public class MagicSpellSpawner : WeaponBase
         public Animator animator;
         public Rigidbody2D rigidbody;
     }
+
+    [SerializeField] private int spellCount = 1; 
     
     private SpellData[] spells = new SpellData[4];
 
@@ -55,7 +57,7 @@ public class MagicSpellSpawner : WeaponBase
     {
         if (spells == null || playerFlipSprite == null) return;
 
-        for (int i = 0; i < upgrade + 1; i++)
+        for (int i = 0; i < spellCount; i++)
         {
             SpellData spell = spells[i];
         
@@ -69,7 +71,7 @@ public class MagicSpellSpawner : WeaponBase
                 force *= -1.0f;
             }
             
-            force = Quaternion.AngleAxis(360.0f / (upgrade + 1) * i, Vector3.forward)  * force;
+            force = Quaternion.AngleAxis(360.0f / spellCount * i, Vector3.forward)  * force;
             
             spell.rigidbody.AddForce(force);
             spell.animator.SetTrigger("Activate");
@@ -78,18 +80,10 @@ public class MagicSpellSpawner : WeaponBase
         timer = 0.0f;
     }
 
-    protected override void UpgradeOne()
+    public void IncreaseSpellCount()
     {
-        
-    }
-
-    protected override void UpgradeTwo()
-    {
-        
-    }
-
-    protected override void UpgradeThree()
-    {
-        
+        print("SPELL COUNT INCREASE");
+        spellCount++;
+        if (spellCount > 4) spellCount = 4;
     }
 }

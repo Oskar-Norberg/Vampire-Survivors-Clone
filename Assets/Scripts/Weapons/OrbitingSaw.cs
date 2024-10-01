@@ -29,7 +29,7 @@ public class OrbitingSaw : WeaponBase
         attack.SetDamage(weaponData.damage);
     }
 
-    private void AddSaw()
+    public void AddSaw()
     {
         GameObject newBomb = Instantiate(orbitingPrefab, orbitCenter);
         
@@ -59,23 +59,6 @@ public class OrbitingSaw : WeaponBase
     {
         if (IsPaused) return; 
         RotateOrbitingObjects();
-    }
-
-    protected override void UpgradeOne()
-    {
-        AddSaw();
-    }
-    
-    protected override void UpgradeTwo()
-    {
-        AddSaw();
-        orbitSpeed += 25.0f;
-    }
-    
-    protected override void UpgradeThree()
-    {
-        orbitRadius += 2.0f;
-        AddSaw();
     }
 
     protected override void Pause()

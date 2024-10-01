@@ -9,9 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6b222f428fbc859409fc99dfa83ca902, type: 3}
-  m_Name: UpgradeMagicSpell
+  m_Script: {fileID: 11500000, guid: 6a6c0f65108d38d43b77bf8e2e6c6817, type: 3}
+  m_Name: MagicSpellUpgrade
   m_EditorClassIdentifier: 
   name: Upgrade Magic Spell
-  description: Summon more spells
-  weapon: {fileID: 4870586607499337545, guid: 5629a0786e32fb14395a7a1c7b93867a, type: 3}
+  description: more spells :3
+  weaponPrefab: {fileID: 4870586607499337545, guid: 5629a0786e32fb14395a7a1c7b93867a, type: 3}
+  maxUpgradeCount: 3
