@@ -63,5 +63,9 @@ public class EnemyCreationTool : EditorWindow
         GUILayout.EndHorizontal();
         
         EditorGUILayout.Space();
+
+        if (GUILayout.Button("Create Enemy"))
+        {
+        }
     }
 }
