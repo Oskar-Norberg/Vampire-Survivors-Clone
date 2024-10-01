@@ -31,5 +31,8 @@ public class UpgradeCreationTool : EditorWindow
         upgradeDescription = EditorGUILayout.TextField("Description", upgradeDescription);
         GUILayout.EndHorizontal();
         
+        GUILayout.BeginHorizontal();
+        type = (Type) EditorGUILayout.EnumPopup("Upgrade type", type);
+        GUILayout.EndHorizontal();
     }
 }
