@@ -5,7 +5,7 @@ using UnityEngine;
 [CreateAssetMenu (menuName = "Upgrades/SpeedUpgrade")]
 public class SpeedUpgrade : Upgrade
 {
-    [SerializeField] private float speedIncreasePercent;
+    public float speedIncreasePercent;
     
     public override void Apply(GameObject target)
     {
