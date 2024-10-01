@@ -6,6 +6,10 @@ using UnityEngine;
 
 public class EnemyCreationTool : EditorWindow
 {
+    private const string ENEMY_FOLDER_PATH = "Assets/Prefabs/Enemies";
+    private const string ENEMY_BASE_PATH = ENEMY_FOLDER_PATH + "/" + "EnemyBase.prefab";
+    
+    private const string ENEMY_DATA_FOLDER_PATH = "Assets/ScriptableObjects/EnemyData";
     
     private new string name;
 
