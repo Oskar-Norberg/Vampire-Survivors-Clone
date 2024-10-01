@@ -5620,6 +5620,14 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -50
       objectReference: {fileID: 0}
+    - target: {fileID: 4085544927896268941, guid: 8dc103341762a0443899db7b135ec833, type: 3}
+      propertyPath: roundTimer
+      value: 
+      objectReference: {fileID: 2065162365}
+    - target: {fileID: 4085544927896268941, guid: 8dc103341762a0443899db7b135ec833, type: 3}
+      propertyPath: upgradeManager
+      value: 
+      objectReference: {fileID: 534151320}
     - target: {fileID: 6801527647319759500, guid: 8dc103341762a0443899db7b135ec833, type: 3}
       propertyPath: m_Pivot.x
       value: 0

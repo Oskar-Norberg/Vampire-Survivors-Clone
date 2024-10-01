@@ -11,12 +11,13 @@ public class UpgradeManager : MonoBehaviour
 
     private const string UpgradePath = "ScriptableObjects/Upgrades";
     
-    private class UpgradeStatus
+    public class UpgradeStatus
     {
         public Upgrade upgrade;
         public int amount;
     }
     private List<UpgradeStatus> upgrades = new List<UpgradeStatus>();
+    private List<UpgradeStatus> finishedUpgrades = new List<UpgradeStatus>();
 
     private void Start()
     {
@@ -112,6 +113,7 @@ public class UpgradeManager : MonoBehaviour
                 if (upgradeStatus.amount >= upgradeSpecificWeapon.maxUpgradeCount)
                 {
                     upgrades.Remove(upgradeStatus);
+                    finishedUpgrades.Add(upgradeStatus);
                 }
             }
         }
@@ -119,5 +121,21 @@ public class UpgradeManager : MonoBehaviour
         {
             weaponManager.AddWeapon(upgradeSpecificWeapon.weaponPrefab);
         }
+    }
+
+    public List<UpgradeStatus> GetAllAppliedUpgrades()
+    {
+        List<UpgradeStatus> returnUpgrades = new List<UpgradeStatus>();
+
+        foreach (UpgradeStatus upgrade in upgrades)
+        {
+            if (upgrade.amount > 0) returnUpgrades.Add(upgrade);
+        }
+        foreach (UpgradeStatus upgrade in finishedUpgrades)
+        {
+            if (upgrade.amount > 0) returnUpgrades.Add(upgrade);
+        }
+
+        return returnUpgrades;
     }
 }
