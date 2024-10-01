@@ -7,6 +7,7 @@ using Random = UnityEngine.Random;
 public class UpgradeManager : MonoBehaviour
 {
     [SerializeField] private PlayerController player;
+    [SerializeField] private WeaponManager weaponManager;
 
     private const string UpgradePath = "ScriptableObjects/Upgrades";
     
@@ -32,11 +33,7 @@ public class UpgradeManager : MonoBehaviour
         {
             UpgradeStatus upgradeStatus = FindUpgradeStatus(upgrade);
 
-            if (upgradeStatus.amount < upgradeSpecificWeapon.maxUpgradeCount)
-            {
-                upgradeSpecificWeapon.Apply(player.gameObject);
-                upgradeStatus.amount++;
-            }
+            UpgradeWeapon(upgradeStatus);
         }
         else
         {
@@ -91,5 +88,32 @@ public class UpgradeManager : MonoBehaviour
         }
 
         return null;
+    }
+
+    private void UpgradeWeapon(UpgradeStatus upgradeStatus)
+    {
+        UpgradeSpecificWeapon upgradeSpecificWeapon = (UpgradeSpecificWeapon) upgradeStatus.upgrade;
+        
+        if (HasWeapon(upgradeSpecificWeapon.weaponPrefab))
+        {
+            if (upgradeStatus.amount < upgradeSpecificWeapon.maxUpgradeCount)
+            {
+                upgradeStatus.upgrade.Apply(player.gameObject);
+                upgradeStatus.amount++;
+
+                if (upgradeStatus.amount >= upgradeSpecificWeapon.maxUpgradeCount)
+                {
+                    upgrades.Remove(upgradeStatus);
+                }
+            }
+            else
+            {
+                Debug.Log("MAX UPGRADE REACHED");
+            }
+        }
+        else
+        {
+            weaponManager.AddWeapon(upgradeSpecificWeapon.weaponPrefab);
+        }
     }
 }
