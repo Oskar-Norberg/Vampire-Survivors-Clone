@@ -48,15 +48,15 @@ public class UpgradeManager : MonoBehaviour
         Upgrade[] returnUpgrades = new Upgrade[upgradeCount];
 
         // Array of all possible indexes
-        int[] upgradeIndexes = new int[upgradeCount];
+        int[] upgradeIndexes = new int[upgrades.Count];
         
-        for (int i = 0; i < upgradeCount; i++)
+        for (int i = 0; i < upgrades.Count; i++)
         {
             upgradeIndexes[i] = i;
         }
         
         // Randomize indexes
-        for (int i = 0; i < upgradeCount; i++)
+        for (int i = 0; i < upgrades.Count; i++)
         {
             int index1 = Random.Range(0, upgradeIndexes.Length);
             int index2 = Random.Range(0, upgradeIndexes.Length);
@@ -67,8 +67,8 @@ public class UpgradeManager : MonoBehaviour
         // Set returnUpgrades
         for (int i = 0; i < upgradeCount; i++)
         {
-            // If upgrade index is outside of range
-            if (upgradeIndexes[i] >= upgrades.Count)
+            // Pick random if outside range
+            if (i >= upgradeIndexes.Length)
             {
                 returnUpgrades[i] = upgrades[Random.Range(0, upgrades.Count)].upgrade;
             }
