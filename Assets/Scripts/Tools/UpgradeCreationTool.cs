@@ -68,6 +68,14 @@ public class UpgradeCreationTool : EditorWindow
                     }
                     break;
                 
+                case Type.Speed:
+                    asset = ScriptableObject.CreateInstance<SpeedUpgrade>();
+                    SpeedUpgrade speed = asset as SpeedUpgrade;
+                    if (speed)
+                    {
+                        speed.speedIncreasePercent = increase;
+                    }
+                    break;
             }
         }
         
