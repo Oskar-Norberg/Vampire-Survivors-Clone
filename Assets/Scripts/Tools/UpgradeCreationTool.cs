@@ -1,0 +1,94 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEditor;
+using UnityEngine;
+
+public class UpgradeCreationTool : EditorWindow
+{
+    private const string UPGRADE_PATH = "Assets/Resources/ScriptableObjects/Upgrades";
+    
+    private string upgradeName;
+    private string upgradeDescription;
+
+    private int increase;
+    
+    private enum Type {MaxHealth, Speed}
+    private Type type;
+
+    
+    [MenuItem("Tools/Upgrade Creation")]
+    public static void ShowWindow()
+    {
+        EditorWindow.GetWindow<UpgradeCreationTool>("Upgrade Creation Tool");
+    }
+    
+    private void OnGUI()
+    {
+        GUILayout.Label("Upgrade Creation Tool", EditorStyles.boldLabel);
+        
+        GUILayout.BeginHorizontal();
+        upgradeName = EditorGUILayout.TextField("Name", upgradeName);
+        GUILayout.EndHorizontal();
+        
+        GUILayout.BeginHorizontal();
+        upgradeDescription = EditorGUILayout.TextField("Description", upgradeDescription);
+        GUILayout.EndHorizontal();
+        
+        GUILayout.BeginHorizontal();
+        type = (Type) EditorGUILayout.EnumPopup("Upgrade type", type);
+        GUILayout.EndHorizontal();
+
+        switch (type)
+        {
+            case Type.MaxHealth:
+                GUILayout.BeginHorizontal();
+                increase = EditorGUILayout.IntField("Max Health Increase", increase);
+                GUILayout.EndHorizontal();
+                break;
+            case Type.Speed:
+                GUILayout.BeginHorizontal();
+                increase = EditorGUILayout.IntField("Speed Increase", increase);
+                GUILayout.EndHorizontal();
+                break;
+        }
+
+        if (GUILayout.Button("Create Upgrade"))
+        { 
+            Upgrade asset = null;
+            
+            switch (type)
+            { 
+                case Type.MaxHealth:
+                    asset = ScriptableObject.CreateInstance<MaxHealthUpgrade>();
+                    MaxHealthUpgrade maxHealth = asset as MaxHealthUpgrade;
+                    if (maxHealth)
+                    {
+                        maxHealth.increaseAmount = increase;
+                    }
+                    break;
+                
+                case Type.Speed:
+                    asset = ScriptableObject.CreateInstance<SpeedUpgrade>();
+                    SpeedUpgrade speed = asset as SpeedUpgrade;
+                    if (speed)
+                    {
+                        speed.speedIncreasePercent = increase;
+                    }
+                    break;
+                default:
+                    Debug.Log("UpgradeCreationTool: Unknown Upgrade type");
+                    break;
+            }
+
+            // Universal upgrade parameters
+            if (asset)
+            {
+                asset.name = upgradeName;
+                asset.description = upgradeDescription;
+                Debug.Log(UPGRADE_PATH + "/" + upgradeName.Trim(' ').Trim() + ".asset");
+                AssetDatabase.CreateAsset(asset, UPGRADE_PATH + "/" + upgradeName.Trim(' ').Trim() + ".asset");
+            }
+        }
+    }
+}

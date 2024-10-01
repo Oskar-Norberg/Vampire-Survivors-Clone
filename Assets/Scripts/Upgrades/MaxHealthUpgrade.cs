@@ -5,7 +5,7 @@ using UnityEngine;
 [CreateAssetMenu (menuName = "Upgrades/MaxHealthUpgrade")]
 public class MaxHealthUpgrade : Upgrade
 {
-    [SerializeField] private int increaseAmount;
+    public int increaseAmount;
     
     public override void Apply(GameObject target)
     {
