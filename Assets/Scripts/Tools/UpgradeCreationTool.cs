@@ -80,8 +80,15 @@ public class UpgradeCreationTool : EditorWindow
                     Debug.Log("UpgradeCreationTool: Unknown Upgrade type");
                     break;
             }
+
+            // Universal upgrade parameters
+            if (asset)
+            {
+                asset.name = upgradeName;
+                asset.description = upgradeDescription;
+                Debug.Log(UPGRADE_PATH + "/" + upgradeName.Trim(' ').Trim() + ".asset");
+                AssetDatabase.CreateAsset(asset, UPGRADE_PATH + "/" + upgradeName.Trim(' ').Trim() + ".asset");
             }
         }
-        
     }
 }
