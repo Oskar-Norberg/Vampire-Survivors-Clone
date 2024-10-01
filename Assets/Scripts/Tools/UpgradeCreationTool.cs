@@ -55,6 +55,20 @@ public class UpgradeCreationTool : EditorWindow
 
         if (GUILayout.Button("Create Upgrade"))
         { 
+            Upgrade asset = null;
+            
+            switch (type)
+            { 
+                case Type.MaxHealth:
+                    asset = ScriptableObject.CreateInstance<MaxHealthUpgrade>();
+                    MaxHealthUpgrade maxHealth = asset as MaxHealthUpgrade;
+                    if (maxHealth)
+                    {
+                        maxHealth.increaseAmount = increase;
+                    }
+                    break;
+                
+            }
         }
         
     }
