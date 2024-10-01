@@ -6,8 +6,8 @@ using UnityEngine;
 
 public class UpgradeCreationTool : EditorWindow
 {
-    // Start is called before the first frame update
-    void Start()
+    private const string UPGRADE_PATH = "Assets/Resources/ScriptableObjects/Upgrades";
+    
     private string upgradeName;
     private string upgradeDescription;
 
@@ -15,6 +15,8 @@ public class UpgradeCreationTool : EditorWindow
     
     private enum Type {MaxHealth, Speed}
     private Type type;
+
+    
     [MenuItem("Tools/Upgrade Creation")]
     public static void ShowWindow()
     {
