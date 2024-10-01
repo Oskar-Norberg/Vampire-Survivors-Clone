@@ -11,7 +11,7 @@ public class UpgradeManager : MonoBehaviour
 
     private const string UpgradePath = "ScriptableObjects/Upgrades";
     
-    private class UpgradeStatus
+    public class UpgradeStatus
     {
         public Upgrade upgrade;
         public int amount;
