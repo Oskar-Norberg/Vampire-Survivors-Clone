@@ -29,9 +29,9 @@ public class UpgradeManager : MonoBehaviour
     
     public void ApplyUpgrade(Upgrade upgrade)
     {
+        UpgradeStatus upgradeStatus = FindUpgradeStatus(upgrade);
         if (upgrade is UpgradeSpecificWeapon upgradeSpecificWeapon)
         {
-            UpgradeStatus upgradeStatus = FindUpgradeStatus(upgrade);
 
             UpgradeWeapon(upgradeStatus);
         }
@@ -39,7 +39,7 @@ public class UpgradeManager : MonoBehaviour
         {
             upgrade.Apply(player.gameObject);
         }
-        
+        upgradeStatus.amount++;
     }
 
     public Upgrade[] GetMultipleUpgrades(int upgradeCount)
@@ -107,16 +107,11 @@ public class UpgradeManager : MonoBehaviour
             if (upgradeStatus.amount < upgradeSpecificWeapon.maxUpgradeCount)
             {
                 upgradeStatus.upgrade.Apply(player.gameObject);
-                upgradeStatus.amount++;
 
                 if (upgradeStatus.amount >= upgradeSpecificWeapon.maxUpgradeCount)
                 {
                     upgrades.Remove(upgradeStatus);
                 }
-            }
-            else
-            {
-                Debug.Log("MAX UPGRADE REACHED");
             }
         }
         else
