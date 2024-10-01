@@ -16,4 +16,10 @@ public class EnemyCreationTool : EditorWindow
     private int invincibilityTimeMilliseconds;
     
     private float moveSpeed;
+    
+    [MenuItem("Tools/Enemy Creation")]
+    public static void ShowWindow()
+    {
+        EnemyCreationTool window = EditorWindow.GetWindow<EnemyCreationTool>("Enemy Creation Tool");
+    }
 }
