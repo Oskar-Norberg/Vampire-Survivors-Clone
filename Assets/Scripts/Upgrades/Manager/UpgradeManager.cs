@@ -17,6 +17,7 @@ public class UpgradeManager : MonoBehaviour
         public int amount;
     }
     private List<UpgradeStatus> upgrades = new List<UpgradeStatus>();
+    private List<UpgradeStatus> finishedUpgrades = new List<UpgradeStatus>();
 
     private void Start()
     {
@@ -112,6 +113,7 @@ public class UpgradeManager : MonoBehaviour
                 if (upgradeStatus.amount >= upgradeSpecificWeapon.maxUpgradeCount)
                 {
                     upgrades.Remove(upgradeStatus);
+                    finishedUpgrades.Add(upgradeStatus);
                 }
             }
         }
