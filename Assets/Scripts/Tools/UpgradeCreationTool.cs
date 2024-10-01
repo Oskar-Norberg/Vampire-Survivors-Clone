@@ -11,6 +11,8 @@ public class UpgradeCreationTool : EditorWindow
     private string upgradeName;
     private string upgradeDescription;
 
+    private enum Type {MaxHealth, Speed}
+    private Type type;
     [MenuItem("Tools/Upgrade Creation")]
     public static void ShowWindow()
     {
