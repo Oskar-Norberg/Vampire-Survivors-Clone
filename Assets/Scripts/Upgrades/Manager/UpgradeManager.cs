@@ -42,7 +42,7 @@ public class UpgradeManager : MonoBehaviour
         
     }
 
-    public Upgrade[] GetNonDuplicateUpgrades(int upgradeCount)
+    public Upgrade[] GetMultipleUpgrades(int upgradeCount)
     {       
         Upgrade[] returnUpgrades = new Upgrade[upgradeCount];
 
