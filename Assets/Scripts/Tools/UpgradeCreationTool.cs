@@ -76,6 +76,10 @@ public class UpgradeCreationTool : EditorWindow
                         speed.speedIncreasePercent = increase;
                     }
                     break;
+                default:
+                    Debug.Log("UpgradeCreationTool: Unknown Upgrade type");
+                    break;
+            }
             }
         }
         
