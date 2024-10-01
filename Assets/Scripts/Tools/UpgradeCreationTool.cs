@@ -34,5 +34,19 @@ public class UpgradeCreationTool : EditorWindow
         GUILayout.BeginHorizontal();
         type = (Type) EditorGUILayout.EnumPopup("Upgrade type", type);
         GUILayout.EndHorizontal();
+
+        switch (type)
+        {
+            case Type.MaxHealth:
+                GUILayout.BeginHorizontal();
+                increase = EditorGUILayout.IntField("Max Health Increase", increase);
+                GUILayout.EndHorizontal();
+                break;
+            case Type.Speed:
+                GUILayout.BeginHorizontal();
+                increase = EditorGUILayout.IntField("Speed Increase", increase);
+                GUILayout.EndHorizontal();
+                break;
+        }
     }
 }
