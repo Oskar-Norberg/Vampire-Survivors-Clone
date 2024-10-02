@@ -90,6 +90,7 @@ public class EnemyCreationTool : EditorWindow
             string scriptableObjectPath = ENEMY_DATA_FOLDER_PATH + "/" + name.Trim(' ').Trim() + ".asset";
             
             GameObject newEnemy = PrefabUtility.SaveAsPrefabAsset(enemyBaseInstance, prefabVariantPath);
+            newEnemy.GetComponent<EnemyBase>().SetEnemyData(enemyData);
             AssetDatabase.CreateAsset(enemyData, scriptableObjectPath);
         }
     }
