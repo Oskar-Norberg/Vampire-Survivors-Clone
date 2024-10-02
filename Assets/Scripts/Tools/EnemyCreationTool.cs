@@ -92,6 +92,9 @@ public class EnemyCreationTool : EditorWindow
             GameObject newEnemy = PrefabUtility.SaveAsPrefabAsset(enemyBaseInstance, prefabVariantPath);
             newEnemy.GetComponent<EnemyBase>().SetEnemyData(enemyData);
             AssetDatabase.CreateAsset(enemyData, scriptableObjectPath);
+            
+            // Remove base prefab instance, otherwise leaves an EnemyBase instance in current scene
+            DestroyImmediate(enemyBaseInstance);
         }
     }
 }
