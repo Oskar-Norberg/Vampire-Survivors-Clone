@@ -12,6 +12,26 @@ public class AIMovement : MonoBehaviour
 
     public Vector2 PathFind(Vector2 position, Vector2 targetPosition)
     {
+        Vector2 wishDir;
+        
+        switch (aiType)
+        {
+            case AIType.MoveTowards:
+                float distanceToPlayer = Vector2.Distance(position, targetPosition);
+                wishDir = targetPosition - position;
+                return Vector2.ClampMagnitude(wishDir, 1.0f);
+            case AIType.Sinusodial:
+                wishDir = targetPosition - position;
+
+                Vector2 perpendicularDir = new Vector2(-wishDir.y, wishDir.x);
+
+                float oscillationMagnitude = Mathf.Sin(Time.time * oscillationSpeed) * oscillationAmplitude;
+                wishDir += perpendicularDir * oscillationMagnitude;
+
+                return wishDir.normalized;
+            default:
+                Debug.Log("Invalid AI Type");
+                return Vector2.zero;
         }
     }
 
