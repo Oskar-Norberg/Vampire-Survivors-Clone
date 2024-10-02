@@ -5,18 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="59d1fd8d-ed6a-4106-9b88-d2382d691383" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/EnemyAI.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/EnemyAI/CosineTowardsEnemy.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/EnemyAI/CosineTowardsEnemy.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/EnemyAI/MoveTowards.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/EnemyAI/MoveTowards.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Enemies/EnemyAI.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Enemies/EnemyAI/CosineAIStrategy.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Enemies/EnemyAI/CosineAIStrategy.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Enemies/EnemyAI/IAIStrategy.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Enemies/EnemyAI/IAIStrategy.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Enemies/EnemyAI/MoveTowardsAIStrategy.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Enemies/EnemyAI/MoveTowardsAIStrategy.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Vampire Survivors Clone/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Vampire Survivors Clone/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Enemies/EnemyBase.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Enemies/EnemyBase.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/XPOrb/OneXPOrb.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/XPOrb/OneXPOrb.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Components/MoveTowardsTrigger.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Components/MoveTowardsTrigger.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Enemies/Enemies/EnemyBase.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Enemies/Enemies/EnemyBase.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/ScriptableObjects/EnemyData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ScriptableObjects/EnemyData.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -33,6 +26,7 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/011ccacb58784a80ac4b48b4c50ee0b7176400/06/c158a412/Object.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/ffe351aa6232372f4a3b8c3ff36a636f33de226f60e607acbfe569289d7289d/System.IO.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/AI/AIMovement.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/AnimationFunctions/Disable.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Components/BlinkSpriteOnHit.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Components/DestroyOnTriggerEnter.cs" root0="FORCE_HIGHLIGHTING" />
