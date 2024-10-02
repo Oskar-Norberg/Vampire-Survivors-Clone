@@ -86,9 +86,11 @@ public class EnemyCreationTool : EditorWindow
             GameObject enemyBaseInstance = PrefabUtility.InstantiatePrefab(enemyBase) as GameObject;
 
             // Save EnemyData and prefab
-            GameObject newEnemy =
-                PrefabUtility.SaveAsPrefabAsset(enemyBaseInstance, ENEMY_FOLDER_PATH + "/" + name + ".prefab");
-            AssetDatabase.CreateAsset(enemyData, ENEMY_DATA_FOLDER_PATH + "/" + name.Trim(' ').Trim() + ".asset");
+            string prefabVariantPath = ENEMY_FOLDER_PATH + "/" + name.Trim(' ').Trim() + ".prefab";
+            string scriptableObjectPath = ENEMY_DATA_FOLDER_PATH + "/" + name.Trim(' ').Trim() + ".asset";
+            
+            GameObject newEnemy = PrefabUtility.SaveAsPrefabAsset(enemyBaseInstance, prefabVariantPath);
+            AssetDatabase.CreateAsset(enemyData, scriptableObjectPath);
         }
     }
 }
