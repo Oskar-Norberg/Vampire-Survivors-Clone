@@ -7,7 +7,6 @@ public class MoveTowardsTrigger : PausableMonoBehaviour
 {
     [SerializeField] private new Rigidbody2D rigidbody;
     [SerializeField] private float movementSpeed;
-    [SerializeField] private IAIStrategy strategy;
     
     private Transform target;
 

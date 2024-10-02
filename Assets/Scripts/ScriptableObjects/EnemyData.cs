@@ -12,6 +12,4 @@ public class EnemyData : ScriptableObject
     public int invincibilityTimeMilliseconds;
     
     public float moveSpeed;
-    
-    public IAIStrategy strategy;
 }
