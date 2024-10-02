@@ -38,4 +38,5 @@ public class AIMovement : MonoBehaviour
     public void SetType(AIType type)
     {
         this.aiType = type;
+    }
 }
