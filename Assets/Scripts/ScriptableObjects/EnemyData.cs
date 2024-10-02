@@ -10,8 +10,7 @@ public class EnemyData : ScriptableObject
     public int damage;
     public int tickCooldownMilliseconds;
     public int invincibilityTimeMilliseconds;
-    
+
+    public AIMovement.AIType aiType;
     public float moveSpeed;
-    
-    public IAIStrategy strategy;
 }

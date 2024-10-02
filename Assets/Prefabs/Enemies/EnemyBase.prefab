@@ -95,6 +95,7 @@ GameObject:
   - component: {fileID: 8613044612534113148}
   - component: {fileID: 7803683674475672549}
   - component: {fileID: 1320871111759614588}
+  - component: {fileID: 7077354665676772403}
   m_Layer: 7
   m_Name: EnemyBase
   m_TagString: Enemy
@@ -164,6 +165,7 @@ MonoBehaviour:
   rigidbody2D: {fileID: 5918041425722442800}
   attack: {fileID: 6124005138542892578}
   health: {fileID: 3253558777638256979}
+  aiMovement: {fileID: 7077354665676772403}
 --- !u!114 &6124005138542892578
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -265,6 +267,20 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &7077354665676772403
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3309599419885533324}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66682bd5fd974e94bb5de83798ad545e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  oscillationSpeed: 1
+  oscillationAmplitude: 1
 --- !u!1 &5735098808003851882
 GameObject:
   m_ObjectHideFlags: 0
