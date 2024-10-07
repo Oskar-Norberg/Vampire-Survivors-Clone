@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameOverState : BaseGameState
 {
@@ -11,6 +12,8 @@ public class GameOverState : BaseGameState
         this.gameStateManager = gameStateManager;
         gameStateManager.gameOverMenu.SetActive(true);
         gameStateManager.Pause();
+
+        SaveTimeSurvived(gameStateManager);
 
         GameOverMenu.mainMenu += GoToMainMenu;
     }
@@ -33,5 +36,12 @@ public class GameOverState : BaseGameState
     private void GoToMainMenu()
     {
         gameStateManager.GoToMainMenu();
+    }
+
+    private void SaveTimeSurvived(GameStateManager gameStateManager)
+    {
+        float timeSurvived = gameStateManager.roundTimer.GetTimeInSeconds();
+        
+        PlayerPrefs.SetFloat("TimeSurvived" + SceneManager.GetActiveScene().name, timeSurvived);
     }
 }
