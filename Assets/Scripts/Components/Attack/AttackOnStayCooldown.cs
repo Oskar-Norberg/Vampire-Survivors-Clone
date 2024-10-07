@@ -34,8 +34,8 @@ public class AttackOnStayCooldown : Attack
         }
     }
     
-    public void SetTickCooldown(int tickCooldownMilliseconds)
+    public void SetTickCooldown(int newTickCooldownMilliseconds)
     {
-        this.tickCooldownMilliseconds = tickCooldownMilliseconds;
+        this.tickCooldownMilliseconds = newTickCooldownMilliseconds;
     }
 }

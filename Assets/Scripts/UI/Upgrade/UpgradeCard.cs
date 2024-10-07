@@ -13,11 +13,11 @@ public class UpgradeCard : MonoBehaviour
     public delegate void OnClickDelegate(Upgrade upgrade);
     public static event OnClickDelegate onClick;
 
-    public void SetUpgrade(Upgrade upgrade)
+    public void SetUpgrade(Upgrade newUpgrade)
     {
-        this.upgrade = upgrade;
-        nameText.text = upgrade.name;
-        descriptionText.text = upgrade.description;
+        this.upgrade = newUpgrade;
+        nameText.text = newUpgrade.name;
+        descriptionText.text = newUpgrade.description;
     }
 
     public void OnClick()

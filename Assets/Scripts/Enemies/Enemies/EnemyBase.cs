@@ -74,8 +74,8 @@ public class EnemyBase : PausableMonoBehaviour
         flipSprite.enabled = true;
     }
 
-    public void SetEnemyData(EnemyData data)
+    public void SetEnemyData(EnemyData newData)
     {
-        this.data = data;
+        this.data = newData;
     }
 }
