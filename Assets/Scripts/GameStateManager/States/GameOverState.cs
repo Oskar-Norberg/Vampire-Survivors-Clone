@@ -40,8 +40,24 @@ public class GameOverState : BaseGameState
 
     private void SaveTimeSurvived(GameStateManager gameStateManager)
     {
+        string sceneName = SceneManager.GetActiveScene().name;
+        
+        bool setNewScore = true;
+        
         float timeSurvived = gameStateManager.roundTimer.GetTimeInSeconds();
         
-        PlayerPrefs.SetFloat("TimeSurvived" + SceneManager.GetActiveScene().name, timeSurvived);
+        // Level already has a high score
+        if (JSONLevel.LevelJSONExists(sceneName))
+        {
+            float savedScore = JSONLevel.ReadTimeSurvivedFromJSON(sceneName);
+            
+            // If current score is lower than high score
+            if (savedScore > timeSurvived)
+            {
+                setNewScore = false;
+            }
+        }
+        
+        if (setNewScore) JSONLevel.SaveLevelStatsToFile(sceneName, timeSurvived);
     }
 }
