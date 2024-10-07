@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameOverState : BaseGameState
 {
@@ -11,6 +12,8 @@ public class GameOverState : BaseGameState
         this.gameStateManager = gameStateManager;
         gameStateManager.gameOverMenu.SetActive(true);
         gameStateManager.Pause();
+
+        SaveTimeSurvived(gameStateManager);
 
         GameOverMenu.mainMenu += GoToMainMenu;
     }
@@ -33,5 +36,28 @@ public class GameOverState : BaseGameState
     private void GoToMainMenu()
     {
         gameStateManager.GoToMainMenu();
+    }
+
+    private void SaveTimeSurvived(GameStateManager gameStateManager)
+    {
+        string sceneName = SceneManager.GetActiveScene().name;
+        
+        bool setNewScore = true;
+        
+        float timeSurvived = gameStateManager.roundTimer.GetTimeInSeconds();
+        
+        // Level already has a high score
+        if (JSONLevel.LevelJSONExists(sceneName))
+        {
+            float savedScore = JSONLevel.ReadTimeSurvivedFromJSON(sceneName);
+            
+            // If current score is lower than high score
+            if (savedScore > timeSurvived)
+            {
+                setNewScore = false;
+            }
+        }
+        
+        if (setNewScore) JSONLevel.SaveLevelStatsToFile(sceneName, timeSurvived);
     }
 }

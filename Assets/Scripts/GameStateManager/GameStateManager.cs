@@ -16,6 +16,7 @@ public class GameStateManager : MonoBehaviour
     [SerializeField] public PlayerController player;
     [SerializeField] public EnemyManager enemyManager;
     [SerializeField] public WaveSpawner waveSpawner;
+    [SerializeField] public RoundTimer roundTimer;
 
     [Header("UI Elements")]
     [SerializeField] public GameObject pauseMenu;
