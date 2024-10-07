@@ -39,7 +39,9 @@ public class WaveSpawner : PausableMonoBehaviour
 
     private void Start()
     {
+        // TODO - Pass player transform through [SerializeField]
         playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
+        
         totalWeight = GetTotalWeight();
     }
 
