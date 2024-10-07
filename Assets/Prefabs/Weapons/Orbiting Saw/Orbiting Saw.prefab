@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4646863980963281037}
   - component: {fileID: 5251048125108976721}
   - component: {fileID: 336581743035061705}
-  - component: {fileID: 642181888851681462}
+  - component: {fileID: 7798873843145137682}
   m_Layer: 6
   m_Name: Orbiting Saw
   m_TagString: Untagged
@@ -48,7 +48,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponData: {fileID: 11400000, guid: 3fb78a9c202492549a77545e620827cf, type: 2}
-  attack: {fileID: 642181888851681462}
+  attack: {fileID: 7798873843145137682}
   orbitingPrefab: {fileID: 258116620750757714, guid: c6adb657f13649642a48bb4f0e643e60, type: 3}
   orbitCenter: {fileID: 4270772814619714679}
   orbitRadius: 2
@@ -81,7 +81,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &642181888851681462
+--- !u!114 &7798873843145137682
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -90,7 +90,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 258116620750757714}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 86742a0d9163116499d1b110533f0883, type: 3}
+  m_Script: {fileID: 11500000, guid: 9f563d4ed651f3f44b014c8e27d556d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &576155520293259695
