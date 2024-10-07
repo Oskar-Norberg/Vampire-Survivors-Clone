@@ -7,6 +7,8 @@ using UnityEngine.UI;
 
 public class PlayerController : PausableMonoBehaviour
 {
+    private static readonly int Velocity = Animator.StringToHash("Velocity");
+
     [Header("Data")]
     [SerializeField] private PlayerData playerData;
     
@@ -38,7 +40,7 @@ public class PlayerController : PausableMonoBehaviour
 
     private void UpdateAnimation()
     {
-        animator.SetFloat("Velocity", Mathf.Abs(rigidbody.velocity.magnitude));
+        animator.SetFloat(Velocity, Mathf.Abs(rigidbody.velocity.magnitude));
     }
 
     private void FixedUpdate()

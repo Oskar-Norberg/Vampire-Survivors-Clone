@@ -9,9 +9,9 @@ public class HealthWithInvincibilityFrames : Health
     private bool justDamaged = false;
     private float timer = 0.0f;
     
-    public void SetInvincibilityTime(int invincibilityTimeMilliseconds)
+    public void SetInvincibilityTime(int newInvincibilityTimeMilliseconds)
     {
-        this.invincibilityTimeMilliseconds = invincibilityTimeMilliseconds;
+        this.invincibilityTimeMilliseconds = newInvincibilityTimeMilliseconds;
     }
     
     public override void TakeDamage(int damage)

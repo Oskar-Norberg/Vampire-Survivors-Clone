@@ -4,7 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="59d1fd8d-ed6a-4106-9b88-d2382d691383" name="Changes" comment="" />
+    <list default="true" id="59d1fd8d-ed6a-4106-9b88-d2382d691383" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/AI/AIMovement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/AI/AIMovement.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Enemies/WaveSpawner/WaveSpawner.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Enemies/WaveSpawner/WaveSpawner.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Tools/EnemyCreationTool.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Tools/EnemyCreationTool.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Upgrades/Manager/UpgradeManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Upgrades/Manager/UpgradeManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Weapons/MagicSpellSpawner.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Weapons/MagicSpellSpawner.cs" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -20,17 +27,12 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/011ccacb58784a80ac4b48b4c50ee0b7176400/06/c158a412/Object.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/ffe351aa6232372f4a3b8c3ff36a636f33de226f60e607acbfe569289d7289d/System.IO.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/AnimationFunctions/Disable.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Components/BlinkSpriteOnHit.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Components/DestroyOnTriggerEnter.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Components/FlipSprite.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Components/FreezeRigidbodyOnPause.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Components/Health.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Components/HealthWithInvincibilityFrames.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Components/Attack/AttackOnEnter.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Components/Attack/AttackOnStayCooldown.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Components/InstantiateOnDestroy.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Components/MoveTowardsTrigger.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Components/PlayerInput.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Components/RegenerateHealth.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Components/RotateSprite.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Enemies/Enemies/EnemyBase.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Enemies/EnemyManager/EnemyManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/GameStateManager/States/UpgradeState.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/PausableMonoBehaviour.cs" root0="FORCE_HIGHLIGHTING" />
@@ -43,7 +45,6 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/LevelSelectButton/LevelSelectButton.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/MainMenu/LoadLevel.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/MainMenu/MainMenu.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/MakeScreenspaceMainCamera.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/Upgrade/UpgradeCard.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Upgrades/SpeedUpgrade.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Upgrades/UpgradeSaw.cs" root0="FORCE_HIGHLIGHTING" />
@@ -52,7 +53,7 @@
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui@1.0.0/Runtime/EventSystem/UIElements/PanelRaycaster.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="ProblemsViewState">
-    <option name="selectedTabId" value="CurrentFile" />
+    <option name="selectedTabId" value="QODANA_PROBLEMS_VIEW_TAB" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;customColor&quot;: &quot;&quot;,
@@ -67,16 +68,36 @@
   "keyToString": {
     "Attach to Unity Editor.Attach to Unity Editor.executor": "Debug",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
+    "git-widget-placeholder": "refactoring",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.lookFeel",
+    "settings.editor.selected.configurable": "CodeInspectionSettingsId",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="QodanaHighlightedReportService">
+    <option name="localRunNotPublishedPersistedInfo">
+      <LocalReportPersistedInfo>
+        <option name="path" value="C:\Users\OskarNorberg\AppData\Local\Temp\qodana_output\qodana.sarif.json" />
+        <option name="reportGuid" value="530eb81b-9f95-4b30-bdd8-af0b1bd0b78f" />
+        <option name="reportName" value="Vampire Survivors Clone/qodana/2024-10-07" />
+      </LocalReportPersistedInfo>
+    </option>
+  </component>
+  <component name="QodanaIsSelectedPersistenceService">
+    <option name="selectedOrLoading" value="true" />
+  </component>
+  <component name="QodanaReportsService">
+    <option name="descriptions">
+      <ReportDescription localRun="true" path="C:\Users\OskarNorberg\AppData\Local\Temp\qodana_output\qodana.sarif.json" reportGuid="530eb81b-9f95-4b30-bdd8-af0b1bd0b78f" reportId="Vampire Survivors Clone/qodana/2024-10-07" />
+    </option>
+  </component>
+  <component name="RiderProblemsViewState">
+    <option name="showPreview" value="true" />
+  </component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
     <configuration name="Start Unity" type="RunUnityExe" factoryName="Unity Executable">
       <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\2022.3.44f1\Editor\Unity.exe" />

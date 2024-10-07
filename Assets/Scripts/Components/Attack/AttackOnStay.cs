@@ -2,11 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Attack : PausableMonoBehaviour
+public class AttackOnStay : Attack
 {
-    [Header("Attack Properties")]
-    protected int damage = 0;
-    
     private void OnTriggerStay2D(Collider2D other)
     {
         // Try to get health component in parent and apply attack damage
@@ -14,10 +11,5 @@ public class Attack : PausableMonoBehaviour
         {
             health.TakeDamage(damage);
         }
-    }
-    
-    public void SetDamage(int newDamage)
-    {
-        damage = newDamage;
     }
 }

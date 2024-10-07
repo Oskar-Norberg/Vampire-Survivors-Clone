@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TickCooldownAttack : Attack
+public class AttackOnStayCooldown : Attack
 {
     private int tickCooldownMilliseconds = 0;
     private float cooldownTimer = 0.0f;
@@ -34,8 +34,8 @@ public class TickCooldownAttack : Attack
         }
     }
     
-    public void SetTickCooldown(int tickCooldownMilliseconds)
+    public void SetTickCooldown(int newTickCooldownMilliseconds)
     {
-        this.tickCooldownMilliseconds = tickCooldownMilliseconds;
+        this.tickCooldownMilliseconds = newTickCooldownMilliseconds;
     }
 }

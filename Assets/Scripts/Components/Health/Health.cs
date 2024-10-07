@@ -28,15 +28,15 @@ public class Health : PausableMonoBehaviour
         return health;
     }
 
-    public void SetHealth(int health)
+    public void SetHealth(int newHealth)
     {
-        maxHealth = health;
-        this.health = health;
+        maxHealth = newHealth;
+        this.health = newHealth;
     }
     
-    public void Heal(int health)
+    public void Heal(int newHealth)
     {
-        this.health += health;
+        this.health += newHealth;
         if (this.health > maxHealth)
         {
             this.health = maxHealth;
