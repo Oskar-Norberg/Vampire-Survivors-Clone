@@ -6,6 +6,7 @@ using UnityEngine;
 
 public class MagicSpellSpawner : WeaponBase
 {
+    private static readonly int Activate = Animator.StringToHash("Activate");
     [SerializeField] private GameObject magicSpellPrefab;
 
     [Header("Magic Spell Settings")] 
@@ -74,7 +75,7 @@ public class MagicSpellSpawner : WeaponBase
             force = Quaternion.AngleAxis(360.0f / spellCount * i, Vector3.forward)  * force;
             
             spell.rigidbody.AddForce(force);
-            spell.animator.SetTrigger("Activate");
+            spell.animator.SetTrigger(Activate);
         }
 
         timer = 0.0f;

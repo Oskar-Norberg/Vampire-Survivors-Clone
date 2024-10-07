@@ -5,7 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="59d1fd8d-ed6a-4106-9b88-d2382d691383" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/RoundTimer/RoundTimer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/RoundTimer/RoundTimer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/AI/AIMovement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/AI/AIMovement.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Enemies/WaveSpawner/WaveSpawner.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Enemies/WaveSpawner/WaveSpawner.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Tools/EnemyCreationTool.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Tools/EnemyCreationTool.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Upgrades/Manager/UpgradeManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Upgrades/Manager/UpgradeManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Weapons/MagicSpellSpawner.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Weapons/MagicSpellSpawner.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
