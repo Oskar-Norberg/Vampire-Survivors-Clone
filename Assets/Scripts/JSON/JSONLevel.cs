@@ -19,4 +19,11 @@ public static class JSONLevel
         public string name;
         public float time;
     }
+    
+    public static void SaveLevelStatsToFile(string levelName, float timeSurvived)
+    {
+        LevelStats level = new LevelStats(levelName, timeSurvived);
+        string json = JsonUtility.ToJson(level);
+        File.WriteAllText(GetPathString(levelName), json);
+    }
 }
