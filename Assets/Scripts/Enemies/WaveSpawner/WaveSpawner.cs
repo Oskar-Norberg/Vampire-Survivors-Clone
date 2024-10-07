@@ -65,7 +65,7 @@ public class WaveSpawner : PausableMonoBehaviour
 
         Vector2 distanceFromPlayer = randomDirection * Random.Range(minDistanceFromPlayer, maxDistanceFromPlayer);
         
-        GameObject enemy = enemiesToSpawn[(int)Random.Range(0, enemiesToSpawn.Count)];
+        GameObject enemy = enemiesToSpawn[Random.Range(0, enemiesToSpawn.Count)];
         
         Vector2 enemyPosition = distanceFromPlayer + (Vector2) playerTransform.position;
         

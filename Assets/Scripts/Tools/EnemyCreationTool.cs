@@ -26,7 +26,7 @@ public class EnemyCreationTool : EditorWindow
     [MenuItem("Tools/Enemy Creation")]
     public static void ShowWindow()
     {
-        EnemyCreationTool window = EditorWindow.GetWindow<EnemyCreationTool>("Enemy Creation Tool");
+        EditorWindow.GetWindow<EnemyCreationTool>("Enemy Creation Tool");
     }
 
     private void OnGUI()
@@ -100,7 +100,7 @@ public class EnemyCreationTool : EditorWindow
         }
 
         string prefabVariantPath = ENEMY_FOLDER_PATH + "/" + name.Trim(' ').Trim() + ".prefab";
-        GameObject enemyVariant = PrefabUtility.SaveAsPrefabAsset(enemyInstance, prefabVariantPath);
+        PrefabUtility.SaveAsPrefabAsset(enemyInstance, prefabVariantPath);
 
         AssetDatabase.SaveAssets();
         

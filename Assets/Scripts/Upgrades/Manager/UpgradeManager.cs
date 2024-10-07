@@ -31,7 +31,7 @@ public class UpgradeManager : MonoBehaviour
     public void ApplyUpgrade(Upgrade upgrade)
     {
         UpgradeStatus upgradeStatus = FindUpgradeStatus(upgrade);
-        if (upgrade is UpgradeSpecificWeapon upgradeSpecificWeapon)
+        if (upgrade is UpgradeSpecificWeapon)
         {
 
             UpgradeWeapon(upgradeStatus);

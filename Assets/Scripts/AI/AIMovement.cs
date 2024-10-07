@@ -17,7 +17,6 @@ public class AIMovement : MonoBehaviour
         switch (aiType)
         {
             case AIType.MoveTowards:
-                float distanceToPlayer = Vector2.Distance(position, targetPosition);
                 wishDir = targetPosition - position;
                 return Vector2.ClampMagnitude(wishDir, 1.0f);
             case AIType.Sinusodial:
