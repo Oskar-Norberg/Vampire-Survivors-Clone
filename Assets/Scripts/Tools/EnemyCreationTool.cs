@@ -78,6 +78,7 @@ public class EnemyCreationTool : EditorWindow
 
     private void CreateEnemy()
     {
+        // Create scriptable Object
         EnemyData enemyData = ScriptableObject.CreateInstance<EnemyData>();
 
         enemyData.health = health;
@@ -87,18 +88,22 @@ public class EnemyCreationTool : EditorWindow
         enemyData.moveSpeed = moveSpeed;
         enemyData.aiType = aiType;
 
-        GameObject enemyBase = AssetDatabase.LoadAssetAtPath<GameObject>(ENEMY_BASE_PATH);
-        GameObject enemyBaseInstance = PrefabUtility.InstantiatePrefab(enemyBase) as GameObject;
-
-        // Save EnemyData and prefab
-        string prefabVariantPath = ENEMY_FOLDER_PATH + "/" + name.Trim(' ').Trim() + ".prefab";
         string scriptableObjectPath = ENEMY_DATA_FOLDER_PATH + "/" + name.Trim(' ').Trim() + ".asset";
-            
-        GameObject newEnemy = PrefabUtility.SaveAsPrefabAsset(enemyBaseInstance, prefabVariantPath);
-        newEnemy.GetComponent<EnemyBase>().SetEnemyData(enemyData);
         AssetDatabase.CreateAsset(enemyData, scriptableObjectPath);
-            
-        // Remove base prefab instance, otherwise leaves an EnemyBase instance in current scene
-        DestroyImmediate(enemyBaseInstance);
+
+        GameObject enemy = AssetDatabase.LoadAssetAtPath<GameObject>(ENEMY_BASE_PATH);
+        GameObject enemyInstance = PrefabUtility.InstantiatePrefab(enemy) as GameObject;
+
+        if (enemyInstance.TryGetComponent<EnemyBase>(out EnemyBase enemyBase))
+        {
+            enemyBase.SetEnemyData(enemyData);
+        }
+
+        string prefabVariantPath = ENEMY_FOLDER_PATH + "/" + name.Trim(' ').Trim() + ".prefab";
+        GameObject enemyVariant = PrefabUtility.SaveAsPrefabAsset(enemyInstance, prefabVariantPath);
+
+        AssetDatabase.SaveAssets();
+        
+        DestroyImmediate(enemyInstance);
     }
 }
