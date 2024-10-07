@@ -16,6 +16,7 @@ public class UpgradeCreationTool : EditorWindow
     private enum Type {MaxHealth, Speed}
     private Type type;
 
+    private bool success = false;
     
     [MenuItem("Tools/Upgrade Creation")]
     public static void ShowWindow()
@@ -88,7 +89,14 @@ public class UpgradeCreationTool : EditorWindow
                 asset.description = upgradeDescription;
                 Debug.Log(UPGRADE_PATH + "/" + upgradeName.Trim(' ').Trim() + ".asset");
                 AssetDatabase.CreateAsset(asset, UPGRADE_PATH + "/" + upgradeName.Trim(' ').Trim() + ".asset");
+                success = true;
             }
+        }
+        
+        if (success)
+        {
+            EditorGUILayout.Space();
+            GUILayout.Label("Upgrade Created Successfully!", EditorStyles.boldLabel);
         }
     }
 }
