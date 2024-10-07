@@ -22,6 +22,8 @@ public class EnemyCreationTool : EditorWindow
     private float moveSpeed;
 
     private AIMovement.AIType aiType;
+
+    private bool success = false;
     
     [MenuItem("Tools/Enemy Creation")]
     public static void ShowWindow()
@@ -73,6 +75,13 @@ public class EnemyCreationTool : EditorWindow
         if (GUILayout.Button("Create Enemy"))
         {
             CreateEnemy();
+            success = true;
+        }
+
+        if (success)
+        {
+            EditorGUILayout.Space();
+            GUILayout.Label("Enemy Created Successfully!", EditorStyles.boldLabel);
         }
     }
 
