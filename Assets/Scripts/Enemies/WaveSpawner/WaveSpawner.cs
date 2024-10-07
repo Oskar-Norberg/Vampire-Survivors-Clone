@@ -8,8 +8,16 @@ using Random = UnityEngine.Random;
 public class WaveSpawner : PausableMonoBehaviour
 {
     [SerializeField] private EnemyManager enemyManager;
+
+    [Serializable]
+    private struct EnemySpawn
+    {
+        public GameObject enemy;
+        public int weight;
+    }
     
     [SerializeField] private List<GameObject> enemiesToSpawn = new List<GameObject>();
+    [SerializeField] private List<EnemySpawn> enemiesToSpawn = new List<EnemySpawn>();
     
     [Header("Spawn Position")]
     [SerializeField] private float minDistanceFromPlayer;
