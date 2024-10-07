@@ -26,4 +26,16 @@ public static class JSONLevel
         string json = JsonUtility.ToJson(level);
         File.WriteAllText(GetPathString(levelName), json);
     }
+    
+    public static float ReadTimeSurvivedFromJSON(string levelName)
+    {
+        string json = File.ReadAllText(GetPathString(levelName));
+        LevelStats level = JsonUtility.FromJson<LevelStats>(json);
+        return level.time;
+    }
+
+    private static string GetPathString(string levelName)
+    {
+        return Application.persistentDataPath + "/" + levelName + ".json";
+    }
 }
