@@ -8,8 +8,16 @@ using Random = UnityEngine.Random;
 public class WaveSpawner : PausableMonoBehaviour
 {
     [SerializeField] private EnemyManager enemyManager;
+
+    [Serializable]
+    private struct EnemySpawn
+    {
+        public GameObject enemy;
+        public int weight;
+    }
     
-    [SerializeField] private List<GameObject> enemiesToSpawn = new List<GameObject>();
+    [SerializeField] private List<EnemySpawn> enemiesToSpawn = new List<EnemySpawn>();
+    private int totalWeight;
     
     [Header("Spawn Position")]
     [SerializeField] private float minDistanceFromPlayer;
@@ -31,7 +39,10 @@ public class WaveSpawner : PausableMonoBehaviour
 
     private void Start()
     {
+        // TODO - Pass player transform through [SerializeField]
         playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
+        
+        totalWeight = GetTotalWeight();
     }
 
     public void FixedUpdate()
@@ -62,13 +73,40 @@ public class WaveSpawner : PausableMonoBehaviour
         if (playerTransform == null) return;
 
         Vector2 randomDirection = Random.insideUnitCircle.normalized;
-
         Vector2 distanceFromPlayer = randomDirection * Random.Range(minDistanceFromPlayer, maxDistanceFromPlayer);
-        
-        GameObject enemy = enemiesToSpawn[Random.Range(0, enemiesToSpawn.Count)];
-        
         Vector2 enemyPosition = distanceFromPlayer + (Vector2) playerTransform.position;
+
+        GameObject enemy = WeightedGetRandomEnemy();
         
         enemyManager.SpawnEnemy(enemy, enemyPosition);
+    }
+
+    private GameObject WeightedGetRandomEnemy()
+    {
+        int randomWeight = Random.Range(0, totalWeight);
+
+        // Find the enemy that corresponds to the random weight
+        foreach (var enemy in enemiesToSpawn)
+        {
+            if (randomWeight < enemy.weight)
+            {
+                return enemy.enemy;
+            }
+            randomWeight -= enemy.weight;
+        }
+
+        return null;
+    }
+
+    private int GetTotalWeight()
+    {
+        int weight = 0;
+        
+        foreach (EnemySpawn enemy in enemiesToSpawn)
+        {
+            weight += enemy.weight;
+        }
+
+        return weight;
     }
 }
