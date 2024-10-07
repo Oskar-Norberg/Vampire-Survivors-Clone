@@ -34,6 +34,11 @@ public static class JSONLevel
         return level.time;
     }
 
+    public static bool LevelJSONExists(string levelName)
+    {
+        return File.Exists(GetPathString(levelName));
+    }
+    
     private static string GetPathString(string levelName)
     {
         return Application.persistentDataPath + "/" + levelName + ".json";
