@@ -13,7 +13,7 @@ public class EnemyBase : PausableMonoBehaviour
     [SerializeField] private Animator animator;
     [SerializeField] private FlipSprite flipSprite;
     [SerializeField] private new Rigidbody2D rigidbody2D;
-    [SerializeField] private TickCooldownAttack attack;
+    [SerializeField] private AttackOnStayCooldown attack;
     [SerializeField] private HealthWithInvincibilityFrames health;
     [SerializeField] private AIMovement aiMovement;
     
