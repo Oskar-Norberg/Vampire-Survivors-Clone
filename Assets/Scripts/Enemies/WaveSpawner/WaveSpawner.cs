@@ -16,8 +16,8 @@ public class WaveSpawner : PausableMonoBehaviour
         public int weight;
     }
     
-    [SerializeField] private List<GameObject> enemiesToSpawn = new List<GameObject>();
     [SerializeField] private List<EnemySpawn> enemiesToSpawn = new List<EnemySpawn>();
+    private int totalWeight;
     
     [Header("Spawn Position")]
     [SerializeField] private float minDistanceFromPlayer;
@@ -40,6 +40,7 @@ public class WaveSpawner : PausableMonoBehaviour
     private void Start()
     {
         playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
+        totalWeight = GetTotalWeight();
     }
 
     public void FixedUpdate()
@@ -73,10 +74,21 @@ public class WaveSpawner : PausableMonoBehaviour
 
         Vector2 distanceFromPlayer = randomDirection * Random.Range(minDistanceFromPlayer, maxDistanceFromPlayer);
         
-        GameObject enemy = enemiesToSpawn[Random.Range(0, enemiesToSpawn.Count)];
+        GameObject enemy = enemiesToSpawn[Random.Range(0, enemiesToSpawn.Count)].enemy;
         
         Vector2 enemyPosition = distanceFromPlayer + (Vector2) playerTransform.position;
         
         enemyManager.SpawnEnemy(enemy, enemyPosition);
+    }
+
+    private int GetTotalWeight()
+    {
+        int weight = 0;
+        foreach (EnemySpawn enemy in enemiesToSpawn)
+        {
+            weight += enemy.weight;
+        }
+
+        return weight;
     }
 }
