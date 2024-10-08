@@ -5,12 +5,12 @@ using UnityEngine;
 
 public class BlinkSpriteOnHit : MonoBehaviour
 {
-    [SerializeField] private float blinkDurationMilliseconds = 250.0f;
-
-    [SerializeField] private Color blinkColor = Color.red;
-    
-    [SerializeField] private SpriteRenderer spriteRenderer;
     [SerializeField] private Health health;
+    
+    [SerializeField] private float blinkDurationMilliseconds = 250.0f;
+    [SerializeField] private Color blinkColor = Color.red;
+    [SerializeField] private SpriteRenderer spriteRenderer;
+    
 
     private bool coroutineRunning = false;
 
