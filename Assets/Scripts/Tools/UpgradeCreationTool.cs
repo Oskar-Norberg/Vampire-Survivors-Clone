@@ -37,6 +37,8 @@ public class UpgradeCreationTool : EditorWindow
     {
         GUILayout.Label("Upgrade Creation Tool", EditorStyles.boldLabel);
         
+        EditorGUILayout.Space();
+        
         GUILayout.BeginHorizontal();
         upgradeName = EditorGUILayout.TextField("Name", upgradeName);
         GUILayout.EndHorizontal();
@@ -44,6 +46,8 @@ public class UpgradeCreationTool : EditorWindow
         GUILayout.BeginHorizontal();
         upgradeDescription = EditorGUILayout.TextField("Description", upgradeDescription);
         GUILayout.EndHorizontal();
+        
+        EditorGUILayout.Space();
         
         GUILayout.BeginHorizontal();
         type = (Type) EditorGUILayout.EnumPopup("Upgrade type", type);
@@ -80,6 +84,8 @@ public class UpgradeCreationTool : EditorWindow
                 GUILayout.EndHorizontal();
                 break;
         }
+        
+        EditorGUILayout.Space();
 
         if (GUILayout.Button("Create Upgrade"))
         { 
