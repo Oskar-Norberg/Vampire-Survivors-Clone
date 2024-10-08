@@ -34,6 +34,17 @@ public class UpgradeManager : MonoBehaviour
 
         upgrade.Apply(player.gameObject);
         upgradeStatus.amount++;
+
+        if (upgradeStatus.upgrade is GiveWeaponUpgrade)
+        {
+            FinishUpgrade(upgradeStatus);
+        }
+    }
+
+    private void FinishUpgrade(UpgradeStatus upgradeStatus)
+    {
+        upgrades.Remove(upgradeStatus);
+        finishedUpgrades.Add(upgradeStatus);
     }
 
     public Upgrade[] GetMultipleUpgrades(int upgradeCount)
