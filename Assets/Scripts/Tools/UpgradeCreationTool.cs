@@ -20,6 +20,7 @@ public class UpgradeCreationTool : EditorWindow
     
     // WeaponUpgrade
     private Upgrade prerequisiteUpgrade;
+    private int maxUpgradeCount;
     
     private enum Type {MaxHealth, Speed, GiveWeapon, UpgradeWeapon}
     private Type type;
@@ -73,6 +74,10 @@ public class UpgradeCreationTool : EditorWindow
                 GUILayout.BeginHorizontal();
                 prerequisiteUpgrade = (Upgrade)EditorGUILayout.ObjectField("Prerequisite Upgrade", prerequisiteUpgrade, typeof(Upgrade), true);
                 GUILayout.EndHorizontal();
+                
+                GUILayout.BeginHorizontal();
+                maxUpgradeCount = EditorGUILayout.IntField("Max Upgrade Count", maxUpgradeCount);
+                GUILayout.EndHorizontal();
                 break;
         }
 
@@ -114,6 +119,7 @@ public class UpgradeCreationTool : EditorWindow
                     {
                         weaponUpgrade.weapon = weapon;
                         weaponUpgrade.prerequisiteUpgrade = prerequisiteUpgrade;
+                        weaponUpgrade.maxUpgradeCount = maxUpgradeCount;
                     }
                     break;
                 default:
