@@ -15,10 +15,13 @@ public class UpgradeCreationTool : EditorWindow
     // Stat-increase
     private int increase;
     
-    // Give Weapon
+    // Give Weapon, WeaponUpgrade
     private GameObject weapon;
     
-    private enum Type {MaxHealth, Speed, GiveWeapon}
+    // WeaponUpgrade
+    private Upgrade prerequisiteUpgrade;
+    
+    private enum Type {MaxHealth, Speed, GiveWeapon, UpgradeWeapon}
     private Type type;
 
     private bool success = false;
@@ -62,6 +65,15 @@ public class UpgradeCreationTool : EditorWindow
                 weapon = (GameObject)EditorGUILayout.ObjectField("Weapon prefab", weapon, typeof(GameObject), true);
                 GUILayout.EndHorizontal();
                 break;
+            case Type.UpgradeWeapon:
+                GUILayout.BeginHorizontal();
+                weapon = (GameObject)EditorGUILayout.ObjectField("Weapon prefab", weapon, typeof(GameObject), true);
+                GUILayout.EndHorizontal();
+                
+                GUILayout.BeginHorizontal();
+                prerequisiteUpgrade = (Upgrade)EditorGUILayout.ObjectField("Prerequisite Upgrade", prerequisiteUpgrade, typeof(Upgrade), true);
+                GUILayout.EndHorizontal();
+                break;
         }
 
         if (GUILayout.Button("Create Upgrade"))
@@ -89,10 +101,19 @@ public class UpgradeCreationTool : EditorWindow
                     break;
                 case Type.GiveWeapon:
                     asset = ScriptableObject.CreateInstance<GiveWeaponUpgrade>();
-                    GiveWeaponUpgrade weaponUpgrade = asset as GiveWeaponUpgrade;
+                    GiveWeaponUpgrade giveWeapon = asset as GiveWeaponUpgrade;
+                    if (giveWeapon)
+                    {
+                        giveWeapon.weapon = weapon;
+                    }
+                    break;
+                case Type.UpgradeWeapon:
+                    asset = ScriptableObject.CreateInstance<WeaponUpgrade>();
+                    WeaponUpgrade weaponUpgrade = asset as WeaponUpgrade;
                     if (weaponUpgrade)
                     {
                         weaponUpgrade.weapon = weapon;
+                        weaponUpgrade.prerequisiteUpgrade = prerequisiteUpgrade;
                     }
                     break;
                 default:
