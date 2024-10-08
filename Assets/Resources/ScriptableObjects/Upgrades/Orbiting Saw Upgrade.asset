@@ -16,4 +16,4 @@ MonoBehaviour:
   description: More blades, more carnage
   prerequisiteUpgrade: {fileID: 11400000, guid: d9edcbf81bd56604cb937faf60df1d6c, type: 2}
   weapon: {fileID: 258116620750757714, guid: 3ff0b0f29690f4d44ae8a9a3c5f57a20, type: 3}
-  maxUpgradeCount: 0
+  maxUpgradeCount: 3
