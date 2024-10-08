@@ -5,7 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="59d1fd8d-ed6a-4106-9b88-d2382d691383" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Levels/Level One.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Levels/Level One.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Vampire Survivors Clone/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Vampire Survivors Clone/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Tools/UpgradeCreationTool.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Tools/UpgradeCreationTool.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Upgrades/Manager/UpgradeManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Upgrades/Manager/UpgradeManager.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -42,8 +43,9 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/MainMenu/LoadLevel.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/MainMenu/MainMenu.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/Upgrade/UpgradeCard.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Upgrades/PrerequisiteUpgrade.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Upgrades/SpeedUpgrade.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Upgrades/UpgradeSaw.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Upgrades/WeaponUpgrade.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Weapons/WeaponBase.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.shadergraph@14.0.11/Editor/Drawing/MaterialGraphEditWindow.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui@1.0.0/Runtime/EventSystem/UIElements/PanelRaycaster.cs" root0="SKIP_HIGHLIGHTING" />
@@ -155,7 +157,7 @@
       <workItem from="1727431281425" duration="1592000" />
       <workItem from="1727765711385" duration="4134000" />
       <workItem from="1728374060473" duration="365000" />
-      <workItem from="1728374456628" duration="2041000" />
+      <workItem from="1728374456628" duration="4027000" />
     </task>
     <servers />
   </component>

@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c848cc63626f45b4184c1e9c645e9fa7, type: 3}
+  m_Name: Magic Spell
+  m_EditorClassIdentifier: 
+  name: Magic Spell
+  description: Spawn more spells
+  weapon: {fileID: 4870586607499337545, guid: 5629a0786e32fb14395a7a1c7b93867a, type: 3}
