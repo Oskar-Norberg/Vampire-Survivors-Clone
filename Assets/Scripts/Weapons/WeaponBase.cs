@@ -9,4 +9,6 @@ public abstract class WeaponBase : PausableMonoBehaviour
     protected enum WeaponStates {Ready, OnCooldown}
 
     protected WeaponStates State = WeaponStates.Ready;
+
+    public abstract void Upgrade();
 }
