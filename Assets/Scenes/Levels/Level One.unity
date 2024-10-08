@@ -153,8 +153,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyManager: {fileID: 1302146788}
   enemiesToSpawn:
-  - {fileID: 2066995170445486468, guid: d41eadb02cb4c6848b100320cbc0882b, type: 3}
-  - {fileID: 1102767743343660280, guid: 3f2d8e48ac3ef0345a60e694fae1377a, type: 3}
+  - enemy: {fileID: 2066995170445486468, guid: d41eadb02cb4c6848b100320cbc0882b, type: 3}
+    weight: 8
+  - enemy: {fileID: 1102767743343660280, guid: 3f2d8e48ac3ef0345a60e694fae1377a, type: 3}
+    weight: 4
   minDistanceFromPlayer: 10
   maxDistanceFromPlayer: 20
   timeBetweenSpawnsMilliseconds: 1500
@@ -471,6 +473,10 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3821774388742248042, guid: 600ae706cf0ffab4faaea6185b58b5c2, type: 3}
+      propertyPath: upgradeManager
+      value: 
+      objectReference: {fileID: 534151320}
     - target: {fileID: 9030314267508362073, guid: 600ae706cf0ffab4faaea6185b58b5c2, type: 3}
       propertyPath: m_Name
       value: PlayerOne

@@ -87,4 +87,9 @@ public class MagicSpellSpawner : WeaponBase
         spellCount++;
         if (spellCount > 4) spellCount = 4;
     }
+
+    public override void Upgrade()
+    {
+        IncreaseSpellCount();
+    }
 }

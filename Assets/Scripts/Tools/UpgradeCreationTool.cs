@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
 
@@ -11,9 +12,17 @@ public class UpgradeCreationTool : EditorWindow
     private string upgradeName;
     private string upgradeDescription;
 
+    // Stat-increase
     private int increase;
     
-    private enum Type {MaxHealth, Speed}
+    // Give Weapon, WeaponUpgrade
+    private GameObject weapon;
+    
+    // WeaponUpgrade
+    private Upgrade prerequisiteUpgrade;
+    private int maxUpgradeCount;
+    
+    private enum Type {MaxHealth, Speed, GiveWeapon, UpgradeWeapon}
     private Type type;
 
     private bool success = false;
@@ -52,6 +61,24 @@ public class UpgradeCreationTool : EditorWindow
                 increase = EditorGUILayout.IntField("Speed Increase", increase);
                 GUILayout.EndHorizontal();
                 break;
+            case Type.GiveWeapon:
+                GUILayout.BeginHorizontal();
+                weapon = (GameObject)EditorGUILayout.ObjectField("Weapon prefab", weapon, typeof(GameObject), true);
+                GUILayout.EndHorizontal();
+                break;
+            case Type.UpgradeWeapon:
+                GUILayout.BeginHorizontal();
+                weapon = (GameObject)EditorGUILayout.ObjectField("Weapon prefab", weapon, typeof(GameObject), true);
+                GUILayout.EndHorizontal();
+                
+                GUILayout.BeginHorizontal();
+                prerequisiteUpgrade = (Upgrade)EditorGUILayout.ObjectField("Prerequisite Upgrade", prerequisiteUpgrade, typeof(Upgrade), true);
+                GUILayout.EndHorizontal();
+                
+                GUILayout.BeginHorizontal();
+                maxUpgradeCount = EditorGUILayout.IntField("Max Upgrade Count", maxUpgradeCount);
+                GUILayout.EndHorizontal();
+                break;
         }
 
         if (GUILayout.Button("Create Upgrade"))
@@ -75,6 +102,24 @@ public class UpgradeCreationTool : EditorWindow
                     if (speed)
                     {
                         speed.speedIncreasePercent = increase;
+                    }
+                    break;
+                case Type.GiveWeapon:
+                    asset = ScriptableObject.CreateInstance<GiveWeaponUpgrade>();
+                    GiveWeaponUpgrade giveWeapon = asset as GiveWeaponUpgrade;
+                    if (giveWeapon)
+                    {
+                        giveWeapon.weapon = weapon;
+                    }
+                    break;
+                case Type.UpgradeWeapon:
+                    asset = ScriptableObject.CreateInstance<WeaponUpgrade>();
+                    WeaponUpgrade weaponUpgrade = asset as WeaponUpgrade;
+                    if (weaponUpgrade)
+                    {
+                        weaponUpgrade.weapon = weapon;
+                        weaponUpgrade.prerequisiteUpgrade = prerequisiteUpgrade;
+                        weaponUpgrade.maxUpgradeCount = maxUpgradeCount;
                     }
                     break;
                 default:

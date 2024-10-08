@@ -17,30 +17,97 @@ public class UpgradeManager : MonoBehaviour
         public int amount;
     }
     private List<UpgradeStatus> upgrades = new List<UpgradeStatus>();
+    private List<UpgradeStatus> prerequisiteUpgrades = new List<UpgradeStatus>();
     private List<UpgradeStatus> finishedUpgrades = new List<UpgradeStatus>();
 
-    private void Start()
+    private void Awake()
     {
         Upgrade[] allUpgrades = Resources.LoadAll<Upgrade>(UpgradePath);
         foreach (Upgrade upgrade in allUpgrades)
         {
-            upgrades.Add(new UpgradeStatus { upgrade = upgrade, amount = 0 });
+            UpgradeStatus upgradeStatus = new UpgradeStatus { upgrade = upgrade, amount = 0 };
+            if (upgrade is PrerequisiteUpgrade)
+            {
+                print("prerequisite upgrade" + upgrade.name);
+                prerequisiteUpgrades.Add(upgradeStatus);
+            }
+            else
+            {
+                upgrades.Add(upgradeStatus);
+            }
         }
     }
     
     public void ApplyUpgrade(Upgrade upgrade)
     {
         UpgradeStatus upgradeStatus = FindUpgradeStatus(upgrade);
-        if (upgrade is UpgradeSpecificWeapon)
-        {
 
-            UpgradeWeapon(upgradeStatus);
-        }
-        else
+        upgrade.Apply(player.gameObject);
+        upgradeStatus.amount++;
+
+        if (upgradeStatus.upgrade is GiveWeaponUpgrade)
         {
-            upgrade.Apply(player.gameObject);
-            upgradeStatus.amount++;
+            FinishUpgrade(upgradeStatus);
         }
+
+        if (upgrade is WeaponUpgrade)
+        {
+            WeaponUpgrade weaponUpgrade = (WeaponUpgrade) upgrade;
+            if (upgradeStatus.amount >= weaponUpgrade.maxUpgradeCount)
+            {
+                FinishUpgrade(upgradeStatus);
+            }
+        }
+
+        CheckPrerequisites();
+    }
+
+    private void CheckPrerequisites()
+    {
+        List<UpgradeStatus> toMove = new List<UpgradeStatus>();
+
+        foreach (UpgradeStatus prerequisiteUpgradeStatus in prerequisiteUpgrades)
+        {
+            PrerequisiteUpgrade currentUpgrade = (PrerequisiteUpgrade) prerequisiteUpgradeStatus.upgrade;
+            Upgrade prerequisite = currentUpgrade.prerequisiteUpgrade;
+
+            bool hasPrerequisite = false;
+
+            foreach (UpgradeStatus upgradeStatus in upgrades)
+            {
+                if (upgradeStatus.upgrade == prerequisite && upgradeStatus.amount > 0)
+                {
+                    hasPrerequisite = true;
+                }
+            }
+
+            foreach (UpgradeStatus upgradeStatus in finishedUpgrades)
+            {
+                if (upgradeStatus.upgrade == prerequisite && upgradeStatus.amount > 0)
+                {
+                    hasPrerequisite = true;
+                }
+            }
+
+            // If the prerequisite is found, mark for removal and addition
+            if (hasPrerequisite)
+            {
+                print("move");
+                toMove.Add(prerequisiteUpgradeStatus);
+            }
+        }
+
+        foreach (UpgradeStatus upgradeStatus in toMove)
+        {
+            prerequisiteUpgrades.Remove(upgradeStatus);
+            upgrades.Add(upgradeStatus);
+        }
+    }
+
+    private void FinishUpgrade(UpgradeStatus upgradeStatus)
+    {
+        upgrades.Remove(upgradeStatus);
+        finishedUpgrades.Add(upgradeStatus);
     }
 
     public Upgrade[] GetMultipleUpgrades(int upgradeCount)
@@ -97,30 +164,6 @@ public class UpgradeManager : MonoBehaviour
         }
 
         return null;
-    }
-
-    private void UpgradeWeapon(UpgradeStatus upgradeStatus)
-    {
-        UpgradeSpecificWeapon upgradeSpecificWeapon = (UpgradeSpecificWeapon) upgradeStatus.upgrade;
-        
-        if (HasWeapon(upgradeSpecificWeapon.weaponPrefab))
-        {
-            if (upgradeStatus.amount < upgradeSpecificWeapon.maxUpgradeCount)
-            {
-                upgradeStatus.upgrade.Apply(player.gameObject);
-                upgradeStatus.amount++;
-
-                if (upgradeStatus.amount >= upgradeSpecificWeapon.maxUpgradeCount)
-                {
-                    upgrades.Remove(upgradeStatus);
-                    finishedUpgrades.Add(upgradeStatus);
-                }
-            }
-        }
-        else
-        {
-            weaponManager.AddWeapon(upgradeSpecificWeapon.weaponPrefab);
-        }
     }
 
     public List<UpgradeStatus> GetAllAppliedUpgrades()

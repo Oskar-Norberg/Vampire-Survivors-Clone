@@ -16,7 +16,7 @@ public class PlayerController : PausableMonoBehaviour
     [SerializeField] private Animator animator;
     [SerializeField] private Health health;
     [SerializeField] private RegenerateHealth regenerateHealth;
-    [SerializeField] private WeaponManager weaponManager;
+    [SerializeField] private UpgradeManager upgradeManager;
     [SerializeField] private FlipSprite flipSprite;
     [SerializeField] new Rigidbody2D rigidbody;
     [SerializeField] private PlayerInput playerInput;
@@ -29,7 +29,7 @@ public class PlayerController : PausableMonoBehaviour
 
     private void Start()
     {
-        weaponManager.AddWeapon(playerData.startWeapon);
+        upgradeManager.ApplyUpgrade(playerData.startUpgrade);
         health.SetHealth(playerData.health);
     }
 
