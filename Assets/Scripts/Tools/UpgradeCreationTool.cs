@@ -25,7 +25,8 @@ public class UpgradeCreationTool : EditorWindow
     private enum Type {MaxHealth, Speed, GiveWeapon, UpgradeWeapon}
     private Type type;
 
-    private bool success = false;
+    private enum CreationStatus{Idle, Success, Failure}
+    private CreationStatus status = CreationStatus.Idle;
     
     [MenuItem("Tools/Upgrade Creation")]
     public static void ShowWindow()
@@ -132,13 +133,25 @@ public class UpgradeCreationTool : EditorWindow
             {
                 asset.name = upgradeName;
                 asset.description = upgradeDescription;
-                Debug.Log(UPGRADE_PATH + "/" + upgradeName.Trim(' ').Trim() + ".asset");
-                AssetDatabase.CreateAsset(asset, UPGRADE_PATH + "/" + upgradeName.Trim(' ').Trim() + ".asset");
-                success = true;
+                string path = UPGRADE_PATH + "/" + upgradeName.Trim(' ').Trim() + ".asset";
+                
+                if (string.IsNullOrEmpty(AssetDatabase.AssetPathToGUID(path)))
+                {
+                    AssetDatabase.CreateAsset(asset, path);
+                    status = CreationStatus.Success;
+                }
+                else
+                {
+                    status = CreationStatus.Failure;
+                }
             }
         }
         
-        if (success)
+        if (status == CreationStatus.Failure)
+        {
+            EditorGUILayout.Space();
+            GUILayout.Label("Asset already exists!", EditorStyles.boldLabel);
+        }else if (status == CreationStatus.Success)
         {
             EditorGUILayout.Space();
             GUILayout.Label("Upgrade Created Successfully!", EditorStyles.boldLabel);
