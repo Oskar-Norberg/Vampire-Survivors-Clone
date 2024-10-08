@@ -31,16 +31,9 @@ public class UpgradeManager : MonoBehaviour
     public void ApplyUpgrade(Upgrade upgrade)
     {
         UpgradeStatus upgradeStatus = FindUpgradeStatus(upgrade);
-        if (upgrade is UpgradeSpecificWeapon)
-        {
 
-            UpgradeWeapon(upgradeStatus);
-        }
-        else
-        {
-            upgrade.Apply(player.gameObject);
-            upgradeStatus.amount++;
-        }
+        upgrade.Apply(player.gameObject);
+        upgradeStatus.amount++;
     }
 
     public Upgrade[] GetMultipleUpgrades(int upgradeCount)
@@ -97,30 +90,6 @@ public class UpgradeManager : MonoBehaviour
         }
 
         return null;
-    }
-
-    private void UpgradeWeapon(UpgradeStatus upgradeStatus)
-    {
-        UpgradeSpecificWeapon upgradeSpecificWeapon = (UpgradeSpecificWeapon) upgradeStatus.upgrade;
-        
-        if (HasWeapon(upgradeSpecificWeapon.weaponPrefab))
-        {
-            if (upgradeStatus.amount < upgradeSpecificWeapon.maxUpgradeCount)
-            {
-                upgradeStatus.upgrade.Apply(player.gameObject);
-                upgradeStatus.amount++;
-
-                if (upgradeStatus.amount >= upgradeSpecificWeapon.maxUpgradeCount)
-                {
-                    upgrades.Remove(upgradeStatus);
-                    finishedUpgrades.Add(upgradeStatus);
-                }
-            }
-        }
-        else
-        {
-            weaponManager.AddWeapon(upgradeSpecificWeapon.weaponPrefab);
-        }
     }
 
     public List<UpgradeStatus> GetAllAppliedUpgrades()
