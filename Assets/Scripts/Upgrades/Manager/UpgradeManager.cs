@@ -49,6 +49,10 @@ public class UpgradeManager : MonoBehaviour
         {
             FinishUpgrade(upgradeStatus);
         }
+
+        CheckPrerequisites();
+    }
+
     private void CheckPrerequisites()
     {
         List<UpgradeStatus> toMove = new List<UpgradeStatus>();
