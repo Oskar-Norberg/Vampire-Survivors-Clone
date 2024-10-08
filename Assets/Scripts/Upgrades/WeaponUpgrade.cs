@@ -13,5 +13,6 @@ public class WeaponUpgrade : PrerequisiteUpgrade
         WeaponManager weaponManager = target.GetComponent<WeaponManager>();
         WeaponBase weaponBase = weaponManager.FindWeapon(weapon);
         Debug.Log("Upgrade Weapon");
+        weaponBase.Upgrade();
     }
 }
