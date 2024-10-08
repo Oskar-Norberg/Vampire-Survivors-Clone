@@ -20,7 +20,7 @@ public class UpgradeManager : MonoBehaviour
     private List<UpgradeStatus> prerequisiteUpgrades = new List<UpgradeStatus>();
     private List<UpgradeStatus> finishedUpgrades = new List<UpgradeStatus>();
 
-    private void Start()
+    private void Awake()
     {
         Upgrade[] allUpgrades = Resources.LoadAll<Upgrade>(UpgradePath);
         foreach (Upgrade upgrade in allUpgrades)
