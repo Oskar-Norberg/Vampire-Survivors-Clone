@@ -8,7 +8,7 @@ public class BlinkSpriteOnHit : MonoBehaviour
     [SerializeField] private Health health;
     
     [SerializeField] private float blinkDurationMilliseconds = 250.0f;
-    [SerializeField] private Color blinkColor = Color.red;
+    [SerializeField] private Material blinkMaterial;
     [SerializeField] private SpriteRenderer spriteRenderer;
     
     private bool coroutineRunning = false;
@@ -23,10 +23,10 @@ public class BlinkSpriteOnHit : MonoBehaviour
     {
         if (coroutineRunning) yield break;
         coroutineRunning = true;
-        Color originalColor = spriteRenderer.color;
-        spriteRenderer.color = blinkColor;
+        Material originalMaterial = spriteRenderer.material;
+        spriteRenderer.material = blinkMaterial;
         yield return new WaitForSeconds(blinkDurationMilliseconds / 1000);
-        spriteRenderer.color = originalColor;
+        spriteRenderer.material = originalMaterial;
         coroutineRunning = false;
     }
 
