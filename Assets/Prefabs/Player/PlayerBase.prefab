@@ -165,7 +165,7 @@ MonoBehaviour:
   animator: {fileID: 2663719027138871270}
   health: {fileID: 6946122842765612996}
   regenerateHealth: {fileID: 1980831777862005627}
-  weaponManager: {fileID: 707765269050721198}
+  upgradeManager: {fileID: 0}
   flipSprite: {fileID: 4472149429951525506}
   rigidbody: {fileID: 9087697703250671366}
   playerInput: {fileID: 492554283673280231}
@@ -219,10 +219,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90a8504226207654dae8cb9fcfa1481e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  blinkDurationMilliseconds: 250
-  blinkColor: {r: 1, g: 0, b: 0, a: 1}
-  spriteRenderer: {fileID: 8392282148062729009}
   health: {fileID: 6946122842765612996}
+  blinkDurationMilliseconds: 125
+  blinkMaterial: {fileID: 2100000, guid: 3a2eeedb951ea3e4b8b1041678dc2160, type: 2}
+  spriteRenderer: {fileID: 8392282148062729009}
 --- !u!114 &4472149429951525506
 MonoBehaviour:
   m_ObjectHideFlags: 0

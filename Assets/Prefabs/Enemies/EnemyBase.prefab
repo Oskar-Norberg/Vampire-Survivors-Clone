@@ -216,10 +216,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90a8504226207654dae8cb9fcfa1481e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  blinkDurationMilliseconds: 250
-  blinkColor: {r: 1, g: 0, b: 0, a: 1}
-  spriteRenderer: {fileID: 4693257895088362968}
   health: {fileID: 3253558777638256979}
+  blinkDurationMilliseconds: 125
+  blinkMaterial: {fileID: 2100000, guid: 3a2eeedb951ea3e4b8b1041678dc2160, type: 2}
+  spriteRenderer: {fileID: 4693257895088362968}
 --- !u!114 &8613044612534113148
 MonoBehaviour:
   m_ObjectHideFlags: 0
