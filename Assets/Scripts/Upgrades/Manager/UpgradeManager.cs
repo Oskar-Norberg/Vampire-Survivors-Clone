@@ -50,6 +50,15 @@ public class UpgradeManager : MonoBehaviour
             FinishUpgrade(upgradeStatus);
         }
 
+        if (upgrade is WeaponUpgrade)
+        {
+            WeaponUpgrade weaponUpgrade = (WeaponUpgrade) upgrade;
+            if (upgradeStatus.amount >= weaponUpgrade.maxUpgradeCount)
+            {
+                FinishUpgrade(upgradeStatus);
+            }
+        }
+
         CheckPrerequisites();
     }
 
