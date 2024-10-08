@@ -49,6 +49,46 @@ public class UpgradeManager : MonoBehaviour
         {
             FinishUpgrade(upgradeStatus);
         }
+    private void CheckPrerequisites()
+    {
+        List<UpgradeStatus> toMove = new List<UpgradeStatus>();
+
+        foreach (UpgradeStatus prerequisiteUpgradeStatus in prerequisiteUpgrades)
+        {
+            PrerequisiteUpgrade currentUpgrade = (PrerequisiteUpgrade) prerequisiteUpgradeStatus.upgrade;
+            Upgrade prerequisite = currentUpgrade.prerequisiteUpgrade;
+
+            bool hasPrerequisite = false;
+
+            foreach (UpgradeStatus upgradeStatus in upgrades)
+            {
+                if (upgradeStatus.upgrade == prerequisite && upgradeStatus.amount > 0)
+                {
+                    hasPrerequisite = true;
+                }
+            }
+
+            foreach (UpgradeStatus upgradeStatus in finishedUpgrades)
+            {
+                if (upgradeStatus.upgrade == prerequisite && upgradeStatus.amount > 0)
+                {
+                    hasPrerequisite = true;
+                }
+            }
+
+            // If the prerequisite is found, mark for removal and addition
+            if (hasPrerequisite)
+            {
+                print("move");
+                toMove.Add(prerequisiteUpgradeStatus);
+            }
+        }
+
+        foreach (UpgradeStatus upgradeStatus in toMove)
+        {
+            prerequisiteUpgrades.Remove(upgradeStatus);
+            upgrades.Add(upgradeStatus);
+        }
     }
 
     private void FinishUpgrade(UpgradeStatus upgradeStatus)
