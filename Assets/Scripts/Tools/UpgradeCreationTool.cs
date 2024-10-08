@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
 
@@ -11,9 +12,13 @@ public class UpgradeCreationTool : EditorWindow
     private string upgradeName;
     private string upgradeDescription;
 
+    // Stat-increase
     private int increase;
     
-    private enum Type {MaxHealth, Speed}
+    // Give Weapon
+    private GameObject weapon;
+    
+    private enum Type {MaxHealth, Speed, GiveWeapon}
     private Type type;
 
     private bool success = false;
@@ -52,6 +57,11 @@ public class UpgradeCreationTool : EditorWindow
                 increase = EditorGUILayout.IntField("Speed Increase", increase);
                 GUILayout.EndHorizontal();
                 break;
+            case Type.GiveWeapon:
+                GUILayout.BeginHorizontal();
+                weapon = (GameObject)EditorGUILayout.ObjectField("Weapon prefab", weapon, typeof(GameObject), true);
+                GUILayout.EndHorizontal();
+                break;
         }
 
         if (GUILayout.Button("Create Upgrade"))
@@ -75,6 +85,14 @@ public class UpgradeCreationTool : EditorWindow
                     if (speed)
                     {
                         speed.speedIncreasePercent = increase;
+                    }
+                    break;
+                case Type.GiveWeapon:
+                    asset = ScriptableObject.CreateInstance<GiveWeaponUpgrade>();
+                    GiveWeaponUpgrade weaponUpgrade = asset as GiveWeaponUpgrade;
+                    if (weaponUpgrade)
+                    {
+                        weaponUpgrade.weapon = weapon;
                     }
                     break;
                 default:
