@@ -16,3 +16,4 @@ MonoBehaviour:
   description: Spawn more spells
   prerequisiteUpgrade: {fileID: 11400000, guid: 978ac6df3c3995642807e589297ac838, type: 2}
   weapon: {fileID: 4870586607499337545, guid: 5629a0786e32fb14395a7a1c7b93867a, type: 3}
+  maxUpgradeCount: 3
