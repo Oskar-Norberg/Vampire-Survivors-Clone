@@ -473,6 +473,10 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3821774388742248042, guid: 600ae706cf0ffab4faaea6185b58b5c2, type: 3}
+      propertyPath: upgradeManager
+      value: 
+      objectReference: {fileID: 534151320}
     - target: {fileID: 9030314267508362073, guid: 600ae706cf0ffab4faaea6185b58b5c2, type: 3}
       propertyPath: m_Name
       value: PlayerOne

@@ -7,5 +7,5 @@ public class PlayerData : ScriptableObject
 {
     public int health;
     public float moveSpeed;
-    public GameObject startWeapon;
+    public Upgrade startUpgrade;
 }
