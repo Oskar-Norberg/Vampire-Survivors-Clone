@@ -11,7 +11,6 @@ public class BlinkSpriteOnHit : MonoBehaviour
     [SerializeField] private Color blinkColor = Color.red;
     [SerializeField] private SpriteRenderer spriteRenderer;
     
-
     private bool coroutineRunning = false;
 
     private void BlinkSprite()
