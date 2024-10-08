@@ -5,6 +5,8 @@ using UnityEngine;
 public class WeaponUpgrade : PrerequisiteUpgrade
 {
     public GameObject weapon;
+
+    public int maxUpgradeCount;
     
     public override void Apply(GameObject target)
     {
