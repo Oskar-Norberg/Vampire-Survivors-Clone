@@ -72,4 +72,9 @@ public class OrbitingSaw : WeaponBase
         base.UnPause();
         IsPaused = false;
     }
+
+    public override void Upgrade()
+    {
+        AddSaw();
+    }
 }
