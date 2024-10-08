@@ -17,6 +17,7 @@ public class UpgradeManager : MonoBehaviour
         public int amount;
     }
     private List<UpgradeStatus> upgrades = new List<UpgradeStatus>();
+    private List<UpgradeStatus> prerequisiteUpgrades = new List<UpgradeStatus>();
     private List<UpgradeStatus> finishedUpgrades = new List<UpgradeStatus>();
 
     private void Start()
@@ -24,7 +25,16 @@ public class UpgradeManager : MonoBehaviour
         Upgrade[] allUpgrades = Resources.LoadAll<Upgrade>(UpgradePath);
         foreach (Upgrade upgrade in allUpgrades)
         {
-            upgrades.Add(new UpgradeStatus { upgrade = upgrade, amount = 0 });
+            UpgradeStatus upgradeStatus = new UpgradeStatus { upgrade = upgrade, amount = 0 };
+            if (upgrade is PrerequisiteUpgrade)
+            {
+                print("prerequisite upgrade" + upgrade.name);
+                prerequisiteUpgrades.Add(upgradeStatus);
+            }
+            else
+            {
+                upgrades.Add(upgradeStatus);
+            }
         }
     }
     
