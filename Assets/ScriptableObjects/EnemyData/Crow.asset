@@ -18,4 +18,4 @@ MonoBehaviour:
   invincibilityTimeMilliseconds: 150
   aiType: 0
   moveSpeed: 20
-  xpOrbPrefab: {fileID: 5337158755237880101, guid: 97b18720bd16f824a8910f3444f962bb, type: 3}
+  xpOrbData: {fileID: 11400000, guid: 99bcb6081cba580428017f90fe36bbb9, type: 2}
