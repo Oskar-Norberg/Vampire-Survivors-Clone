@@ -50,11 +50,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4414734645369834017, guid: 97b18720bd16f824a8910f3444f962bb, type: 3}
       propertyPath: xpValue
-      value: 2
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 5337158755237880101, guid: 97b18720bd16f824a8910f3444f962bb, type: 3}
       propertyPath: m_Name
-      value: TwoXPOrb
+      value: FiveXPOrb
       objectReference: {fileID: 0}
     - target: {fileID: 6100894844014747627, guid: 97b18720bd16f824a8910f3444f962bb, type: 3}
       propertyPath: m_Color.b
