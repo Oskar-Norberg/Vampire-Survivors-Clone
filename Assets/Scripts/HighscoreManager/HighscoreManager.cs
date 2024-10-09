@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
 
-public class HighscoreManager : MonoBehaviour
+public static class HighscoreManager
 {
     public static HighscoreManager instance;
     
