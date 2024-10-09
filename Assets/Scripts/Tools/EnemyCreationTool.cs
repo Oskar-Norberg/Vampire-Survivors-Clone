@@ -24,6 +24,9 @@ public class EnemyCreationTool : EditorWindow
     private float moveSpeed;
 
     private AIMovement.AIType aiType;
+    
+    private List<GameObject> xpOrbs;
+    private int xpOrbPrefabIndex;
 
     private bool success = false;
     
@@ -35,6 +38,8 @@ public class EnemyCreationTool : EditorWindow
 
     private void OnGUI()
     {
+        LoadXPOrbs();
+        
         GUILayout.Label("Enemy Creation Tool", EditorStyles.boldLabel);
 
         GUILayout.BeginHorizontal();
@@ -116,5 +121,17 @@ public class EnemyCreationTool : EditorWindow
         AssetDatabase.SaveAssets();
         
         DestroyImmediate(enemyInstance);
+    }
+
+    private void LoadXPOrbs()
+    {
+        string[] guids = AssetDatabase.FindAssets("t:prefab", new string[] {XP_ORB_PREFABS_PATH});
+
+        xpOrbs = new List<GameObject>();
+        
+        foreach (string guid in guids)
+        {
+            xpOrbs.Add(AssetDatabase.LoadAssetAtPath(AssetDatabase.GUIDToAssetPath(guid), typeof(GameObject)).GameObject());
+        }
     }
 }
