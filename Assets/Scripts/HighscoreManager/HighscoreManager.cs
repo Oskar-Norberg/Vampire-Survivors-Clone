@@ -55,7 +55,15 @@ public static class HighscoreManager
     
     private static void SaveHighscores()
     {
-        string json = JsonUtility.ToJson(highscore);
+        JSONHolder jsonHolder = new JSONHolder();
+
+        foreach (string key in _highscores.Keys)
+        {
+            jsonHolder.levels.Add(new JSONLevel { name = key, score = _highscores[key] });
+        }
+        
+        string json = JsonUtility.ToJson(jsonHolder, UsePrettyPrint);
+        Debug.Log(json);
         File.WriteAllText(GetPathString(), json);
     }
     
