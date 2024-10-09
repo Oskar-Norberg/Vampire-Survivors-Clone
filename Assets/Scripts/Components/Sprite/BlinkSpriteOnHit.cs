@@ -11,7 +11,6 @@ public class BlinkSpriteOnHit : PausableMonoBehaviour
     [SerializeField] private Material blinkMaterial;
     [SerializeField] private SpriteRenderer spriteRenderer;
     
-    private bool coroutineRunning = false;
     private enum BlinkState {NotBlinking, BlinkStart, Blinking}
     private BlinkState blinkState = BlinkState.NotBlinking;
     private float timer = 0.0f;
@@ -45,14 +44,16 @@ public class BlinkSpriteOnHit : PausableMonoBehaviour
         originalMaterial = null;
     }
 
-    private void OnEnable()
+    protected override void OnEnable()
     {
+        base.OnEnable();
         if (!health) return;
         health.onDamageTaken += BlinkSprite;
     }
 
-    private void OnDisable()
+    protected override void OnDisable()
     {
+        base.OnDisable();
         if (!health) return;
         health.onDamageTaken -= BlinkSprite;
     }
