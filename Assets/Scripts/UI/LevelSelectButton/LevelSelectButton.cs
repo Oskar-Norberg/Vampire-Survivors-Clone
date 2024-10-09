@@ -18,11 +18,11 @@ public class LevelSelectButton : MonoBehaviour
 
     private void SetButtonText()
     {
-        if (JSONLevel.LevelJSONExists(sceneName))
+        float highScore = HighscoreManager.instance.GetHighscore(sceneName);
+        if (highScore != 0.0f)
         {
-            float time = JSONLevel.ReadTimeSurvivedFromJSON(sceneName);
-            int minutes = Mathf.FloorToInt(time / 60);
-            int seconds = Mathf.FloorToInt(time - minutes * 60);
+            int minutes = Mathf.FloorToInt(highScore / 60);
+            int seconds = Mathf.FloorToInt(highScore - minutes * 60);
             string timeString = $"{minutes:00}:{seconds:00}";
             buttonText.text = sceneName + " - " + timeString; 
         }
