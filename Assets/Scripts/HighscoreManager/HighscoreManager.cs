@@ -28,7 +28,7 @@ public static class HighscoreManager
         LoadHighscores();
     }
 
-    public void AddScore(string levelName, float newScore)
+    static HighscoreManager()
     {
         if (highscore.ContainsKey(levelName))
         {
@@ -41,11 +41,13 @@ public static class HighscoreManager
     }
 
     private void OnApplicationQuit()
+    
+    public static void AddScore(string levelName, float newScore)
     {
         SaveHighscores();
     }
 
-    private void LoadHighscores()
+    private static void LoadHighscores()
     {
         if (File.Exists(GetPathString()))
         {
@@ -54,20 +56,20 @@ public static class HighscoreManager
         }
     }
     
-    private void SaveHighscores()
+    private static void SaveHighscores()
     {
         string json = JsonUtility.ToJson(highscore);
         File.WriteAllText(GetPathString(), json);
     }
     
-    public float GetHighscore(string levelName)
+    public static float GetHighscore(string levelName)
     {
-        return highscore[levelName];
+        return _highscores[levelName];
     }
     
-    public bool HasPreviousScore(string levelName)
+    public static bool HasPreviousScore(string levelName)
     {
-        return highscore.ContainsKey(levelName);
+        return _highscores.ContainsKey(levelName);
     }
     
     private static string GetPathString()
