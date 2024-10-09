@@ -12,15 +12,9 @@ public static class HighscoreManager
     private static Dictionary<string, float> _highscores = new Dictionary<string, float>();
 
     private void Awake()
+    private class JSONHolder
     {
-        if (instance != null && instance != this) 
-        { 
-            Destroy(this); 
-        }
-        else 
-        { 
-            instance = this; 
-        } 
+        public List<JSONLevel> levels = new List<JSONLevel>();
     }
 
     private void Start()
