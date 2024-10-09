@@ -43,4 +43,8 @@ public class HighscoreManager : MonoBehaviour
         return highscore[levelName];
     }
     
+    public bool HasPreviousScore(string levelName)
+    {
+        return highscore.ContainsKey(levelName);
+    }
 }
