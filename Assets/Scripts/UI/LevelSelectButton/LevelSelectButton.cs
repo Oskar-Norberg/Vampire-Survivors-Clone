@@ -18,9 +18,9 @@ public class LevelSelectButton : MonoBehaviour
 
     private void SetButtonText()
     {
-        float highScore = HighscoreManager.instance.GetHighscore(sceneName);
-        if (highScore != 0.0f)
+        if (HighscoreManager.HasPreviousScore(sceneName))
         {
+            float highScore = HighscoreManager.GetHighscore(sceneName);
             int minutes = Mathf.FloorToInt(highScore / 60);
             int seconds = Mathf.FloorToInt(highScore - minutes * 60);
             string timeString = $"{minutes:00}:{seconds:00}";
