@@ -21,15 +21,25 @@ public class BlinkSpriteOnHit : PausableMonoBehaviour
         StartCoroutine(BlinkSpriteCoroutine());
     }
 
-    private IEnumerator BlinkSpriteCoroutine()
+    private void Update()
     {
-        if (coroutineRunning) yield break;
-        coroutineRunning = true;
-        Material originalMaterial = spriteRenderer.material;
-        spriteRenderer.material = blinkMaterial;
-        yield return new WaitForSeconds(blinkDurationMilliseconds / 1000);
+        if (IsPaused || blinkState == BlinkState.NotBlinking) return;
+        
+        timer += Time.deltaTime;
+
+        if (blinkState == BlinkState.BlinkStart)
+        {
+            blinkState = BlinkState.Blinking;
+            originalMaterial = spriteRenderer.material;
+            spriteRenderer.material = blinkMaterial;
+        }
+
+        if (!(timer >= blinkDurationMilliseconds / 1000)) return;
+        
+        blinkState = BlinkState.NotBlinking;
+        timer = 0.0f;
         spriteRenderer.material = originalMaterial;
-        coroutineRunning = false;
+        originalMaterial = null;
     }
 
     private void OnEnable()
