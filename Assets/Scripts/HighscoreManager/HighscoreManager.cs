@@ -8,16 +8,16 @@ public static class HighscoreManager
 {
     private const string HighscoreFileName = "highscores.json";
     
+    private const bool UsePrettyPrint = true;
     
     private static Dictionary<string, float> _highscores = new Dictionary<string, float>();
 
-    private void Awake()
+    [Serializable]
     private class JSONHolder
     {
         public List<JSONLevel> levels = new List<JSONLevel>();
     }
 
-    private void Start()
     [Serializable]
     private class JSONLevel
     {
@@ -27,29 +27,26 @@ public static class HighscoreManager
 
     static HighscoreManager()
     {
-        if (highscore.ContainsKey(levelName))
-        {
-            highscore[levelName] = newScore;
-        }
-        else
-        {
-            highscore.Add(levelName, newScore);
-        }
+        LoadHighscores();
     }
-
-    private void OnApplicationQuit()
     
     public static void AddScore(string levelName, float newScore)
     {
+        _highscores[levelName] = newScore;
+
         SaveHighscores();
     }
 
     private static void LoadHighscores()
     {
-        if (File.Exists(GetPathString()))
+        if (!File.Exists(GetPathString())) return;
+        
+        string json = File.ReadAllText(GetPathString());
+        JSONHolder JSONHolder = JsonUtility.FromJson<JSONHolder>(json);
+
+        foreach (JSONLevel JSONLevel in JSONHolder.levels)
         {
-            string json = File.ReadAllText(GetPathString());
-            highscore = JsonUtility.FromJson<Dictionary<string, float>>(json);
+            _highscores[JSONLevel.name] = JSONLevel.score;
         }
     }
     
