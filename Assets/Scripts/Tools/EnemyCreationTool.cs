@@ -117,6 +117,7 @@ public class EnemyCreationTool : EditorWindow
         enemyData.invincibilityTimeMilliseconds = invincibilityTimeMilliseconds;
         enemyData.moveSpeed = moveSpeed;
         enemyData.aiType = aiType;
+        enemyData.xpOrbPrefab = xpOrbs[xpOrbPrefabIndex];
 
         string scriptableObjectPath = ENEMY_DATA_FOLDER_PATH + "/" + name.Trim(' ').Trim() + ".asset";
         AssetDatabase.CreateAsset(enemyData, scriptableObjectPath);
