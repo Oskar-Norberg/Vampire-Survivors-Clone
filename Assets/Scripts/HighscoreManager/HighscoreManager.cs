@@ -38,4 +38,9 @@ public class HighscoreManager : MonoBehaviour
         File.WriteAllText(GetPathString(), json);
     }
     
+    public float GetHighscore(string levelName)
+    {
+        return highscore[levelName];
+    }
+    
 }
