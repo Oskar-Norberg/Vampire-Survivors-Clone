@@ -12,6 +12,8 @@ public class BlinkSpriteOnHit : PausableMonoBehaviour
     [SerializeField] private SpriteRenderer spriteRenderer;
     
     private bool coroutineRunning = false;
+    private enum BlinkState {NotBlinking, BlinkStart, Blinking}
+    private BlinkState blinkState = BlinkState.NotBlinking;
 
     private void BlinkSprite()
     {
