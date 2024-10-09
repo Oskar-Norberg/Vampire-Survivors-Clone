@@ -14,5 +14,5 @@ public class EnemyData : ScriptableObject
     public AIMovement.AIType aiType;
     public float moveSpeed;
 
-    public GameObject xpOrbPrefab;
+    public XPOrbData xpOrbData;
 }
