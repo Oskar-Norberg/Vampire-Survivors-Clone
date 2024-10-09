@@ -23,6 +23,17 @@ public class HighscoreManager : MonoBehaviour
             instance = this; 
         } 
     }
+    public void AddScore(string levelName, float newScore)
+    {
+        if (highscore.ContainsKey(levelName))
+        {
+            highscore[levelName] = newScore;
+        }
+        else
+        {
+            highscore.Add(levelName, newScore);
+        }
+    }
     private void LoadHighscores()
     {
         if (File.Exists(GetPathString()))
