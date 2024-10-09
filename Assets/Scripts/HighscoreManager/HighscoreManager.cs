@@ -6,9 +6,8 @@ using UnityEngine;
 
 public static class HighscoreManager
 {
-    public static HighscoreManager instance;
+    private const string HighscoreFileName = "highscores.json";
     
-    private const string HighscoreFileName = "Highscores.json";
     
     private Dictionary<string, float> highscore = new Dictionary<string, float>();
 
