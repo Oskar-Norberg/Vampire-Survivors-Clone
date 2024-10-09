@@ -16,6 +16,7 @@ public class EnemyBase : PausableMonoBehaviour
     [SerializeField] private AttackOnStayCooldown attack;
     [SerializeField] private HealthWithInvincibilityFrames health;
     [SerializeField] private AIMovement aiMovement;
+    [SerializeField] private InstantiateOnDestroy xpDropper;
     
     private Transform targetTransform;
 
@@ -31,6 +32,7 @@ public class EnemyBase : PausableMonoBehaviour
         attack.SetDamage(data.damage);
         attack.SetTickCooldown(data.tickCooldownMilliseconds);
         aiMovement.SetType(data.aiType);
+        xpDropper.SetPrefab(data.xpOrbPrefab);
         
         // TODO Avoid using FindGameObject
         GameObject player = GameObject.FindGameObjectWithTag("Player");
