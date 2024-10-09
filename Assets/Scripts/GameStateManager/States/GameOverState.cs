@@ -45,11 +45,13 @@ public class GameOverState : BaseGameState
         bool setNewScore = true;
         
         float timeSurvived = gameStateManager.roundTimer.GetTimeInSeconds();
-        
+
+
         // Level already has a high score
-        if (JSONLevel.LevelJSONExists(sceneName))
+        if (HighscoreManager.HasPreviousScore(sceneName))
         {
-            float savedScore = JSONLevel.ReadTimeSurvivedFromJSON(sceneName);
+            float savedScore = HighscoreManager.GetHighscore(sceneName);
+            
             
             // If current score is lower than high score
             if (savedScore > timeSurvived)
@@ -58,6 +60,6 @@ public class GameOverState : BaseGameState
             }
         }
         
-        if (setNewScore) JSONLevel.SaveLevelStatsToFile(sceneName, timeSurvived);
+        if (setNewScore) HighscoreManager.AddScore(sceneName, timeSurvived);
     }
 }
