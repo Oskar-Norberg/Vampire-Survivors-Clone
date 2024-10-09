@@ -9,7 +9,7 @@ public static class HighscoreManager
     private const string HighscoreFileName = "highscores.json";
     
     
-    private Dictionary<string, float> highscore = new Dictionary<string, float>();
+    private static Dictionary<string, float> _highscores = new Dictionary<string, float>();
 
     private void Awake()
     {
