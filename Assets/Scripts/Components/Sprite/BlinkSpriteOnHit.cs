@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BlinkSpriteOnHit : MonoBehaviour
+public class BlinkSpriteOnHit : PausableMonoBehaviour
 {
     [SerializeField] private Health health;
     
