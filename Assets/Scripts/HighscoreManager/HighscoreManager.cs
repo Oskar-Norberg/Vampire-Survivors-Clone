@@ -24,8 +24,11 @@ public static class HighscoreManager
     }
 
     private void Start()
+    [Serializable]
+    private class JSONLevel
     {
-        LoadHighscores();
+        public string name;
+        public float score;
     }
 
     static HighscoreManager()
