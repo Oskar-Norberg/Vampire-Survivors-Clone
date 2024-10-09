@@ -23,4 +23,12 @@ public class HighscoreManager : MonoBehaviour
             instance = this; 
         } 
     }
+    private void LoadHighscores()
+    {
+        if (File.Exists(GetPathString()))
+        {
+            string json = File.ReadAllText(GetPathString());
+            highscore = JsonUtility.FromJson<Dictionary<string, float>>(json);
+        }
+    }
 }
