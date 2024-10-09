@@ -28,7 +28,6 @@ public class GameStateManager : MonoBehaviour
 
     private void Start()
     {
-        print("Game Manager Started");
         // Start in Playing Game State
         SwitchState<PlayingGameState>();
     }

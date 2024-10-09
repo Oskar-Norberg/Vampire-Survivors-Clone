@@ -28,7 +28,6 @@ public class UpgradeManager : MonoBehaviour
             UpgradeStatus upgradeStatus = new UpgradeStatus { upgrade = upgrade, amount = 0 };
             if (upgrade is PrerequisiteUpgrade)
             {
-                print("prerequisite upgrade" + upgrade.name);
                 prerequisiteUpgrades.Add(upgradeStatus);
             }
             else
@@ -92,7 +91,6 @@ public class UpgradeManager : MonoBehaviour
             // If the prerequisite is found, mark for removal and addition
             if (hasPrerequisite)
             {
-                print("move");
                 toMove.Add(prerequisiteUpgradeStatus);
             }
         }
