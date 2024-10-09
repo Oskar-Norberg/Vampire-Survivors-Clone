@@ -11,4 +11,9 @@ public class InstantiateOnDestroy : MonoBehaviour
         if(!this.gameObject.scene.isLoaded) return;
         Instantiate(prefab, transform.position, transform.rotation);
     }
+    
+    public void SetPrefab(GameObject newPrefab)
+    {
+        this.prefab = newPrefab;
+    }
 }
