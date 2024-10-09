@@ -9,14 +9,16 @@ public class RegenerateHealth : PausableMonoBehaviour
 
     private float timer = 0.0f;
     
-    private void OnEnable()
+    protected new void OnEnable()
     {
+        base.OnEnable();
         health.onHealthChange += RestartRegenerate;
         timer = 0.0f;
     }
 
-    private void OnDisable()
+    protected new void OnDisable()
     {
+        base.OnDisable();
         health.onHealthChange -= RestartRegenerate;
     }
 
@@ -25,6 +27,7 @@ public class RegenerateHealth : PausableMonoBehaviour
         timer = 0.0f;
     }
 
+    //TODO: Why is this managed by player?
     public void FixedUpdateRegenerate()
     {
         if (IsPaused) return;

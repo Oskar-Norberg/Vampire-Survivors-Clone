@@ -7,13 +7,13 @@ public abstract class PausableMonoBehaviour : MonoBehaviour
 {
     protected bool IsPaused = false;
     
-    private void OnEnable()
+    protected virtual void OnEnable()
     {
         GameStateManager.onPause += Pause;
         GameStateManager.onResume += UnPause;
     }
     
-    private void OnDisable()
+    protected virtual void OnDisable()
     {
         GameStateManager.onPause -= Pause;
         GameStateManager.onResume -= UnPause;
