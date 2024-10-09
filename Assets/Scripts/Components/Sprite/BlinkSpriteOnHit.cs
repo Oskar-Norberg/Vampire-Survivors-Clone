@@ -14,11 +14,14 @@ public class BlinkSpriteOnHit : PausableMonoBehaviour
     private bool coroutineRunning = false;
     private enum BlinkState {NotBlinking, BlinkStart, Blinking}
     private BlinkState blinkState = BlinkState.NotBlinking;
+    private float timer = 0.0f;
+
+    private Material originalMaterial;
 
     private void BlinkSprite()
     {
-        if (!spriteRenderer || !health) return;
-        StartCoroutine(BlinkSpriteCoroutine());
+        if (!spriteRenderer || !health || blinkState != BlinkState.NotBlinking) return;
+        blinkState = BlinkState.BlinkStart;
     }
 
     private void Update()
