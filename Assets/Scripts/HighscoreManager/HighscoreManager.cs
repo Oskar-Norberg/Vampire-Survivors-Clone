@@ -40,6 +40,12 @@ public class HighscoreManager : MonoBehaviour
             highscore.Add(levelName, newScore);
         }
     }
+
+    private void OnApplicationQuit()
+    {
+        SaveHighscores();
+    }
+
     private void LoadHighscores()
     {
         if (File.Exists(GetPathString()))
