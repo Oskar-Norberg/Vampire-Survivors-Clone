@@ -16,5 +16,6 @@ MonoBehaviour:
   damage: 1
   tickCooldownMilliseconds: 500
   invincibilityTimeMilliseconds: 150
+  aiType: 0
   moveSpeed: 20
-  strategy: {fileID: -7186094866455617706, guid: 3e11befa01b31f4439de20d322caddc9, type: 3}
+  xpOrbPrefab: {fileID: 5337158755237880101, guid: 97b18720bd16f824a8910f3444f962bb, type: 3}

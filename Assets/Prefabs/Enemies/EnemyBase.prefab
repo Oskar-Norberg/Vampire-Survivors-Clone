@@ -166,6 +166,7 @@ MonoBehaviour:
   attack: {fileID: 6124005138542892578}
   health: {fileID: 3253558777638256979}
   aiMovement: {fileID: 7077354665676772403}
+  xpDropper: {fileID: 7803683674475672549}
 --- !u!114 &6124005138542892578
 MonoBehaviour:
   m_ObjectHideFlags: 0
