@@ -48,9 +48,9 @@ public class GameOverState : BaseGameState
 
 
         // Level already has a high score
-        if (HighscoreManager.instance.HasPreviousScore(sceneName))
+        if (HighscoreManager.HasPreviousScore(sceneName))
         {
-            float savedScore = HighscoreManager.instance.GetHighscore(sceneName);
+            float savedScore = HighscoreManager.GetHighscore(sceneName);
             
             
             // If current score is lower than high score
@@ -60,6 +60,6 @@ public class GameOverState : BaseGameState
             }
         }
         
-        if (setNewScore) HighscoreManager.instance.AddScore(sceneName, timeSurvived);
+        if (setNewScore) HighscoreManager.AddScore(sceneName, timeSurvived);
     }
 }
