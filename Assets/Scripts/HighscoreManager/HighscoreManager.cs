@@ -60,7 +60,6 @@ public static class HighscoreManager
         }
         
         string json = JsonUtility.ToJson(jsonHolder, UsePrettyPrint);
-        Debug.Log(json);
         File.WriteAllText(GetPathString(), json);
     }
     
