@@ -76,6 +76,20 @@ public class EnemyCreationTool : EditorWindow
         GUILayout.BeginHorizontal();
         aiType = (AIMovement.AIType)EditorGUILayout.EnumPopup("Movement Strategy", aiType);
         GUILayout.EndHorizontal();
+        
+        GUILayout.BeginHorizontal();
+        GUILayout.Label("XP Orb Prefab", EditorStyles.label);
+        
+        // Convert list of prefab to list of strings for selection in dropdown menu.
+        string[] xpOrbNames = new string[xpOrbs.Count];
+        
+        for (int i = 0; i < xpOrbs.Count; i++)
+        {
+            xpOrbNames[i] = xpOrbs[i] != null ? xpOrbs[i].name : "Missing Prefab";
+        }
+        
+        xpOrbPrefabIndex = EditorGUILayout.Popup(xpOrbPrefabIndex, xpOrbNames);
+        GUILayout.EndHorizontal();
 
         EditorGUILayout.Space();
 
