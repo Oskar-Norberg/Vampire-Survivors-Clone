@@ -10,6 +10,8 @@ public class EnemyCreationTool : EditorWindow
     private const string ENEMY_BASE_PATH = ENEMY_FOLDER_PATH + "/" + "EnemyBase.prefab";
     
     private const string ENEMY_DATA_FOLDER_PATH = "Assets/ScriptableObjects/EnemyData";
+
+    private const string XP_ORB_PREFABS_PATH = "Assets/Prefabs/XPOrb";
     
     private new string name;
 
