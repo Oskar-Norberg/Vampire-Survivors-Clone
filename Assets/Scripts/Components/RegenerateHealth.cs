@@ -27,8 +27,7 @@ public class RegenerateHealth : PausableMonoBehaviour
         timer = 0.0f;
     }
 
-    //TODO: Why is this managed by player?
-    public void FixedUpdateRegenerate()
+    public void Update()
     {
         if (IsPaused) return;
         
