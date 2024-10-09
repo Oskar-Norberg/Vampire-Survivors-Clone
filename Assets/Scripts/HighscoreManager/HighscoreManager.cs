@@ -47,4 +47,9 @@ public class HighscoreManager : MonoBehaviour
     {
         return highscore.ContainsKey(levelName);
     }
+    
+    private static string GetPathString()
+    {
+        return Application.persistentDataPath + "/" + HighscoreFileName;
+    }
 }
