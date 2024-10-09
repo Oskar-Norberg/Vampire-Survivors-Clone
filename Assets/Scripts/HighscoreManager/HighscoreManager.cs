@@ -31,4 +31,11 @@ public class HighscoreManager : MonoBehaviour
             highscore = JsonUtility.FromJson<Dictionary<string, float>>(json);
         }
     }
+    
+    private void SaveHighscores()
+    {
+        string json = JsonUtility.ToJson(highscore);
+        File.WriteAllText(GetPathString(), json);
+    }
+    
 }
