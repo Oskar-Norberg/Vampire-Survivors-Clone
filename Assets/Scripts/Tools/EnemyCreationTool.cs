@@ -13,6 +13,8 @@ public class EnemyCreationTool : EditorWindow
 
     private const string XP_ORBS_DATA_PATH = "Assets/ScriptableObjects/XPOrbs";
     
+    private const string ENEMY_AI_MOVEMENT_PATH = "Assets/ScriptableObjects/AIMovement";
+    
     private new string name;
 
     private int health;
@@ -23,7 +25,8 @@ public class EnemyCreationTool : EditorWindow
     
     private float moveSpeed;
 
-    private AIMovement.AIType aiType;
+    private List<AIMovement> aiMovements;
+    private int aiMovementIndex;
     
     private List<XPOrbData> xpOrbsData;
     private int xpOrbPrefabIndex;
@@ -38,58 +41,36 @@ public class EnemyCreationTool : EditorWindow
 
     private void OnGUI()
     {
-        LoadXPOrbs();
-        
-        GUILayout.Label("Enemy Creation Tool", EditorStyles.boldLabel);
+        xpOrbsData = LoadAllAssetsInPath<XPOrbData>("scriptableobject", XP_ORBS_DATA_PATH);
+        aiMovements = LoadAllAssetsInPath<AIMovement>("scriptableobject", ENEMY_AI_MOVEMENT_PATH);
 
-        GUILayout.BeginHorizontal();
-        name = EditorGUILayout.TextField("Name", name);
-        GUILayout.EndHorizontal();
+        BoldLabel("Enemy Creation Tool");
 
-        EditorGUILayout.Space();
-
-        GUILayout.BeginHorizontal();
-        health = EditorGUILayout.IntField("Health", health);
-        GUILayout.EndHorizontal();
-
-        GUILayout.BeginHorizontal();
-        damage = EditorGUILayout.IntField("Damage", damage);
-        GUILayout.EndHorizontal();
+        TextField("Name", ref name);
 
         EditorGUILayout.Space();
 
-        GUILayout.BeginHorizontal();
-        tickCooldownMilliseconds = EditorGUILayout.IntField("Attack Cooldown Milliseconds", tickCooldownMilliseconds);
-        GUILayout.EndHorizontal();
-
-        GUILayout.BeginHorizontal();
-        invincibilityTimeMilliseconds =
-            EditorGUILayout.IntField("i-Frames time Milliseconds", invincibilityTimeMilliseconds);
-        GUILayout.EndHorizontal();
-
+        IntField("Health", ref health);
+        
         EditorGUILayout.Space();
 
-        GUILayout.BeginHorizontal();
-        moveSpeed = EditorGUILayout.FloatField("Move Speed", moveSpeed);
-        GUILayout.EndHorizontal();
+        IntField("Damage", ref damage);
+        
+        EditorGUILayout.Space();
+        
+        IntField("Attack Cooldown Milliseconds", ref tickCooldownMilliseconds);
+        
+        EditorGUILayout.Space();
 
-        GUILayout.BeginHorizontal();
-        aiType = (AIMovement.AIType)EditorGUILayout.EnumPopup("Movement Strategy", aiType);
-        GUILayout.EndHorizontal();
+        IntField("i-Frames time Milliseconds", ref invincibilityTimeMilliseconds);
         
-        GUILayout.BeginHorizontal();
-        GUILayout.Label("XP Orb to Drop", EditorStyles.label);
+        EditorGUILayout.Space();
         
-        // Convert list of prefab to list of strings for selection in dropdown menu.
-        string[] xpOrbNames = new string[xpOrbsData.Count];
+        FloatField("Move Speed", ref moveSpeed);
         
-        for (int i = 0; i < xpOrbsData.Count; i++)
-        {
-            xpOrbNames[i] = xpOrbsData[i] != null ? xpOrbsData[i].name : "Missing Data";
-        }
+        DropdownFromList("Enemy AI Movement Strategy", ref aiMovementIndex, aiMovements);
         
-        xpOrbPrefabIndex = EditorGUILayout.Popup(xpOrbPrefabIndex, xpOrbNames);
-        GUILayout.EndHorizontal();
+        DropdownFromList("XP Orb to Drop", ref xpOrbPrefabIndex, xpOrbsData);
 
         EditorGUILayout.Space();
 
@@ -106,6 +87,34 @@ public class EnemyCreationTool : EditorWindow
         }
     }
 
+    private void BoldLabel(string text)
+    {
+        GUILayout.BeginHorizontal();
+        GUILayout.Label(text, EditorStyles.boldLabel);
+        GUILayout.EndHorizontal();
+    }
+
+    private void TextField(string labelText, ref string text)
+    {
+        GUILayout.BeginHorizontal();
+        text = EditorGUILayout.TextField(labelText, text);
+        GUILayout.EndHorizontal();
+    }
+
+    private void IntField(string labelText, ref int num)
+    {
+        GUILayout.BeginHorizontal();
+        num = EditorGUILayout.IntField(labelText, num);
+        GUILayout.EndHorizontal();
+    }
+
+    private void FloatField(string labelText, ref float num)
+    {
+        GUILayout.BeginHorizontal();
+        num = EditorGUILayout.FloatField(labelText, num);
+        GUILayout.EndHorizontal();
+    }
+
     private void CreateEnemy()
     {
         // Create scriptable Object
@@ -116,7 +125,7 @@ public class EnemyCreationTool : EditorWindow
         enemyData.tickCooldownMilliseconds = tickCooldownMilliseconds;
         enemyData.invincibilityTimeMilliseconds = invincibilityTimeMilliseconds;
         enemyData.moveSpeed = moveSpeed;
-        enemyData.aiType = aiType;
+        enemyData.aiMovement = aiMovements[aiMovementIndex];
         enemyData.xpOrbData = xpOrbsData[xpOrbPrefabIndex];
 
         string scriptableObjectPath = ENEMY_DATA_FOLDER_PATH + "/" + name.Trim(' ').Trim() + ".asset";
@@ -137,18 +146,38 @@ public class EnemyCreationTool : EditorWindow
         
         DestroyImmediate(enemyInstance);
     }
-
-    private void LoadXPOrbs()
+    
+    private void DropdownFromList<T>(string headerLabel, ref int selectionIndex, List<T> list) where T : UnityEngine.Object
     {
-        string[] guids = AssetDatabase.FindAssets("t:scriptableobject", new string[] {XP_ORBS_DATA_PATH});
+        GUILayout.BeginHorizontal();
+        GUILayout.Label(headerLabel, EditorStyles.label);
+        
+        // Convert list of prefab to list of strings for selection in dropdown menu.
+        string[] listNames = new string[list.Count];
+        
+        for (int i = 0; i < list.Count; i++)
+        {
+            listNames[i] = list[i] != null ? list[i].name : "Missing Data";
+        }
+        
+        selectionIndex = EditorGUILayout.Popup(selectionIndex, listNames);
+        GUILayout.EndHorizontal();
+    }
 
-        xpOrbsData = new List<XPOrbData>();
+    private List<T> LoadAllAssetsInPath<T>(string filter, string path) where T : Object
+    {
+        string[] guids = AssetDatabase.FindAssets("t:" + filter, new string[] {path});
+
+        List<T> assets = new List<T>();
         
         foreach (string guid in guids)
         {
-            string path = AssetDatabase.GUIDToAssetPath(guid);
-            XPOrbData data = AssetDatabase.LoadAssetAtPath<XPOrbData>(path);
-            xpOrbsData.Add(data);
+            string objectPath = AssetDatabase.GUIDToAssetPath(guid);
+            Object obj = AssetDatabase.LoadAssetAtPath<T>(objectPath);
+            
+            assets.Add(obj as T);
         }
+
+        return assets;
     }
 }
