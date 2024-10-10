@@ -76,9 +76,19 @@ public class EnemyCreationTool : EditorWindow
         GUILayout.BeginHorizontal();
         moveSpeed = EditorGUILayout.FloatField("Move Speed", moveSpeed);
         GUILayout.EndHorizontal();
-
+        
         GUILayout.BeginHorizontal();
-        aiType = (AIMovement.AIType)EditorGUILayout.EnumPopup("Movement Strategy", aiType);
+        GUILayout.Label("Enemy AI Movement Strategy", EditorStyles.label);
+        
+        // Convert list of prefab to list of strings for selection in dropdown menu.
+        string[] aiMovementNames = new string[aiMovements.Count];
+        
+        for (int i = 0; i < aiMovements.Count; i++)
+        {
+            aiMovementNames[i] = aiMovements[i] != null ? aiMovements[i].name : "Missing Data";
+        }
+        
+        aiMovementIndex = EditorGUILayout.Popup(aiMovementIndex, aiMovementNames);
         GUILayout.EndHorizontal();
         
         GUILayout.BeginHorizontal();
@@ -120,7 +130,7 @@ public class EnemyCreationTool : EditorWindow
         enemyData.tickCooldownMilliseconds = tickCooldownMilliseconds;
         enemyData.invincibilityTimeMilliseconds = invincibilityTimeMilliseconds;
         enemyData.moveSpeed = moveSpeed;
-        enemyData.aiType = aiType;
+        enemyData.aiMovement = aiMovements[aiMovementIndex];
         enemyData.xpOrbData = xpOrbsData[xpOrbPrefabIndex];
 
         string scriptableObjectPath = ENEMY_DATA_FOLDER_PATH + "/" + name.Trim(' ').Trim() + ".asset";
