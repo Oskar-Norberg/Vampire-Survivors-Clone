@@ -18,6 +18,9 @@ public class LevelSpawnsTool : CreationToolBase
     // Spawn Properties
     private int timeBetweenSpawnsMilliseconds, enemiesPerSpawn;
     
+    // Difficulty scaling
+    private int spawnsPerIncrease, enemiesPerIncrease;
+    
     // EnemySpawn
     private List<WaveSpawner.EnemySpawn> enemiesToSpawn;
     
@@ -42,6 +45,7 @@ public class LevelSpawnsTool : CreationToolBase
         EditorGUILayout.Space();
         SpawnProperties();
         EditorGUILayout.Space();
+        DifficultyScaling();
         
         ListEnemies();
         
@@ -75,6 +79,8 @@ public class LevelSpawnsTool : CreationToolBase
     {
         minDistanceFromPlayer = waveSpawner.GetMinDistanceFromPlayer();
         maxDistanceFromPlayer = waveSpawner.GetMaxDistanceFromPlayer();
+        
+        
     }
 
     private void SaveWaveSpawnerProperties()
@@ -99,6 +105,13 @@ public class LevelSpawnsTool : CreationToolBase
         BoldLabel("Spawn Properties");
         IntField("Milliseconds between spawns", ref timeBetweenSpawnsMilliseconds);
         IntField("Enemies per spawn", ref enemiesPerSpawn);
+    }
+
+    private void DifficultyScaling()
+    {
+        BoldLabel("Difficulty Scaling");
+        IntField("Spawns per increase", ref spawnsPerIncrease);
+        IntField("Enemies per increase", ref enemiesPerIncrease);
     }
 
     private void ListEnemies()
