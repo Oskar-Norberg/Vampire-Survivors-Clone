@@ -64,7 +64,7 @@ public abstract class CreationToolBase : EditorWindow
         
         for (int i = 0; i < list.Count; i++)
         {
-            listNames[i] = list[i] != null ? list[i].name : "Missing Data";
+            listNames[i] = list[i] ? list[i].name : "Missing Data";
         }
         
         selectionIndex = EditorGUILayout.Popup(selectionIndex, listNames);
