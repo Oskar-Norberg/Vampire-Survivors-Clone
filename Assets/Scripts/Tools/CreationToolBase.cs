@@ -41,13 +41,11 @@ public abstract class CreationToolBase : EditorWindow
         GUILayout.EndHorizontal();
     }
     
-    protected T ObjectDropdown<T>(string labelText, ref T objectReference) where T : UnityEngine.Object
+    protected void ObjectDropdown<T>(string labelText, ref T objectReference) where T : UnityEngine.Object
     {
         GUILayout.BeginHorizontal();
-        T obj = (T)EditorGUILayout.ObjectField(labelText, objectReference, typeof(T), true);
+        objectReference = (T)EditorGUILayout.ObjectField(labelText, objectReference, typeof(T), true);
         GUILayout.EndHorizontal();
-
-        return obj;
     }
     
     protected void DropdownFromList<T>(string headerLabel, ref int selectionIndex, List<T> list) where T : UnityEngine.Object
