@@ -15,6 +15,8 @@ public class LevelSpawnsTool : CreationToolBase
     // Spawn Position
     private float minDistanceFromPlayer, maxDistanceFromPlayer;
     
+    // Spawn Properties
+    private int timeBetweenSpawnsMilliseconds, enemiesPerSpawn;
     
     // EnemySpawn
     private List<WaveSpawner.EnemySpawn> enemiesToSpawn;
@@ -38,7 +40,8 @@ public class LevelSpawnsTool : CreationToolBase
         EditorGUILayout.Space();
         SpawnPosition();
         EditorGUILayout.Space();
-
+        SpawnProperties();
+        EditorGUILayout.Space();
         
         ListEnemies();
         
@@ -91,6 +94,13 @@ public class LevelSpawnsTool : CreationToolBase
         FloatField("Max Distance from Player", ref maxDistanceFromPlayer);
     }
     
+    private void SpawnProperties()
+    {
+        BoldLabel("Spawn Properties");
+        IntField("Milliseconds between spawns", ref timeBetweenSpawnsMilliseconds);
+        IntField("Enemies per spawn", ref enemiesPerSpawn);
+    }
+
     private void ListEnemies()
     {
         BoldLabel("Enemies to spawn:");
