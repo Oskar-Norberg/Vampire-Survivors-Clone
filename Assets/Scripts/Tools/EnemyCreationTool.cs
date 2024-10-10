@@ -96,6 +96,13 @@ public class EnemyCreationTool : EditorWindow
         }
     }
 
+    private void BoldLabel(string text)
+    {
+        GUILayout.BeginHorizontal();
+        GUILayout.Label(text, EditorStyles.boldLabel);
+        GUILayout.EndHorizontal();
+    }
+
     private void DropdownFromList<T>(string headerLabel, ref int selectionIndex, List<T> list) where T : UnityEngine.Object
     {
         GUILayout.BeginHorizontal();
