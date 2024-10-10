@@ -15,7 +15,6 @@ public class EnemyBase : PausableMonoBehaviour
     [SerializeField] private new Rigidbody2D rigidbody2D;
     [SerializeField] private AttackOnStayCooldown attack;
     [SerializeField] private HealthWithInvincibilityFrames health;
-    [SerializeField] private AIMovement aiMovement;
     [SerializeField] private DropXPOnDestroy xpDropper;
     
     private Transform targetTransform;
@@ -31,7 +30,6 @@ public class EnemyBase : PausableMonoBehaviour
         health.SetInvincibilityTime(data.invincibilityTimeMilliseconds);
         attack.SetDamage(data.damage);
         attack.SetTickCooldown(data.tickCooldownMilliseconds);
-        aiMovement.SetType(data.aiType);
         xpDropper.SetXPOrbData(data.xpOrbData);
         
         
@@ -48,7 +46,7 @@ public class EnemyBase : PausableMonoBehaviour
         Vector2 rigidbodyPosition = rigidbody2D.position;
         Vector2 targetPosition = targetTransform.position;
 
-        Vector2 wishDir = aiMovement.PathFind(rigidbodyPosition, targetPosition);
+        Vector2 wishDir = data.aiMovement.PathFind(rigidbodyPosition, targetPosition);
 
         wishDir *= data.moveSpeed;
         
