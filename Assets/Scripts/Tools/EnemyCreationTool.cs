@@ -117,6 +117,13 @@ public class EnemyCreationTool : EditorWindow
         GUILayout.EndHorizontal();
     }
 
+    private void FloatField(string labelText, ref float num)
+    {
+        GUILayout.BeginHorizontal();
+        num = EditorGUILayout.FloatField(labelText, num);
+        GUILayout.EndHorizontal();
+    }
+
     private void DropdownFromList<T>(string headerLabel, ref int selectionIndex, List<T> list) where T : UnityEngine.Object
     {
         GUILayout.BeginHorizontal();
