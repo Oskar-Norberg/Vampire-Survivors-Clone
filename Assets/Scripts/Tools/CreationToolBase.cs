@@ -34,6 +34,11 @@ public abstract class CreationToolBase : EditorWindow
         GUILayout.EndHorizontal();
     }
 
+    protected bool ButtonField(string labelText)
+    {
+        return GUILayout.Button(labelText);
+    }
+
     protected void EnumPopup<T>(string labelText, ref T value) where T : Enum
     {
         GUILayout.BeginHorizontal();
