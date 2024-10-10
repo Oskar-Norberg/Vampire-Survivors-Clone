@@ -16,6 +16,6 @@ MonoBehaviour:
   damage: 4
   tickCooldownMilliseconds: 750
   invincibilityTimeMilliseconds: 150
-  aiType: 0
+  aiMovement: {fileID: 11400000, guid: 508622fd2afd7434c9e4d831f18af5f7, type: 2}
   moveSpeed: 10
   xpOrbData: {fileID: 11400000, guid: 086276ecac9f35447b3c6ba6a1818f06, type: 2}
