@@ -13,11 +13,6 @@ public class MoveTowardsTrigger : PausableMonoBehaviour
 
     private Vector2 prePauseVelocity;
 
-    private void Start()
-    {
-        aiMovement.SetType(AIMovement.AIType.MoveTowards);
-    }
-
     private void OnTriggerEnter2D(Collider2D other)
     {
         target = other.transform;
