@@ -10,13 +10,6 @@ using UnityEngine.SceneManagement;
 
 public class LevelSpawnsTool : CreationToolBase
 {
-    private const string LEVEL_SCENE_PATH = "Assets/Scenes/Levels";
-    
-    private List<string> levelPaths = new List<string>();
-    private int levelSelectionIndex = 0;
-    
-    private Scene currentScene;
-    private int currentLevelIndex = 0;
     private WaveSpawner waveSpawner;
     
     [MenuItem("Tools/Set Level Spawns")]
@@ -89,7 +82,7 @@ public class LevelSpawnsTool : CreationToolBase
         if (ButtonField("Apply changes"))
         {
             waveSpawner.SetEnemiesToSpawn(enemiesToSpawn);
-            EditorSceneManager.SaveScene(currentScene);
+            EditorSceneManager.SaveScene(SceneManager.GetActiveScene());
         }
 
     }
