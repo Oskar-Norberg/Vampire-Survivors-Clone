@@ -10,4 +10,9 @@ using UnityEngine.SceneManagement;
 
 public class LevelSpawnsTool : CreationToolBase
 {
+    [MenuItem("Tools/Set Level Spawns")]
+    public static void ShowWindow()
+    {
+        EditorWindow.GetWindow<LevelSpawnsTool>("Level Spawns Tool");
+    }
 }
