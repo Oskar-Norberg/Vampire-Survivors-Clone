@@ -106,4 +106,14 @@ public class WaveSpawner : PausableMonoBehaviour
 
         return weight;
     }
+
+    public List<EnemySpawn> GetEnemiesToSpawn()
+    {
+        return enemiesToSpawn;
+    }
+    
+    public void SetEnemiesToSpawn(List<EnemySpawn> newEnemiesToSpawn)
+    {
+        enemiesToSpawn = newEnemiesToSpawn;
+    }
 }
