@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 7104889399574419980}
   - component: {fileID: 5484865526618178687}
-  - component: {fileID: 4414734645369834017}
   - component: {fileID: 7161421122727311186}
   m_Layer: 8
   m_Name: PickupTrigger
@@ -69,19 +68,6 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.25
---- !u!114 &4414734645369834017
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 857701807205284191}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1aa75ee3a0758ec49856b4d495cac6bb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  xpValue: 1
 --- !u!114 &7161421122727311186
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -266,7 +252,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 3
-  m_Sprite: {fileID: 21300000, guid: dd5a2a425717a4546bb125154b29daf2, type: 3}
+  m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -287,8 +273,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1518896481384904652}
   - component: {fileID: 7669050175284892445}
+  - component: {fileID: -8663632821614233504}
   m_Layer: 8
-  m_Name: OneXPOrb
+  m_Name: XPOrbBase
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -339,3 +326,16 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &-8663632821614233504
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5337158755237880101}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1aa75ee3a0758ec49856b4d495cac6bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spriteRenderer: {fileID: 6100894844014747627}

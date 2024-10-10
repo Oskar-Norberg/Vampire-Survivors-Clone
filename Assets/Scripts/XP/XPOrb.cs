@@ -5,11 +5,23 @@ using UnityEngine;
 
 public class XPOrb : MonoBehaviour
 {
-    [SerializeField] private int xpValue = 1;
+    private XPOrbData xpOrbData;
+    [SerializeField] private SpriteRenderer spriteRenderer;
+
+    public void SetXPOrbData(XPOrbData newXpOrbData)
+    {
+        xpOrbData = newXpOrbData;
+        spriteRenderer.sprite = xpOrbData.texture;
+    }
     
     private void OnDestroy()
     {
-        if(!this.gameObject.scene.isLoaded) return; 
-        ExperienceManager.instance.AddExperience(xpValue);
+        if(!this.gameObject.scene.isLoaded) return;
+        if (!xpOrbData)
+        {
+            Debug.Log("XP Orb Data Not Found");
+            return;
+        }
+        ExperienceManager.instance.AddExperience(xpOrbData.value);
     }
 }

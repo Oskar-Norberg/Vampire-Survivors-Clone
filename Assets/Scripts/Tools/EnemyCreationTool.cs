@@ -11,7 +11,7 @@ public class EnemyCreationTool : EditorWindow
     
     private const string ENEMY_DATA_FOLDER_PATH = "Assets/ScriptableObjects/EnemyData";
 
-    private const string XP_ORB_PREFABS_PATH = "Assets/Prefabs/XPOrb";
+    private const string XP_ORBS_DATA_PATH = "Assets/ScriptableObjects/XPOrbs";
     
     private new string name;
 
@@ -25,7 +25,7 @@ public class EnemyCreationTool : EditorWindow
 
     private AIMovement.AIType aiType;
     
-    private List<GameObject> xpOrbs;
+    private List<XPOrbData> xpOrbsData;
     private int xpOrbPrefabIndex;
 
     private bool success = false;
@@ -78,14 +78,14 @@ public class EnemyCreationTool : EditorWindow
         GUILayout.EndHorizontal();
         
         GUILayout.BeginHorizontal();
-        GUILayout.Label("XP Orb Prefab", EditorStyles.label);
+        GUILayout.Label("XP Orb to Drop", EditorStyles.label);
         
         // Convert list of prefab to list of strings for selection in dropdown menu.
-        string[] xpOrbNames = new string[xpOrbs.Count];
+        string[] xpOrbNames = new string[xpOrbsData.Count];
         
-        for (int i = 0; i < xpOrbs.Count; i++)
+        for (int i = 0; i < xpOrbsData.Count; i++)
         {
-            xpOrbNames[i] = xpOrbs[i] != null ? xpOrbs[i].name : "Missing Prefab";
+            xpOrbNames[i] = xpOrbsData[i] != null ? xpOrbsData[i].name : "Missing Data";
         }
         
         xpOrbPrefabIndex = EditorGUILayout.Popup(xpOrbPrefabIndex, xpOrbNames);
@@ -117,7 +117,7 @@ public class EnemyCreationTool : EditorWindow
         enemyData.invincibilityTimeMilliseconds = invincibilityTimeMilliseconds;
         enemyData.moveSpeed = moveSpeed;
         enemyData.aiType = aiType;
-        enemyData.xpOrbPrefab = xpOrbs[xpOrbPrefabIndex];
+        enemyData.xpOrbData = xpOrbsData[xpOrbPrefabIndex];
 
         string scriptableObjectPath = ENEMY_DATA_FOLDER_PATH + "/" + name.Trim(' ').Trim() + ".asset";
         AssetDatabase.CreateAsset(enemyData, scriptableObjectPath);
@@ -140,13 +140,15 @@ public class EnemyCreationTool : EditorWindow
 
     private void LoadXPOrbs()
     {
-        string[] guids = AssetDatabase.FindAssets("t:prefab", new string[] {XP_ORB_PREFABS_PATH});
+        string[] guids = AssetDatabase.FindAssets("t:scriptableobject", new string[] {XP_ORBS_DATA_PATH});
 
-        xpOrbs = new List<GameObject>();
+        xpOrbsData = new List<XPOrbData>();
         
         foreach (string guid in guids)
         {
-            xpOrbs.Add(AssetDatabase.LoadAssetAtPath(AssetDatabase.GUIDToAssetPath(guid), typeof(GameObject)).GameObject());
+            string path = AssetDatabase.GUIDToAssetPath(guid);
+            XPOrbData data = AssetDatabase.LoadAssetAtPath<XPOrbData>(path);
+            xpOrbsData.Add(data);
         }
     }
 }
