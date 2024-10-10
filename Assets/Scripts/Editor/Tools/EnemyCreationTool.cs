@@ -62,11 +62,11 @@ public class EnemyCreationTool : CreationToolBase
         
         FloatField("Move Speed", ref moveSpeed);
         
-        DropdownFromList("Enemy AI Movement Strategy", ref aiMovementIndex, aiMovements);
+        DropdownFromObjectList("Enemy AI Movement Strategy", ref aiMovementIndex, aiMovements);
         
         EditorGUILayout.Space();
         
-        DropdownFromList("XP Orb to Drop", ref xpOrbPrefabIndex, xpOrbsData);
+        DropdownFromObjectList("XP Orb to Drop", ref xpOrbPrefabIndex, xpOrbsData);
 
         EditorGUILayout.Space();
 

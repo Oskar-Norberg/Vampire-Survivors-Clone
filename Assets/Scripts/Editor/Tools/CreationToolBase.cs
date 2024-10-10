@@ -54,7 +54,7 @@ public abstract class CreationToolBase : EditorWindow
         GUILayout.EndHorizontal();
     }
     
-    protected void DropdownFromList<T>(string headerLabel, ref int selectionIndex, List<T> list) where T : UnityEngine.Object
+    protected void DropdownFromObjectList<T>(string headerLabel, ref int selectionIndex, List<T> list) where T : UnityEngine.Object
     {
         GUILayout.BeginHorizontal();
         GUILayout.Label(headerLabel, EditorStyles.label);
@@ -68,6 +68,14 @@ public abstract class CreationToolBase : EditorWindow
         }
         
         selectionIndex = EditorGUILayout.Popup(selectionIndex, listNames);
+        GUILayout.EndHorizontal();
+    }
+    
+    protected void DropdownFromStringList(string headerLabel, ref int selectionIndex, List<string> list)
+    {
+        GUILayout.BeginHorizontal();
+        GUILayout.Label(headerLabel, EditorStyles.label);
+        selectionIndex = EditorGUILayout.Popup(selectionIndex, list.ToArray());
         GUILayout.EndHorizontal();
     }
     
@@ -86,5 +94,20 @@ public abstract class CreationToolBase : EditorWindow
         }
 
         return assets;
+    }
+    
+    protected List<string> FindAllAssetsInPath(string filter, string path)
+    {
+        string[] guids = AssetDatabase.FindAssets("t:" + filter, new string[] {path});
+
+        List<string> paths = new List<string>();
+        
+        foreach (string guid in guids)
+        {
+            string assetPath = AssetDatabase.GUIDToAssetPath(guid);
+            paths.Add(assetPath);
+        }
+
+        return paths;
     }
 }
