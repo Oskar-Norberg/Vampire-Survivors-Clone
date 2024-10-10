@@ -103,6 +103,13 @@ public class EnemyCreationTool : EditorWindow
         GUILayout.EndHorizontal();
     }
 
+    private void TextField(string labelText, ref string text)
+    {
+        GUILayout.BeginHorizontal();
+        text = EditorGUILayout.TextField(labelText, text);
+        GUILayout.EndHorizontal();
+    }
+
     private void DropdownFromList<T>(string headerLabel, ref int selectionIndex, List<T> list) where T : UnityEngine.Object
     {
         GUILayout.BeginHorizontal();
