@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 
+// Class to make common EditorWindow functions easier to perform.
 public abstract class CreationToolBase : EditorWindow
 {
     protected void BoldLabel(string text)
