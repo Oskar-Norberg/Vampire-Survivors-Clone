@@ -10,7 +10,7 @@ public class WaveSpawner : PausableMonoBehaviour
     [SerializeField] private EnemyManager enemyManager;
 
     [Serializable]
-    public struct EnemySpawn
+    public class EnemySpawn
     {
         public GameObject enemy;
         public int weight;
