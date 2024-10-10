@@ -51,6 +51,11 @@ public class LevelSpawnsTool : CreationToolBase
         }
     }
 
+    private bool IsInValidLevel()
+    {
+        return waveSpawner != null;
+    }
+
     private void ListEnemies()
     {
         List<WaveSpawner.EnemySpawn> enemiesToSpawn = waveSpawner.GetEnemiesToSpawn();
