@@ -16,21 +16,21 @@ public class WaveSpawner : PausableMonoBehaviour
         public int weight;
     }
     
-    [SerializeField] private List<EnemySpawn> enemiesToSpawn = new List<EnemySpawn>();
+    [SerializeField] public List<EnemySpawn> enemiesToSpawn = new List<EnemySpawn>();
     private int totalWeight;
     
     [Header("Spawn Position")]
-    [SerializeField] private float minDistanceFromPlayer;
-    [SerializeField] private float maxDistanceFromPlayer;
+    [SerializeField] public float minDistanceFromPlayer;
+    [SerializeField] public float maxDistanceFromPlayer;
     
     [Header("Spawn Properties")]
-    [SerializeField] private float timeBetweenSpawnsMilliseconds;
-    [SerializeField] private int enemiesPerSpawn;
+    [SerializeField] public float timeBetweenSpawnsMilliseconds;
+    [SerializeField] public int enemiesPerSpawn;
     
     [Header("Difficulty Scaling")]
     // Every spawnsPerIncrease spawns increase enemiesPerSpawn by enemiesPerSpawnIncrement
-    [SerializeField] private int spawnsPerIncrease;
-    [SerializeField] private int enemiesPerSpawnIncrement;
+    [SerializeField] public int spawnsPerIncrease;
+    [SerializeField] public int enemiesPerSpawnIncrement;
 
     [SerializeField] private Transform playerTransform;
     private float timeSinceLastSpawn;
@@ -105,35 +105,5 @@ public class WaveSpawner : PausableMonoBehaviour
         }
 
         return weight;
-    }
-
-    public List<EnemySpawn> GetEnemiesToSpawn()
-    {
-        return enemiesToSpawn;
-    }
-    
-    public void SetEnemiesToSpawn(List<EnemySpawn> newEnemiesToSpawn)
-    {
-        enemiesToSpawn = newEnemiesToSpawn;
-    }
-
-    public float GetMinDistanceFromPlayer()
-    {
-        return minDistanceFromPlayer;
-    }
-    
-    public void SetMinDistanceFromPlayer(float newMinDistanceFromPlayer)
-    {
-        minDistanceFromPlayer = newMinDistanceFromPlayer;
-    }
-    
-    public float GetMaxDistanceFromPlayer()
-    {
-        return maxDistanceFromPlayer;
-    }
-    
-    public void SetMaxDistanceFromPlayer(float newMaxDistanceFromPlayer)
-    {
-        maxDistanceFromPlayer = newMaxDistanceFromPlayer;
     }
 }
