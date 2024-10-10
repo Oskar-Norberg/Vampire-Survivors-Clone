@@ -67,66 +67,71 @@ public class UpgradeCreationTool : CreationToolBase
         EditorGUILayout.Space();
 
         if (ButtonField("Create Upgrade"))
-        { 
-            Upgrade asset = null;
-            
-            switch (type)
-            { 
-                case Type.MaxHealth:
-                    asset = ScriptableObject.CreateInstance<MaxHealthUpgrade>();
-                    MaxHealthUpgrade maxHealth = asset as MaxHealthUpgrade;
-                    if (maxHealth)
-                    {
-                        maxHealth.increaseAmount = increase;
-                    }
-                    break;
-                
-                case Type.Speed:
-                    asset = ScriptableObject.CreateInstance<SpeedUpgrade>();
-                    SpeedUpgrade speed = asset as SpeedUpgrade;
-                    if (speed)
-                    {
-                        speed.speedIncreasePercent = increase;
-                    }
-                    break;
-                case Type.GiveWeapon:
-                    asset = ScriptableObject.CreateInstance<GiveWeaponUpgrade>();
-                    GiveWeaponUpgrade giveWeapon = asset as GiveWeaponUpgrade;
-                    if (giveWeapon)
-                    {
-                        giveWeapon.weapon = weapon;
-                    }
-                    break;
-                case Type.UpgradeWeapon:
-                    asset = ScriptableObject.CreateInstance<WeaponUpgrade>();
-                    WeaponUpgrade weaponUpgrade = asset as WeaponUpgrade;
-                    if (weaponUpgrade)
-                    {
-                        weaponUpgrade.weapon = weapon;
-                        weaponUpgrade.prerequisiteUpgrade = prerequisiteUpgrade;
-                        weaponUpgrade.maxUpgradeCount = maxUpgradeCount;
-                    }
-                    break;
-                default:
-                    Debug.Log("UpgradeCreationTool: Unknown Upgrade type");
-                    break;
-            }
-
-            // Universal upgrade parameters
-            if (asset)
-            {
-                asset.name = upgradeName;
-                asset.description = upgradeDescription;
-                Debug.Log(UPGRADE_PATH + "/" + upgradeName.Trim(' ').Trim() + ".asset");
-                AssetDatabase.CreateAsset(asset, UPGRADE_PATH + "/" + upgradeName.Trim(' ').Trim() + ".asset");
-                success = true;
-            }
+        {
+            CreateUpgrade();
         }
         
         if (success)
         {
             EditorGUILayout.Space();
             GUILayout.Label("Upgrade Created Successfully!", EditorStyles.boldLabel);
+        }
+    }
+
+    private void CreateUpgrade()
+    {
+        Upgrade asset = null;
+            
+        switch (type)
+        { 
+            case Type.MaxHealth:
+                asset = ScriptableObject.CreateInstance<MaxHealthUpgrade>();
+                MaxHealthUpgrade maxHealth = asset as MaxHealthUpgrade;
+                if (maxHealth)
+                {
+                    maxHealth.increaseAmount = increase;
+                }
+                break;
+                
+            case Type.Speed:
+                asset = ScriptableObject.CreateInstance<SpeedUpgrade>();
+                SpeedUpgrade speed = asset as SpeedUpgrade;
+                if (speed)
+                {
+                    speed.speedIncreasePercent = increase;
+                }
+                break;
+            case Type.GiveWeapon:
+                asset = ScriptableObject.CreateInstance<GiveWeaponUpgrade>();
+                GiveWeaponUpgrade giveWeapon = asset as GiveWeaponUpgrade;
+                if (giveWeapon)
+                {
+                    giveWeapon.weapon = weapon;
+                }
+                break;
+            case Type.UpgradeWeapon:
+                asset = ScriptableObject.CreateInstance<WeaponUpgrade>();
+                WeaponUpgrade weaponUpgrade = asset as WeaponUpgrade;
+                if (weaponUpgrade)
+                {
+                    weaponUpgrade.weapon = weapon;
+                    weaponUpgrade.prerequisiteUpgrade = prerequisiteUpgrade;
+                    weaponUpgrade.maxUpgradeCount = maxUpgradeCount;
+                }
+                break;
+            default:
+                Debug.Log("UpgradeCreationTool: Unknown Upgrade type");
+                break;
+        }
+
+        // Universal upgrade parameters
+        if (asset)
+        {
+            asset.name = upgradeName;
+            asset.description = upgradeDescription;
+            Debug.Log(UPGRADE_PATH + "/" + upgradeName.Trim(' ').Trim() + ".asset");
+            AssetDatabase.CreateAsset(asset, UPGRADE_PATH + "/" + upgradeName.Trim(' ').Trim() + ".asset");
+            success = true;
         }
     }
 }
