@@ -92,7 +92,6 @@ GameObject:
   - component: {fileID: 403868653035221347}
   - component: {fileID: 6016681701300245807}
   - component: {fileID: 3142854085816275441}
-  - component: {fileID: 2630507462167828316}
   m_Layer: 8
   m_Name: MoveTowardsTrigger
   m_TagString: Untagged
@@ -164,21 +163,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rigidbody: {fileID: 7669050175284892445}
   movementSpeed: 325
-  aiMovement: {fileID: 2630507462167828316}
---- !u!114 &2630507462167828316
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 994369479601082078}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 66682bd5fd974e94bb5de83798ad545e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  oscillationSpeed: 2.5
-  oscillationAmplitude: 1
+  aiMovement: {fileID: 11400000, guid: 508622fd2afd7434c9e4d831f18af5f7, type: 2}
 --- !u!1 &4329691482654074640
 GameObject:
   m_ObjectHideFlags: 0
