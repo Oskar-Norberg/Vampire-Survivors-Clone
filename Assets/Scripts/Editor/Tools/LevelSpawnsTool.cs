@@ -11,6 +11,13 @@ using UnityEngine.SceneManagement;
 public class LevelSpawnsTool : CreationToolBase
 {
     private WaveSpawner waveSpawner;
+
+    // Spawn Position
+    private float minDistanceFromPlayer, maxDistanceFromPlayer;
+    
+    
+    // EnemySpawn
+    private List<WaveSpawner.EnemySpawn> enemiesToSpawn;
     
     [MenuItem("Tools/Set Level Spawns")]
     public static void ShowWindow()
@@ -20,17 +27,31 @@ public class LevelSpawnsTool : CreationToolBase
     
     private void OnGUI()
     {
+        BoldLabel("Select Level Spawn Properties");
         FindWaveSpawner();
         if (!IsInValidLevel())
         {
             EditorGUILayout.HelpBox("Change scene to a valid Level.", MessageType.Error);
             return;
         }
+        
+        EditorGUILayout.Space();
+        SpawnPosition();
+        EditorGUILayout.Space();
+
+        
         ListEnemies();
+        
+        if (ButtonField("Apply changes"))
+        {
+            SaveWaveSpawnerProperties();
+        }
     }
 
     private void FindWaveSpawner()
     {
+        if (waveSpawner) return;
+        
         GameObject waveSpawnerObject = GameObject.FindWithTag("WaveSpawner");
 
         if (!waveSpawnerObject) return;
@@ -38,6 +59,7 @@ public class LevelSpawnsTool : CreationToolBase
         if (waveSpawnerObject.TryGetComponent<WaveSpawner>(out WaveSpawner rootWaveSpawner))
         {
             waveSpawner = rootWaveSpawner;
+            CopyWaveSpawnerProperties();
         }
     }
 
@@ -46,9 +68,34 @@ public class LevelSpawnsTool : CreationToolBase
         return waveSpawner != null;
     }
 
+    private void CopyWaveSpawnerProperties()
+    {
+        minDistanceFromPlayer = waveSpawner.GetMinDistanceFromPlayer();
+        maxDistanceFromPlayer = waveSpawner.GetMaxDistanceFromPlayer();
+    }
+
+    private void SaveWaveSpawnerProperties()
+    {
+        waveSpawner.SetMinDistanceFromPlayer(minDistanceFromPlayer);
+        waveSpawner.SetMaxDistanceFromPlayer(maxDistanceFromPlayer);
+        waveSpawner.SetEnemiesToSpawn(enemiesToSpawn);
+        EditorSceneManager.SaveScene(SceneManager.GetActiveScene());
+        
+        waveSpawner = null;
+    }
+
+    private void SpawnPosition()
+    {
+        BoldLabel("Spawn Position");
+        FloatField("Min Distance from Player", ref minDistanceFromPlayer);
+        FloatField("Max Distance from Player", ref maxDistanceFromPlayer);
+    }
+    
     private void ListEnemies()
     {
-        List<WaveSpawner.EnemySpawn> enemiesToSpawn = waveSpawner.GetEnemiesToSpawn();
+        BoldLabel("Enemies to spawn:");
+        
+        enemiesToSpawn = waveSpawner.GetEnemiesToSpawn();
 
         List<WaveSpawner.EnemySpawn> enemiesToRemove = new List<WaveSpawner.EnemySpawn>();
 
@@ -72,13 +119,6 @@ public class LevelSpawnsTool : CreationToolBase
         if (ButtonField("Add new Enemy"))
         {
             enemiesToSpawn.Add(new WaveSpawner.EnemySpawn());
-            waveSpawner.SetEnemiesToSpawn(enemiesToSpawn);
         }
-        if (ButtonField("Apply changes"))
-        {
-            waveSpawner.SetEnemiesToSpawn(enemiesToSpawn);
-            EditorSceneManager.SaveScene(SceneManager.GetActiveScene());
-        }
-
     }
 }

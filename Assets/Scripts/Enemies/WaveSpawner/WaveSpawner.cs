@@ -116,4 +116,24 @@ public class WaveSpawner : PausableMonoBehaviour
     {
         enemiesToSpawn = newEnemiesToSpawn;
     }
+
+    public float GetMinDistanceFromPlayer()
+    {
+        return minDistanceFromPlayer;
+    }
+    
+    public void SetMinDistanceFromPlayer(float newMinDistanceFromPlayer)
+    {
+        minDistanceFromPlayer = newMinDistanceFromPlayer;
+    }
+    
+    public float GetMaxDistanceFromPlayer()
+    {
+        return maxDistanceFromPlayer;
+    }
+    
+    public void SetMaxDistanceFromPlayer(float newMaxDistanceFromPlayer)
+    {
+        maxDistanceFromPlayer = newMaxDistanceFromPlayer;
+    }
 }
