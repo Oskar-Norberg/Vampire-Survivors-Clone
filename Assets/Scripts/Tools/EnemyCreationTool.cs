@@ -141,17 +141,20 @@ public class EnemyCreationTool : EditorWindow
         DestroyImmediate(enemyInstance);
     }
 
-    private void LoadXPOrbs()
+    private List<T> LoadAllAssetsInPath<T>(string filter, string path) where T : Object
     {
-        string[] guids = AssetDatabase.FindAssets("t:scriptableobject", new string[] {XP_ORBS_DATA_PATH});
+        string[] guids = AssetDatabase.FindAssets("t:" + filter, new string[] {path});
 
-        xpOrbsData = new List<XPOrbData>();
+        List<T> assets = new List<T>();
         
         foreach (string guid in guids)
         {
-            string path = AssetDatabase.GUIDToAssetPath(guid);
-            XPOrbData data = AssetDatabase.LoadAssetAtPath<XPOrbData>(path);
-            xpOrbsData.Add(data);
+            string objectPath = AssetDatabase.GUIDToAssetPath(guid);
+            Object obj = AssetDatabase.LoadAssetAtPath<Object>(path);
+            
+            assets.Add(obj as T);
         }
+
+        return assets;
     }
 }
