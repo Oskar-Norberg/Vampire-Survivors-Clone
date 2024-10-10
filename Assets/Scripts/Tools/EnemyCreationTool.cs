@@ -25,7 +25,8 @@ public class EnemyCreationTool : EditorWindow
     
     private float moveSpeed;
 
-    private AIMovement.AIType aiType;
+    private List<AIMovement> aiMovements;
+    private int aiMovementIndex;
     
     private List<XPOrbData> xpOrbsData;
     private int xpOrbPrefabIndex;
