@@ -18,6 +18,7 @@ public class LevelSpawnsTool : CreationToolBase
     private Scene currentScene;
     private int currentLevelIndex = 0;
     private WaveSpawner waveSpawner;
+    
     [MenuItem("Tools/Set Level Spawns")]
     public static void ShowWindow()
     {
@@ -29,6 +30,8 @@ public class LevelSpawnsTool : CreationToolBase
         LoadScene();
         if (!currentScene.isLoaded) return;
         FindWaveSpawner();
+        ListEnemies();
+
     }
 
     private void LoadScene()
@@ -55,4 +58,17 @@ public class LevelSpawnsTool : CreationToolBase
         }
     }
 
+    private void ListEnemies()
+    {
+        List<WaveSpawner.EnemySpawn> enemiesToSpawn = waveSpawner.GetEnemiesToSpawn();
+
+        List<WaveSpawner.EnemySpawn> enemiesToRemove = new List<WaveSpawner.EnemySpawn>();
+
+        foreach (WaveSpawner.EnemySpawn enemySpawn in enemiesToSpawn)
+        {
+            EditorGUILayout.BeginHorizontal(); 
+            ObjectDropdown<GameObject>("Enemy Prefab", ref enemySpawn.enemy);
+            IntField("Enemy Spawn Weight", ref enemySpawn.weight);
+            EditorGUILayout.EndHorizontal();
+        }
 }
