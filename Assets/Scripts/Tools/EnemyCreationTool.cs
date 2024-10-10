@@ -77,33 +77,9 @@ public class EnemyCreationTool : EditorWindow
         moveSpeed = EditorGUILayout.FloatField("Move Speed", moveSpeed);
         GUILayout.EndHorizontal();
         
-        GUILayout.BeginHorizontal();
-        GUILayout.Label("Enemy AI Movement Strategy", EditorStyles.label);
+        DropdownFromList("Enemy AI Movement Strategy", ref aiMovementIndex, aiMovements);
         
-        // Convert list of prefab to list of strings for selection in dropdown menu.
-        string[] aiMovementNames = new string[aiMovements.Count];
-        
-        for (int i = 0; i < aiMovements.Count; i++)
-        {
-            aiMovementNames[i] = aiMovements[i] != null ? aiMovements[i].name : "Missing Data";
-        }
-        
-        aiMovementIndex = EditorGUILayout.Popup(aiMovementIndex, aiMovementNames);
-        GUILayout.EndHorizontal();
-        
-        GUILayout.BeginHorizontal();
-        GUILayout.Label("XP Orb to Drop", EditorStyles.label);
-        
-        // Convert list of prefab to list of strings for selection in dropdown menu.
-        string[] xpOrbNames = new string[xpOrbsData.Count];
-        
-        for (int i = 0; i < xpOrbsData.Count; i++)
-        {
-            xpOrbNames[i] = xpOrbsData[i] != null ? xpOrbsData[i].name : "Missing Data";
-        }
-        
-        xpOrbPrefabIndex = EditorGUILayout.Popup(xpOrbPrefabIndex, xpOrbNames);
-        GUILayout.EndHorizontal();
+        DropdownFromList("XP Orb to Drop", ref xpOrbPrefabIndex, xpOrbsData);
 
         EditorGUILayout.Space();
 
