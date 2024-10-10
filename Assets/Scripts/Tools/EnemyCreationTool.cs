@@ -42,6 +42,7 @@ public class EnemyCreationTool : EditorWindow
     private void OnGUI()
     {
         xpOrbsData = LoadAllAssetsInPath<XPOrbData>("scriptableobject", XP_ORBS_DATA_PATH);
+        aiMovements = LoadAllAssetsInPath<AIMovement>("scriptableobject", ENEMY_AI_MOVEMENT_PATH);
         
         GUILayout.Label("Enemy Creation Tool", EditorStyles.boldLabel);
 
