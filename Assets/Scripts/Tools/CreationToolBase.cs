@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
@@ -50,7 +51,7 @@ public abstract class CreationToolBase : EditorWindow
         GUILayout.EndHorizontal();
     }
     
-    protected List<T> LoadAllAssetsInPath<T>(string filter, string path) where T : Object
+    protected List<T> LoadAllAssetsInPath<T>(string filter, string path) where T : UnityEngine.Object
     {
         string[] guids = AssetDatabase.FindAssets("t:" + filter, new string[] {path});
 
@@ -59,7 +60,7 @@ public abstract class CreationToolBase : EditorWindow
         foreach (string guid in guids)
         {
             string objectPath = AssetDatabase.GUIDToAssetPath(guid);
-            Object obj = AssetDatabase.LoadAssetAtPath<T>(objectPath);
+            UnityEngine.Object obj = AssetDatabase.LoadAssetAtPath<T>(objectPath);
             
             assets.Add(obj as T);
         }
