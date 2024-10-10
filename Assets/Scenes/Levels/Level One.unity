@@ -159,11 +159,11 @@ MonoBehaviour:
     weight: 8
   - enemy: {fileID: 1293692441882675724, guid: 21d65e3b9431e604da672892fb96b4b7, type: 3}
     weight: 1
-  minDistanceFromPlayer: 10
-  maxDistanceFromPlayer: 20
-  timeBetweenSpawnsMilliseconds: 1500
+  minDistanceFromPlayer: 15
+  maxDistanceFromPlayer: 25
+  timeBetweenSpawnsMilliseconds: 1800
   enemiesPerSpawn: 2
-  spawnsPerIncrease: 40
+  spawnsPerIncrease: 85
   enemiesPerSpawnIncrement: 2
 --- !u!4 &10715322
 Transform:
