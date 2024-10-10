@@ -32,16 +32,13 @@ public class WaveSpawner : PausableMonoBehaviour
     [SerializeField] private int spawnsPerIncrease;
     [SerializeField] private int enemiesPerSpawnIncrement;
 
-    private Transform playerTransform;
+    [SerializeField] private Transform playerTransform;
     private float timeSinceLastSpawn;
 
     private int spawnCounter;
 
     private void Start()
-    {
-        // TODO - Pass player transform through [SerializeField]
-        playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
-        
+    { 
         totalWeight = GetTotalWeight();
     }
 

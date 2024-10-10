@@ -165,6 +165,7 @@ MonoBehaviour:
   enemiesPerSpawn: 2
   spawnsPerIncrease: 85
   enemiesPerSpawnIncrement: 2
+  playerTransform: {fileID: 350376738}
 --- !u!4 &10715322
 Transform:
   m_ObjectHideFlags: 0
