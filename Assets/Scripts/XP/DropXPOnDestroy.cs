@@ -8,4 +8,7 @@ public class DropXPOnDestroy : MonoBehaviour
     private XPOrbData xpOrbData;
     [SerializeField] private GameObject xpPrefab;
 
+    {
+        xpOrbData = newXPOrbData;
+    }
 }
