@@ -43,39 +43,30 @@ public class EnemyCreationTool : EditorWindow
     {
         xpOrbsData = LoadAllAssetsInPath<XPOrbData>("scriptableobject", XP_ORBS_DATA_PATH);
         aiMovements = LoadAllAssetsInPath<AIMovement>("scriptableobject", ENEMY_AI_MOVEMENT_PATH);
+
+        BoldLabel("Enemy Creation Tool");
+
+        TextField("Name", ref name);
+
+        EditorGUILayout.Space();
+
+        IntField("Health", ref health);
         
-        GUILayout.Label("Enemy Creation Tool", EditorStyles.boldLabel);
-
-        GUILayout.BeginHorizontal();
-        name = EditorGUILayout.TextField("Name", name);
-        GUILayout.EndHorizontal();
-
         EditorGUILayout.Space();
 
-        GUILayout.BeginHorizontal();
-        health = EditorGUILayout.IntField("Health", health);
-        GUILayout.EndHorizontal();
-
-        GUILayout.BeginHorizontal();
-        damage = EditorGUILayout.IntField("Damage", damage);
-        GUILayout.EndHorizontal();
-
+        IntField("Damage", ref damage);
+        
+        EditorGUILayout.Space();
+        
+        IntField("Attack Cooldown Milliseconds", ref tickCooldownMilliseconds);
+        
         EditorGUILayout.Space();
 
-        GUILayout.BeginHorizontal();
-        tickCooldownMilliseconds = EditorGUILayout.IntField("Attack Cooldown Milliseconds", tickCooldownMilliseconds);
-        GUILayout.EndHorizontal();
-
-        GUILayout.BeginHorizontal();
-        invincibilityTimeMilliseconds =
-            EditorGUILayout.IntField("i-Frames time Milliseconds", invincibilityTimeMilliseconds);
-        GUILayout.EndHorizontal();
-
+        IntField("i-Frames time Milliseconds", ref invincibilityTimeMilliseconds);
+        
         EditorGUILayout.Space();
-
-        GUILayout.BeginHorizontal();
-        moveSpeed = EditorGUILayout.FloatField("Move Speed", moveSpeed);
-        GUILayout.EndHorizontal();
+        
+        FloatField("Move Speed", ref moveSpeed);
         
         DropdownFromList("Enemy AI Movement Strategy", ref aiMovementIndex, aiMovements);
         
