@@ -120,6 +120,23 @@ public class EnemyCreationTool : EditorWindow
         }
     }
 
+    private void DropdownFromList<T>(string headerLabel, ref int selectionIndex, List<T> list) where T : UnityEngine.Object
+    {
+        GUILayout.BeginHorizontal();
+        GUILayout.Label(headerLabel, EditorStyles.label);
+        
+        // Convert list of prefab to list of strings for selection in dropdown menu.
+        string[] listNames = new string[list.Count];
+        
+        for (int i = 0; i < list.Count; i++)
+        {
+            listNames[i] = list[i] != null ? list[i].name : "Missing Data";
+        }
+        
+        selectionIndex = EditorGUILayout.Popup(selectionIndex, listNames);
+        GUILayout.EndHorizontal();
+    }
+
     private void CreateEnemy()
     {
         // Create scriptable Object
