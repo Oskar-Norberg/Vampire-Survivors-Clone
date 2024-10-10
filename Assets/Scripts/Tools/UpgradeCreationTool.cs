@@ -35,59 +35,38 @@ public class UpgradeCreationTool : CreationToolBase
     
     private void OnGUI()
     {
-        GUILayout.Label("Upgrade Creation Tool", EditorStyles.boldLabel);
+        BoldLabel("Upgrade Creation Tool");
         
         EditorGUILayout.Space();
         
-        GUILayout.BeginHorizontal();
-        upgradeName = EditorGUILayout.TextField("Name", upgradeName);
-        GUILayout.EndHorizontal();
-        
-        GUILayout.BeginHorizontal();
-        upgradeDescription = EditorGUILayout.TextField("Description", upgradeDescription);
-        GUILayout.EndHorizontal();
+        TextField("Name", ref upgradeName);
+        TextField("Description", ref upgradeDescription);
         
         EditorGUILayout.Space();
         
-        GUILayout.BeginHorizontal();
-        type = (Type) EditorGUILayout.EnumPopup("Upgrade type", type);
-        GUILayout.EndHorizontal();
+        EnumPopup("Upgrade type", ref type);
 
         switch (type)
         {
             case Type.MaxHealth:
-                GUILayout.BeginHorizontal();
-                increase = EditorGUILayout.IntField("Max Health Increase", increase);
-                GUILayout.EndHorizontal();
+                IntField("Max Health Increase", ref increase);
                 break;
             case Type.Speed:
-                GUILayout.BeginHorizontal();
-                increase = EditorGUILayout.IntField("Speed Increase", increase);
-                GUILayout.EndHorizontal();
+                IntField("Speed Increase", ref increase);
                 break;
             case Type.GiveWeapon:
-                GUILayout.BeginHorizontal();
-                weapon = (GameObject)EditorGUILayout.ObjectField("Weapon prefab", weapon, typeof(GameObject), true);
-                GUILayout.EndHorizontal();
+                ObjectDropdown("Weapon Prefab", ref weapon);
                 break;
             case Type.UpgradeWeapon:
-                GUILayout.BeginHorizontal();
-                weapon = (GameObject)EditorGUILayout.ObjectField("Weapon prefab", weapon, typeof(GameObject), true);
-                GUILayout.EndHorizontal();
-                
-                GUILayout.BeginHorizontal();
-                prerequisiteUpgrade = (Upgrade)EditorGUILayout.ObjectField("Prerequisite Upgrade", prerequisiteUpgrade, typeof(Upgrade), true);
-                GUILayout.EndHorizontal();
-                
-                GUILayout.BeginHorizontal();
-                maxUpgradeCount = EditorGUILayout.IntField("Max Upgrade Count", maxUpgradeCount);
-                GUILayout.EndHorizontal();
+                ObjectDropdown("Weapon Prefab", ref weapon);
+                ObjectDropdown("Upgrade Prefab", ref prerequisiteUpgrade);
+                IntField("Max Upgrade Count", ref maxUpgradeCount);
                 break;
         }
         
         EditorGUILayout.Space();
 
-        if (GUILayout.Button("Create Upgrade"))
+        if (ButtonField("Create Upgrade"))
         { 
             Upgrade asset = null;
             
