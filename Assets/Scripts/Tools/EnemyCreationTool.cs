@@ -51,17 +51,11 @@ public class EnemyCreationTool : EditorWindow
         EditorGUILayout.Space();
 
         IntField("Health", ref health);
-        
-        EditorGUILayout.Space();
-
         IntField("Damage", ref damage);
         
         EditorGUILayout.Space();
         
         IntField("Attack Cooldown Milliseconds", ref tickCooldownMilliseconds);
-        
-        EditorGUILayout.Space();
-
         IntField("i-Frames time Milliseconds", ref invincibilityTimeMilliseconds);
         
         EditorGUILayout.Space();
@@ -69,6 +63,8 @@ public class EnemyCreationTool : EditorWindow
         FloatField("Move Speed", ref moveSpeed);
         
         DropdownFromList("Enemy AI Movement Strategy", ref aiMovementIndex, aiMovements);
+        
+        EditorGUILayout.Space();
         
         DropdownFromList("XP Orb to Drop", ref xpOrbPrefabIndex, xpOrbsData);
 
