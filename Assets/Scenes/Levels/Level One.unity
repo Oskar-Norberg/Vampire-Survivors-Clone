@@ -161,7 +161,7 @@ MonoBehaviour:
     weight: 1
   minDistanceFromPlayer: 15
   maxDistanceFromPlayer: 25
-  timeBetweenSpawnsMilliseconds: 1800
+  timeBetweenSpawnsMilliseconds: 1400
   enemiesPerSpawn: 2
   spawnsPerIncrease: 85
   enemiesPerSpawnIncrement: 2
