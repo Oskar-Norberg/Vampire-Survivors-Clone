@@ -80,4 +80,10 @@ public class LevelSpawnsTool : CreationToolBase
         {
             enemiesToSpawn.Remove(enemy);
         }
+        
+        if (ButtonField("Add new Enemy"))
+        {
+            enemiesToSpawn.Add(new WaveSpawner.EnemySpawn());
+            waveSpawner.SetEnemiesToSpawn(enemiesToSpawn);
+        }
 }
