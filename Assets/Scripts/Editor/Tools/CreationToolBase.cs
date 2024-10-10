@@ -87,4 +87,19 @@ public abstract class CreationToolBase : EditorWindow
 
         return assets;
     }
+    
+    protected List<string> FindAllAssetsInPath(string filter, string path)
+    {
+        string[] guids = AssetDatabase.FindAssets("t:" + filter, new string[] {path});
+
+        List<string> paths = new List<string>();
+        
+        foreach (string guid in guids)
+        {
+            string assetPath = AssetDatabase.GUIDToAssetPath(guid);
+            paths.Add(assetPath);
+        }
+
+        return paths;
+    }
 }
