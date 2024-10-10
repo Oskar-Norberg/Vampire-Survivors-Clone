@@ -20,31 +20,21 @@ public class LevelSpawnsTool : CreationToolBase
     
     private void OnGUI()
     {
-        LoadScene();
-        if (!currentScene.isLoaded) return;
         FindWaveSpawner();
-        ListEnemies();
-
-    }
-
-    private void LoadScene()
-    {
-        levelPaths = FindAllAssetsInPath("scene", LEVEL_SCENE_PATH);
-        
-        BoldLabel("Select Level Spawns");
-
-        DropdownFromStringList("Select Level", ref levelSelectionIndex, levelPaths);
-
-        if (!currentScene.isLoaded || levelSelectionIndex != currentLevelIndex)
+        if (!IsInValidLevel())
         {
-            currentScene = EditorSceneManager.OpenScene(levelPaths[levelSelectionIndex]);
+            EditorGUILayout.HelpBox("Change scene to a valid Level.", MessageType.Error);
+            return;
         }
+        ListEnemies();
     }
 
     private void FindWaveSpawner()
     {
         GameObject waveSpawnerObject = GameObject.FindWithTag("WaveSpawner");
 
+        if (!waveSpawnerObject) return;
+        
         if (waveSpawnerObject.TryGetComponent<WaveSpawner>(out WaveSpawner rootWaveSpawner))
         {
             waveSpawner = rootWaveSpawner;
