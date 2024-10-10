@@ -17,6 +17,7 @@ public class LevelSpawnsTool : CreationToolBase
     
     private Scene currentScene;
     private int currentLevelIndex = 0;
+    private WaveSpawner waveSpawner;
     [MenuItem("Tools/Set Level Spawns")]
     public static void ShowWindow()
     {
@@ -26,7 +27,10 @@ public class LevelSpawnsTool : CreationToolBase
     private void OnGUI()
     {
         LoadScene();
+        if (!currentScene.isLoaded) return;
+        FindWaveSpawner();
     }
+
     private void LoadScene()
     {
         levelPaths = FindAllAssetsInPath("scene", LEVEL_SCENE_PATH);
@@ -40,4 +44,15 @@ public class LevelSpawnsTool : CreationToolBase
             currentScene = EditorSceneManager.OpenScene(levelPaths[levelSelectionIndex]);
         }
     }
+
+    private void FindWaveSpawner()
+    {
+        GameObject waveSpawnerObject = GameObject.FindWithTag("WaveSpawner");
+
+        if (waveSpawnerObject.TryGetComponent<WaveSpawner>(out WaveSpawner rootWaveSpawner))
+        {
+            waveSpawner = rootWaveSpawner;
+        }
+    }
+
 }
