@@ -151,7 +151,7 @@ public class EnemyCreationTool : EditorWindow
         foreach (string guid in guids)
         {
             string objectPath = AssetDatabase.GUIDToAssetPath(guid);
-            Object obj = AssetDatabase.LoadAssetAtPath<Object>(path);
+            Object obj = AssetDatabase.LoadAssetAtPath<T>(objectPath);
             
             assets.Add(obj as T);
         }
