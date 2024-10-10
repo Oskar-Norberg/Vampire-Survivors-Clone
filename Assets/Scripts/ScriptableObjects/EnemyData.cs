@@ -11,7 +11,7 @@ public class EnemyData : ScriptableObject
     public int tickCooldownMilliseconds;
     public int invincibilityTimeMilliseconds;
 
-    public AIMovement.AIType aiType;
+    public AIMovement aiMovement;
     public float moveSpeed;
 
     public XPOrbData xpOrbData;
