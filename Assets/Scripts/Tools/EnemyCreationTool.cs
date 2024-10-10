@@ -70,7 +70,7 @@ public class EnemyCreationTool : CreationToolBase
 
         EditorGUILayout.Space();
 
-        if (GUILayout.Button("Create Enemy"))
+        if (ButtonField("Create Enemy"))
         {
             CreateEnemy();
             success = true;
