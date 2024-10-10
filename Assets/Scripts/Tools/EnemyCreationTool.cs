@@ -13,6 +13,8 @@ public class EnemyCreationTool : EditorWindow
 
     private const string XP_ORBS_DATA_PATH = "Assets/ScriptableObjects/XPOrbs";
     
+    private const string ENEMY_AI_MOVEMENT_PATH = "Assets/ScriptableObjects/AIMovement";
+    
     private new string name;
 
     private int health;
