@@ -154,11 +154,11 @@ MonoBehaviour:
   enemyManager: {fileID: 1302146788}
   enemiesToSpawn:
   - enemy: {fileID: 2066995170445486468, guid: d41eadb02cb4c6848b100320cbc0882b, type: 3}
-    weight: 8
+    weight: 16
   - enemy: {fileID: 1102767743343660280, guid: 3f2d8e48ac3ef0345a60e694fae1377a, type: 3}
-    weight: 4
+    weight: 8
   - enemy: {fileID: 1293692441882675724, guid: 21d65e3b9431e604da672892fb96b4b7, type: 3}
-    weight: 2
+    weight: 1
   minDistanceFromPlayer: 10
   maxDistanceFromPlayer: 20
   timeBetweenSpawnsMilliseconds: 1500
