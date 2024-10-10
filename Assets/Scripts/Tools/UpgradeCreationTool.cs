@@ -74,7 +74,7 @@ public class UpgradeCreationTool : CreationToolBase
         if (success)
         {
             EditorGUILayout.Space();
-            GUILayout.Label("Upgrade Created Successfully!", EditorStyles.boldLabel);
+            BoldLabel("Upgrade Created Successfully!");
         }
     }
 
