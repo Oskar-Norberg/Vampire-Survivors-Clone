@@ -5,7 +5,7 @@ using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
 
-public class UpgradeCreationTool : EditorWindow
+public class UpgradeCreationTool : CreationToolBase
 {
     private const string UPGRADE_PATH = "Assets/Resources/ScriptableObjects/Upgrades";
     
