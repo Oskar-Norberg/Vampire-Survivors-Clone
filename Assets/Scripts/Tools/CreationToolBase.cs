@@ -33,6 +33,13 @@ public abstract class CreationToolBase : EditorWindow
         num = EditorGUILayout.FloatField(labelText, num);
         GUILayout.EndHorizontal();
     }
+
+    protected void EnumPopup<T>(string labelText, ref T value) where T : Enum
+    {
+        GUILayout.BeginHorizontal();
+        value = (T)EditorGUILayout.EnumPopup(labelText, value);
+        GUILayout.EndHorizontal();
+    }
     
     protected void DropdownFromList<T>(string headerLabel, ref int selectionIndex, List<T> list) where T : UnityEngine.Object
     {
