@@ -86,4 +86,11 @@ public class LevelSpawnsTool : CreationToolBase
             enemiesToSpawn.Add(new WaveSpawner.EnemySpawn());
             waveSpawner.SetEnemiesToSpawn(enemiesToSpawn);
         }
+        if (ButtonField("Apply changes"))
+        {
+            waveSpawner.SetEnemiesToSpawn(enemiesToSpawn);
+            EditorSceneManager.SaveScene(currentScene);
+        }
+
+    }
 }
