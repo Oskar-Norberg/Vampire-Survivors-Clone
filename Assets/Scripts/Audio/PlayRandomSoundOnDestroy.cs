@@ -10,6 +10,7 @@ public class PlaySoundOnDestroy : MonoBehaviour
 
     private void OnDestroy()
     {
+        if(!this.gameObject.scene.isLoaded) return;
         int index = Random.Range(0, audioClips.Count);
         
         AudioManager.instance.PlaySoundOneShot(audioClips[index], transform);
