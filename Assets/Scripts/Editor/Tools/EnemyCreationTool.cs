@@ -69,11 +69,21 @@ public class EnemyCreationTool : CreationToolBase
         DropdownFromObjectList("XP Orb to Drop", ref xpOrbPrefabIndex, xpOrbsData);
 
         EditorGUILayout.Space();
+        
+        GameObject enemy = AssetDatabase.LoadAssetAtPath<GameObject>(GetPrefabVariantPath());
 
         if (ButtonField("Create Enemy"))
         {
             CreateEnemy();
             success = true;
+        }
+
+        if (enemy)
+        {
+            if (ButtonField("Remove Enemy"))
+            {
+                RemoveEnemy(enemy);
+            }
         }
 
         if (success)
