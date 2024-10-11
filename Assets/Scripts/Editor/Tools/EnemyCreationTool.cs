@@ -72,7 +72,8 @@ public class EnemyCreationTool : CreationToolBase
         
         GameObject enemy = AssetDatabase.LoadAssetAtPath<GameObject>(GetPrefabVariantPath());
 
-        if (ButtonField("Create Enemy"))
+        string label = enemy ? "Modify Enemy" : "Create Enemy";
+        if (ButtonField(label))
         {
             CreateEnemy();
             success = true;
