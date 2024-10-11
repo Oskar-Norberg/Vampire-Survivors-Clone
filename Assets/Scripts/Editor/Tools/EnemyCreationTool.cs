@@ -81,6 +81,10 @@ public class EnemyCreationTool : CreationToolBase
             EditorGUILayout.Space();
             GUILayout.Label("Enemy Created Successfully!", EditorStyles.boldLabel);
         }
+
+        EditorGUILayout.Space();
+        
+        ListEnemies();
     }
 
     private void CreateEnemy()
@@ -113,5 +117,39 @@ public class EnemyCreationTool : CreationToolBase
         AssetDatabase.SaveAssets();
         
         DestroyImmediate(enemyInstance);
+    }
+
+    private void ListEnemies()
+    {
+        BoldLabel("Remove Enemies");
+        
+        List<GameObject> enemies = LoadAllAssetsInPath<GameObject>("prefab", ENEMY_FOLDER_PATH);
+        List<GameObject> enemiesToRemove  = new List<GameObject>();
+        
+        List<EnemyData> enemyDataList = LoadAllAssetsInPath<EnemyData>("scriptableobject", ENEMY_DATA_FOLDER_PATH);
+        
+        foreach (GameObject enemy in enemies)
+        {
+            // Ignore EnemyBase which all enemies inherit from
+            if (enemy.name == "EnemyBase") continue;
+            GUILayout.BeginHorizontal();
+            GUILayout.Label(enemy.name, EditorStyles.label);
+            bool remove = ButtonField("Remove");
+            GUILayout.EndHorizontal();
+            if (remove)
+            {
+                enemiesToRemove.Add(enemy);
+            }
+        }
+
+        foreach (GameObject enemy in enemiesToRemove)
+        {
+            foreach (EnemyData enemyData in enemyDataList)
+            {
+                if (enemyData.name != enemy.name) continue;
+                AssetDatabase.DeleteAsset(AssetDatabase.GetAssetPath(enemyData));
+            }
+            AssetDatabase.DeleteAsset(AssetDatabase.GetAssetPath(enemy));
+        }
     }
 }
