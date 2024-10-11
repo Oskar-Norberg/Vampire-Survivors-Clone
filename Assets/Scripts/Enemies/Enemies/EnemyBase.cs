@@ -79,4 +79,9 @@ public class EnemyBase : PausableMonoBehaviour
     {
         this.data = newData;
     }
+    
+    public EnemyData GetEnemyData()
+    {
+        return data;
+    }
 }
