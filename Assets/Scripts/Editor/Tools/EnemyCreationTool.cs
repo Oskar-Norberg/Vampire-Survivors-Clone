@@ -172,13 +172,22 @@ public class EnemyCreationTool : CreationToolBase
         AssetDatabase.DeleteAsset(AssetDatabase.GetAssetPath(enemy));
     }
 
+    private int FindSelectionIndex<T>(List<T> list, T value)
+    {
+        for (int i = 0; i < list.Count; i++)
         {
-            foreach (EnemyData enemyData in enemyDataList)
+            if (list[i].Equals(value))
             {
-                if (enemyData.name != enemy.name) continue;
-                AssetDatabase.DeleteAsset(AssetDatabase.GetAssetPath(enemyData));
+                return i;
             }
-            AssetDatabase.DeleteAsset(AssetDatabase.GetAssetPath(enemy));
         }
+
+        Debug.Log("Selection index not found in list");
+        return -Int32.MaxValue;
+    }
+
+    private string GetPrefabVariantPath()
+    {
+        return ENEMY_FOLDER_PATH + "/" + name.Trim(' ').Trim() + ".prefab";
     }
 }
