@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class AudioManager : MonoBehaviour
 {
-    [SerializeField] private GameObject audioPlayerPrefab;
+    [SerializeField] private AudioSource audioPlayerPrefab;
     
     public static AudioManager instance;
 
@@ -22,8 +22,16 @@ public class AudioManager : MonoBehaviour
         }
     }
 
-    private static void PlaySoundOneShot()
+    private void PlaySoundOneShot(AudioClip audioClip, Transform spawnTransform)
     {
+        AudioSource audioSource = Instantiate(audioPlayerPrefab, spawnTransform.position, spawnTransform.rotation);
         
+        audioSource.clip = audioClip;
+        
+        audioSource.Play();
+        
+        float audioLength = audioSource.clip.length;
+        
+        Destroy(audioSource.gameObject, audioLength);
     }
 }
