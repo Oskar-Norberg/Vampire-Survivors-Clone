@@ -2722,7 +2722,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96210f8f1a0019d42b768407e564ccb0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioPlayerPrefab: {fileID: 0}
+  audioPlayerPrefab: {fileID: 3297747134550343083, guid: 2cb3458c528739045b9c8eafe74d5bf3, type: 3}
 --- !u!1 &1269567988
 GameObject:
   m_ObjectHideFlags: 0
