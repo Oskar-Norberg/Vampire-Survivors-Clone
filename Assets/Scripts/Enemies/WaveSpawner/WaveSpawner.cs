@@ -74,6 +74,13 @@ public class WaveSpawner : PausableMonoBehaviour
         Vector2 enemyPosition = distanceFromPlayer + (Vector2) playerTransform.position;
 
         GameObject enemy = WeightedGetRandomEnemy();
+
+        if (!enemy)
+        {
+            Debug.LogWarning("Null enemy in WaveSpawner enemies list.\n" +
+                             "Did you delete an enemy without removing it from the spawn list?");
+
+        }
         
         enemyManager.SpawnEnemy(enemy, enemyPosition);
     }
@@ -91,7 +98,7 @@ public class WaveSpawner : PausableMonoBehaviour
             }
             randomWeight -= enemy.weight;
         }
-
+        
         return null;
     }
 
