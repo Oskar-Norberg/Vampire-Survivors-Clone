@@ -141,6 +141,23 @@ public class EnemyCreationTool : CreationToolBase
                 enemiesToRemove.Add(enemy);
             }
         }
+    private void SelectEnemy(GameObject enemy)
+    {
+        if (ButtonField(enemy.name))
+        {
+            EnemyBase enemyBase = enemy.GetComponent<EnemyBase>();
+            if (!enemyBase) return;
+            EnemyData enemyData = enemyBase.GetEnemyData();
+            name = enemyData.name;
+            health = enemyData.health;
+            damage = enemyData.damage;
+            tickCooldownMilliseconds = enemyData.tickCooldownMilliseconds;
+            invincibilityTimeMilliseconds = enemyData.invincibilityTimeMilliseconds;
+            moveSpeed = enemyData.moveSpeed;
+            aiMovementIndex = FindSelectionIndex<AIMovement>(aiMovements, enemyData.aiMovement);
+            xpOrbPrefabIndex = FindSelectionIndex<XPOrbData>(xpOrbsData, enemyData.xpOrbData);
+        }
+    }
 
         foreach (GameObject enemy in enemiesToRemove)
         {
