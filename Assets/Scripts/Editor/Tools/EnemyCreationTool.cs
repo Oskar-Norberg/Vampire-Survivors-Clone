@@ -92,7 +92,7 @@ public class EnemyCreationTool : CreationToolBase
         if (success)
         {
             EditorGUILayout.Space();
-            GUILayout.Label("Enemy Created Successfully!", EditorStyles.boldLabel);
+            GUILayout.Label("Success!", EditorStyles.boldLabel);
         }
 
         EditorGUILayout.Space();
@@ -192,6 +192,11 @@ public class EnemyCreationTool : CreationToolBase
 
     private string GetPrefabVariantPath()
     {
-        return ENEMY_FOLDER_PATH + "/" + name.Trim(' ').Trim() + ".prefab";
+        if (!string.IsNullOrEmpty(name))
+        {
+            return ENEMY_FOLDER_PATH + "/" + name.Trim(' ').Trim() + ".prefab";
+        }
+
+        return null;
     }
 }
