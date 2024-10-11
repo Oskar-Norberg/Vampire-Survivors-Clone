@@ -22,7 +22,7 @@ public class AudioManager : MonoBehaviour
         }
     }
 
-    private void PlaySoundOneShot(AudioClip audioClip, Transform spawnTransform)
+    public void PlaySoundOneShot(AudioClip audioClip, Transform spawnTransform)
     {
         AudioSource audioSource = Instantiate(audioPlayerPrefab, spawnTransform.position, spawnTransform.rotation);
         
