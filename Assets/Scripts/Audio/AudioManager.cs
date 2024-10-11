@@ -28,7 +28,6 @@ public class AudioManager : MonoBehaviour
         }
     }
 
-    public void PlaySoundOneShot(AudioClip audioClip, Transform spawnTransform)
     private void FindAudioMixerGroups()
     {
         AudioMixerGroup[] audioMixerGroups = audioMixer.FindMatchingGroups(string.Empty);
@@ -45,6 +44,7 @@ public class AudioManager : MonoBehaviour
         AudioSource audioSource = Instantiate(audioPlayerPrefab, spawnTransform.position, spawnTransform.rotation);
         
         audioSource.clip = audioClip;
+        audioSource.outputAudioMixerGroup = audioMixers[type.ToString()];
         
         audioSource.Play();
         
