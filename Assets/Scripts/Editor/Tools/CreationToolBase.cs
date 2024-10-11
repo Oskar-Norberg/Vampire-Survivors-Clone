@@ -47,7 +47,7 @@ public abstract class CreationToolBase : EditorWindow
         GUILayout.EndHorizontal();
     }
     
-    protected void ObjectDropdown<T>(string labelText, ref T objectReference) where T : UnityEngine.Object
+    protected void ObjectField<T>(string labelText, ref T objectReference) where T : UnityEngine.Object
     {
         GUILayout.BeginHorizontal();
         objectReference = (T)EditorGUILayout.ObjectField(labelText, objectReference, typeof(T), true);

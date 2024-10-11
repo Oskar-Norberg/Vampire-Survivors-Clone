@@ -55,11 +55,11 @@ public class UpgradeCreationTool : CreationToolBase
                 IntField("Speed Increase", ref increase);
                 break;
             case Type.GiveWeapon:
-                ObjectDropdown("Weapon Prefab", ref weapon);
+                ObjectField("Weapon Prefab", ref weapon);
                 break;
             case Type.UpgradeWeapon:
-                ObjectDropdown("Weapon Prefab", ref weapon);
-                ObjectDropdown("Upgrade Prefab", ref prerequisiteUpgrade);
+                ObjectField("Weapon Prefab", ref weapon);
+                ObjectField("Upgrade Prefab", ref prerequisiteUpgrade);
                 IntField("Max Upgrade Count", ref maxUpgradeCount);
                 break;
         }

@@ -99,7 +99,7 @@ public class LevelSpawnsTool : CreationToolBase
         foreach (WaveSpawner.EnemySpawn enemySpawn in waveSpawner.enemiesToSpawn)
         {
             EditorGUILayout.BeginHorizontal(); 
-            ObjectDropdown<GameObject>("Enemy Prefab", ref enemySpawn.enemy);
+            ObjectField<GameObject>("Enemy Prefab", ref enemySpawn.enemy);
             IntField("Enemy Spawn Weight", ref enemySpawn.weight);
             if (ButtonField("Remove"))
             {
