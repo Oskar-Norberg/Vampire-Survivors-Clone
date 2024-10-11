@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class AudioManager : MonoBehaviour
 {
+    public enum AudioType {Standard, Music, Reverb}
     [SerializeField] private AudioSource audioPlayerPrefab;
     
     public static AudioManager instance;
