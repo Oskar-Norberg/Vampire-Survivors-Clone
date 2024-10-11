@@ -1,8 +1,10 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public class EnemyCreationTool : CreationToolBase
 {
@@ -121,9 +123,8 @@ public class EnemyCreationTool : CreationToolBase
         {
             enemyBase.SetEnemyData(enemyData);
         }
-
-        string prefabVariantPath = ENEMY_FOLDER_PATH + "/" + name.Trim(' ').Trim() + ".prefab";
-        PrefabUtility.SaveAsPrefabAsset(enemyInstance, prefabVariantPath);
+        
+        PrefabUtility.SaveAsPrefabAsset(enemyInstance, GetPrefabVariantPath());
 
         AssetDatabase.SaveAssets();
         
@@ -132,26 +133,19 @@ public class EnemyCreationTool : CreationToolBase
 
     private void ListEnemies()
     {
-        BoldLabel("Remove Enemies");
+        BoldLabel("Select Enemy");
         
         List<GameObject> enemies = LoadAllAssetsInPath<GameObject>("prefab", ENEMY_FOLDER_PATH);
-        List<GameObject> enemiesToRemove  = new List<GameObject>();
-        
-        List<EnemyData> enemyDataList = LoadAllAssetsInPath<EnemyData>("scriptableobject", ENEMY_DATA_FOLDER_PATH);
-        
+
         foreach (GameObject enemy in enemies)
         {
-            // Ignore EnemyBase which all enemies inherit from
             if (enemy.name == "EnemyBase") continue;
             GUILayout.BeginHorizontal();
-            GUILayout.Label(enemy.name, EditorStyles.label);
-            bool remove = ButtonField("Remove");
+            SelectEnemy(enemy);
             GUILayout.EndHorizontal();
-            if (remove)
-            {
-                enemiesToRemove.Add(enemy);
-            }
         }
+    }
+
     private void SelectEnemy(GameObject enemy)
     {
         if (ButtonField(enemy.name))
@@ -170,7 +164,6 @@ public class EnemyCreationTool : CreationToolBase
         }
     }
 
-        foreach (GameObject enemy in enemiesToRemove)
     private void RemoveEnemy(GameObject enemy)
     {
         List<EnemyData> enemyDataList = LoadAllAssetsInPath<EnemyData>("scriptableobject", ENEMY_DATA_FOLDER_PATH);
