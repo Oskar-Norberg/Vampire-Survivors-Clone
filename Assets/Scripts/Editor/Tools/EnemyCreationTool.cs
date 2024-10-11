@@ -160,6 +160,18 @@ public class EnemyCreationTool : CreationToolBase
     }
 
         foreach (GameObject enemy in enemiesToRemove)
+    private void RemoveEnemy(GameObject enemy)
+    {
+        List<EnemyData> enemyDataList = LoadAllAssetsInPath<EnemyData>("scriptableobject", ENEMY_DATA_FOLDER_PATH);
+
+        foreach (EnemyData enemyData in enemyDataList)
+        {
+            if (enemyData.name != enemy.name) continue;
+            AssetDatabase.DeleteAsset(AssetDatabase.GetAssetPath(enemyData));
+        }
+        AssetDatabase.DeleteAsset(AssetDatabase.GetAssetPath(enemy));
+    }
+
         {
             foreach (EnemyData enemyData in enemyDataList)
             {
