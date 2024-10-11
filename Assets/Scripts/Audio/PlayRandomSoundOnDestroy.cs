@@ -6,7 +6,7 @@ using Random = UnityEngine.Random;
 
 public class PlaySoundOnDestroy : MonoBehaviour
 {
-    private List<AudioClip> audioClips = new List<AudioClip>();
+    [SerializeField] private List<AudioClip> audioClips = new List<AudioClip>();
 
     private void OnDestroy()
     {
