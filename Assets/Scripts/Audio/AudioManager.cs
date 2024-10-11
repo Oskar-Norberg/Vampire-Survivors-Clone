@@ -2,11 +2,15 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class AudioManager : MonoBehaviour
 {
     public enum AudioType {Standard, Music, Reverb}
     [SerializeField] private AudioSource audioPlayerPrefab;
+    [SerializeField] private AudioMixer audioMixer;
+    
+    private Dictionary<string, AudioMixerGroup> audioMixers = new Dictionary<string, AudioMixerGroup>();
     
     public static AudioManager instance;
 
@@ -15,6 +19,7 @@ public class AudioManager : MonoBehaviour
         if (!instance)
         {
             instance = this;
+            FindAudioMixerGroups();
         }
         else
         {
@@ -24,6 +29,18 @@ public class AudioManager : MonoBehaviour
     }
 
     public void PlaySoundOneShot(AudioClip audioClip, Transform spawnTransform)
+    private void FindAudioMixerGroups()
+    {
+        AudioMixerGroup[] audioMixerGroups = audioMixer.FindMatchingGroups(string.Empty);
+
+        foreach (AudioMixerGroup audioMixerGroup in audioMixerGroups)
+        {
+            Debug.Log(audioMixerGroup.name);
+            audioMixers[audioMixerGroup.name] = audioMixerGroup;
+        }
+    }
+
+    public void PlaySoundOneShot(AudioClip audioClip, AudioType type, Transform spawnTransform)
     {
         AudioSource audioSource = Instantiate(audioPlayerPrefab, spawnTransform.position, spawnTransform.rotation);
         
